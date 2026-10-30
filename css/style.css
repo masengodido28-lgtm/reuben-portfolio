@@ -695,6 +695,7 @@ p {
 
 .portrait-img-hover {
     opacity: 0;
+    object-position: top;
 }
 
 .portrait:hover .portrait-img-hover {
