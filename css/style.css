@@ -1196,369 +1196,350 @@ p {
    14. ABOUT PAGE
    ========================= */
 
-/* ── 1. Hero ─────────────────────────────────────────────── */
+/* ── Shared section shell ────────────────────────────────── */
 
-.ap-hero {
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    align-items: center;
-    gap: clamp(44px, 8vw, 100px);
-
-    padding-top: clamp(100px, 12vw, 140px);
+.ap-section {
+    max-width: 740px;
+    margin-inline: auto;
+    padding-block: clamp(52px, 7vw, 88px);
 }
 
-.ap-hero-visual {
-    position: relative;
-    min-height: 520px;
+.ap-section-alt {
+    background: transparent;
 }
 
-/* Reuse the existing .portrait + .portrait-sticker + .about-star styles */
+/* Centred, hand-lettered-style section titles */
+.ap-section-title {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-align: center;
+    margin: 0 0 36px;
 
-.ap-hero-copy h1 {
-    margin-bottom: 20px;
+    /* Outlined / stroked look from the mockup */
+    -webkit-text-stroke: 1.5px currentColor;
+    paint-order: stroke fill;
 }
 
-.ap-hero-copy p {
-    color: var(--color-text-muted);
-    max-width: 520px;
-    margin-bottom: 16px;
-}
-
-.ap-hero-copy .button {
-    margin-top: 8px;
-}
-
-
-/* ── 2. Tools ────────────────────────────────────────────── */
-
-.ap-tools {
-    background: var(--color-black);
-    border-radius: 28px;
-
-    padding: clamp(48px, 7vw, 88px) clamp(28px, 6vw, 80px);
-
-    margin-block: clamp(60px, 8vw, 100px);
-}
-
-.ap-tools .section-heading {
-    margin-bottom: 48px;
-}
-
-.ap-tools .section-heading p,
-.ap-tools .section-heading .eyebrow {
-    color: rgba(255, 255, 255, 0.6);
-}
-
-.ap-tools .section-heading h2 {
-    color: var(--color-white);
-}
-
-.ap-tools .highlight {
-    color: var(--color-yellow);
-    text-shadow: 2px 2px var(--color-teal-dark);
-}
-
-.tools-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.tool-card {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    padding: 22px 20px;
-
-    border: 2px solid rgba(255, 255, 255, 0.12);
-    border-radius: 16px;
-
-    background: rgba(255, 255, 255, 0.05);
-
-    transition:
-        transform 0.3s var(--transition-smooth),
-        background 0.3s ease,
-        border-color 0.3s ease;
-}
-
-.tool-card:hover {
-    transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.28);
-}
-
-.tool-yellow .tool-icon {
+.ap-title-yellow {
     color: var(--color-yellow);
 }
 
-.tool-teal .tool-icon {
+.ap-title-teal {
     color: var(--color-teal);
 }
 
-.tool-icon {
-    font: 700 1.5rem/1 "Space Grotesk";
-    letter-spacing: -0.04em;
-}
 
-.tool-name {
-    color: var(--color-white);
-    font: 600 1rem/1.2 "Space Grotesk";
-}
+/* ── 1 + 2. Prose blocks ─────────────────────────────────── */
 
-.tool-cat {
-    color: rgba(255, 255, 255, 0.45);
-    font-size: 0.78rem;
-    letter-spacing: 0.04em;
-}
-
-
-/* ── 3. Fun facts ────────────────────────────────────────── */
-
-.facts-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.fact-card {
-    position: relative;
-    padding: 32px 28px 28px;
-
-    border: 2px solid var(--color-black);
-    border-radius: 20px;
-
-    background: var(--color-background);
-
-    box-shadow: var(--shadow-card);
-
-    transition:
-        transform 0.3s var(--transition-smooth),
-        box-shadow 0.3s ease;
-}
-
-.fact-card:hover {
-    transform: translateY(-6px) rotate(-0.5deg);
-    box-shadow: 8px 10px var(--color-black);
-}
-
-.fact-card.fact-yellow {
-    background: var(--color-yellow);
-}
-
-.fact-num {
-    display: block;
-    margin-bottom: 14px;
-
-    font: 700 0.7rem/1 "Space Grotesk";
-    letter-spacing: 0.16em;
-    color: var(--color-teal-dark);
-}
-
-.fact-card.fact-yellow .fact-num {
+.ap-prose p,
+.ap-story-text p {
+    font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+    line-height: 1.75;
     color: var(--color-black);
-    opacity: 0.45;
+    margin-bottom: 1.2em;
 }
 
-.fact-card p {
-    margin: 0;
-    font-size: clamp(0.95rem, 1.4vw, 1.05rem);
-    line-height: 1.55;
+.ap-prose p:last-child,
+.ap-story-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* How It Started: text + floated photo */
+.ap-story {
+    position: relative;
+}
+
+.ap-story-img-wrap {
+    float: right;
+    width: clamp(160px, 30%, 240px);
+    margin: 8px 0 16px 28px;
+    shape-outside: border-box;
+}
+
+.ap-story-img {
+    width: 100%;
+    border-radius: 16px;
+    border: 3px solid var(--color-black);
+    box-shadow: 5px 5px var(--color-yellow);
+    object-fit: cover;
+    aspect-ratio: 3 / 4;
+    object-position: top;
+    display: block;
+}
+
+.ap-story::after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 
-/* ── 4. Education ────────────────────────────────────────── */
+/* ── 3. Tools grid ───────────────────────────────────────── */
 
-.education-list {
+.ap-tools-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px 40px;
+
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.education-item {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 32px;
-    align-items: start;
-
-    padding-block: 36px;
-
-    border-top: 2px solid var(--color-black);
-}
-
-.education-item:last-child {
-    border-bottom: 2px solid var(--color-black);
-}
-
-.education-meta {
+.ap-tool-item {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding-top: 6px;
+    align-items: center;
+    gap: 8px;
+    width: 80px;
 }
 
-.education-year {
-    font: 700 0.78rem/1 "Space Grotesk";
-    letter-spacing: 0.1em;
-    color: var(--color-text-muted);
-}
+.ap-tool-logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 14px;
 
-.education-badge {
-    display: inline-block;
-    padding: 5px 12px;
+    display: grid;
+    place-items: center;
 
-    border: 2px solid var(--color-black);
-    border-radius: 999px;
-
-    font: 700 0.68rem/1 "Space Grotesk";
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-}
-
-.education-badge-teal {
-    background: var(--color-teal);
+    font: 700 1.1rem/1 "Space Grotesk";
     color: var(--color-white);
+
+    transition: transform 0.25s var(--transition-smooth);
 }
 
-.education-badge-yellow {
-    background: var(--color-yellow);
+.ap-tool-logo:hover {
+    transform: translateY(-4px) scale(1.07);
+}
+
+/* Brand colours */
+.ap-tool-logo-canva    { background: #00C4CC; }
+.ap-tool-logo-meta     { background: #0866FF; font-size: 1.4rem; }
+.ap-tool-logo-davinci  { background: #2C2C2C; }
+.ap-tool-logo-premiere { background: #9999FF; color: #000; font-size: 1rem; }
+.ap-tool-logo-hubspot  { background: #FF7A59; }
+.ap-tool-logo-capcut   { background: #000; font-size: 0.9rem; letter-spacing: -0.05em; }
+.ap-tool-logo-chatgpt  { background: #10A37F; }
+
+.ap-tool-name {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.3;
     color: var(--color-black);
 }
 
-.education-body h3 {
-    margin-bottom: 4px;
+
+/* ── 4. Fun fact ─────────────────────────────────────────── */
+
+.ap-funfact {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+
+    padding: 28px 32px;
+    border-top: 1.5px solid var(--color-border);
+    border-bottom: 1.5px solid var(--color-border);
 }
 
-.education-institution {
-    font: 600 0.88rem/1 "DM Sans";
-    color: var(--color-teal-dark);
-    margin-bottom: 12px;
-    letter-spacing: 0.02em;
+.ap-funfact-icon {
+    font-size: 3.5rem;
+    flex-shrink: 0;
+    line-height: 1;
 }
 
-.education-body p:last-child {
+.ap-funfact-text p {
+    margin: 0 0 6px;
+    font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+    line-height: 1.6;
+    color: var(--color-black);
+}
+
+.ap-funfact-text p:last-child {
+    margin: 0;
     color: var(--color-text-muted);
-    margin-bottom: 0;
+}
+
+.ap-funfact-text strong {
+    color: var(--color-teal-dark);
 }
 
 
-/* ── 5. Certificates ─────────────────────────────────────── */
+/* ── 5. Education logos ──────────────────────────────────── */
 
-.certs-grid {
+.ap-edu-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(32px, 8vw, 80px);
+    flex-wrap: wrap;
+}
+
+.ap-edu-logo-box {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    place-items: center;
+    min-width: 160px;
+    min-height: 80px;
 }
 
-.cert-card {
-    position: relative;
+.ap-edu-wordmark {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 1.1;
+    text-align: center;
+    display: block;
+}
+
+.ap-edu-wordmark em {
+    font-style: normal;
+    font-size: 0.9rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    display: block;
+}
+
+.ap-edu-digify {
+    color: var(--color-black);
+}
+
+.ap-edu-digify em {
+    color: var(--color-teal);
+}
+
+.ap-edu-ihub {
+    color: var(--color-black);
+}
+
+.ap-edu-ihub-i {
+    color: var(--color-yellow);
+    font-size: 2.4rem;
+}
+
+.ap-edu-ihub em {
+    color: var(--color-teal);
+}
+
+
+/* ── 6. Certifications grid ──────────────────────────────── */
+
+.ap-certs-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px 28px;
+}
+
+.ap-cert-item {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 10px;
-    padding: 28px 24px;
-
-    border: 2px solid var(--color-black);
-    border-radius: 20px;
-
-    background: var(--color-background);
-
-    box-shadow: var(--shadow-card);
-
-    transition:
-        transform 0.3s var(--transition-smooth),
-        box-shadow 0.3s ease;
+    align-items: center;
+    gap: 8px;
+    width: 90px;
 }
 
-.cert-card:hover {
-    transform: translate(4px, 4px);
-    box-shadow: 1px 2px var(--color-black);
-}
+.ap-cert-logo {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
 
-.cert-card.cert-teal {
-    background: var(--color-teal);
+    display: grid;
+    place-items: center;
+
+    font: 700 0.65rem/1.2 "Space Grotesk";
+    text-align: center;
     color: var(--color-white);
+
+    border: 2px solid rgba(0,0,0,0.1);
+
+    transition: transform 0.25s var(--transition-smooth);
 }
 
-.cert-platform {
-    font: 700 1.15rem/1.1 "Space Grotesk";
-    letter-spacing: -0.03em;
+.ap-cert-logo:hover {
+    transform: translateY(-4px) scale(1.07);
 }
 
-.cert-detail {
-    font-size: 0.85rem;
+/* Individual cert colours */
+.ap-cert-hubspot   { background: #FF7A59; }
+.ap-cert-meta1     { background: #0866FF; }
+.ap-cert-meta2     { background: #0866FF; }
+.ap-cert-badge1    { background: var(--color-teal); font-size: 1.2rem; }
+.ap-cert-badge2    { background: var(--color-yellow); color: var(--color-black); font-size: 1.2rem; }
+.ap-cert-flight    { background: #1A1A2E; font-size: 0.6rem; }
+.ap-cert-wp        { background: #21759B; font-size: 1.8rem; font-weight: 700; }
+.ap-cert-academy   { background: #E60023; font-size: 0.6rem; }
+.ap-cert-gworkspace { background: #fff; color: var(--color-black); border-color: var(--color-border); font-size: 0.6rem; }
+.ap-cert-openlearn  { background: #C8008F; }
+.ap-cert-gdigital   { background: #4285F4; font-size: 0.6rem; }
+
+.ap-cert-name {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.3;
     color: var(--color-text-muted);
-    flex: 1;
 }
 
-.cert-card.cert-teal .cert-detail {
-    color: rgba(255, 255, 255, 0.7);
+
+/* ── 7. CTA ──────────────────────────────────────────────── */
+
+.ap-cta {
+    text-align: center;
+    padding-bottom: clamp(72px, 10vw, 120px);
 }
 
-.cert-arrow {
-    font-size: 1.4rem;
-    font-weight: 700;
-    align-self: flex-end;
+.ap-cta-text {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--color-black);
+    line-height: 1.6;
+    margin-bottom: 24px;
 }
 
 
 /* ── About-page responsive overrides ─────────────────────── */
 
-@media (max-width: 900px) {
+@media (max-width: 760px) {
 
-    .ap-hero {
-        grid-template-columns: 1fr;
-        padding-top: 80px;
+    .ap-section {
+        max-width: 100%;
     }
 
-    .ap-hero-visual {
-        min-height: 380px;
+    .ap-story-img-wrap {
+        float: none;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto 24px;
     }
 
-    .tools-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .facts-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .certs-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .education-item {
-        grid-template-columns: 1fr;
-        gap: 12px;
-    }
-
-    .education-meta {
-        flex-direction: row;
-        align-items: center;
+    .ap-funfact {
+        gap: 20px;
+        padding: 22px 20px;
     }
 }
 
-@media (max-width: 620px) {
+@media (max-width: 480px) {
 
-    .ap-tools {
-        border-radius: 20px;
-        margin-inline: 0;
+    .ap-tool-item {
+        width: 68px;
     }
 
-    .tools-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
+    .ap-tool-logo {
+        width: 54px;
+        height: 54px;
+        border-radius: 12px;
+        font-size: 0.95rem;
     }
 
-    .facts-grid {
-        grid-template-columns: 1fr;
+    .ap-cert-logo {
+        width: 56px;
+        height: 56px;
     }
 
-    .certs-grid {
-        grid-template-columns: 1fr;
+    .ap-cert-item {
+        width: 72px;
     }
 }
 
