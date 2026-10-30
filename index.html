@@ -27,31 +27,78 @@
     </header>
 
     <main>
-        <section class="hero section-wrap" id="home">
-            <div class="hero-copy">
-                <p class="eyebrow"><span class="eyebrow-dot"></span> CREATIVE POWERHOUSE · JOHANNESBURG</p>
-                <h1>Are you <span class="highlight">well content?</span><br>Let’s talk<span class="teal-period">.</span></h1>
-                <p class="hero-intro">They say content is king. I’m Reuben — your creative partner for making it unforgettable.</p>
-                <div class="hero-actions">
-                    <a class="button button-yellow" href="#work">View my work <span aria-hidden="true">↗</span></a>
-                    <a class="text-link" href="#about">Get to know me <span aria-hidden="true">↓</span></a>
-                </div>
-                <span class="doodle doodle-star hero-star-one" aria-hidden="true">✳</span>
-                <span class="doodle doodle-star hero-star-two" aria-hidden="true">✳</span>
+        
+<!-- HERO: Full-background video -->
+<section class="hero" id="home">
+
+    <!-- Background video: replace the file path with your video -->
+    <video
+        class="hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-hidden="true"
+        tabindex="-1"
+    >
+        <source src="./assets/hero-vid.mp4" type="video/mp4">
+    </video>
+
+    <!-- Dark overlay for readable text -->
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <!-- Hero content -->
+    <div class="hero-content section-wrap">
+
+        <div class="hero-copy">
+
+            <p class="eyebrow">
+                <span class="eyebrow-dot"></span>
+                CREATIVE POWERHOUSE · JOHANNESBURG
+            </p>
+
+            <h1>
+                Are you <span class="highlight">well content?</span>
+                <br>
+                Let’s talk<span class="teal-period">.</span>
+            </h1>
+
+            <p class="hero-intro">
+                They say content is king. I’m Reuben —
+                your creative partner for making it unforgettable.
+            </p>
+
+            <div class="hero-actions">
+
+                <a class="button button-yellow" href="#work">
+                    View my work <span aria-hidden="true">↗</span>
+                </a>
+
+                <a class="hero-text-link" href="#about">
+                    Get to know me <span aria-hidden="true">↓</span>
+                </a>
+
             </div>
-            <div class="hero-visual">
-                <span class="paint-swatch" aria-hidden="true"></span>
-                <div class="video-placeholder" role="img" aria-label="Placeholder for Reuben's introduction video">
-                    <span class="placeholder-label"><span class="placeholder-pulse"></span> INTRO VIDEO PLACEHOLDER</span>
-                    <span class="play-button" aria-hidden="true">▶</span>
-                    <span class="video-caption">A little about<br>what I do best.</span>
-                    <span class="video-duration">00:00 / 00:45</span>
-                </div>
-                <span class="image-note">YOUR NEXT CREATIVE PARTNER <span aria-hidden="true">↙</span></span>
-                <span class="doodle doodle-star video-star" aria-hidden="true">✳</span>
-            </div>
-            <a class="scroll-cue" href="#services"><span></span> SCROLL TO EXPLORE</a>
-        </section>
+
+        </div>
+
+    </div>
+
+    <!-- Video label -->
+    <span class="hero-video-label">
+        <span class="hero-video-dot"></span>
+        CREATIVE SHOWREEL
+    </span>
+
+    <!-- Scroll indicator -->
+    <a class="scroll-cue" href="#services">
+        <span></span>
+        SCROLL TO EXPLORE
+    </a>
+
+</section>
+
 
         <section class="services section-wrap section-pad" id="services">
             <div class="section-heading reveal">
