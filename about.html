@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/about.css">
 </head>
 <body>
 
@@ -77,64 +78,78 @@
 
 
         <!-- =====================================================
-             3. TOOLS
+             3. TOOLS — CAROUSEL
         ====================================================== -->
         <section class="ap-section section-wrap section-pad" id="tools">
 
             <h2 class="ap-section-title ap-title-yellow">A Few of the Tools I Use to Create<br>the Magic</h2>
 
-            <ul class="ap-tools-grid reveal-stagger" role="list">
+            <div class="carousel-wrapper reveal">
 
-                <li class="ap-tool-item">
-                    <div class="ap-tool-logo ap-tool-logo-canva" aria-label="Canva">
-                        <span aria-hidden="true">Ca</span>
-                    </div>
-                    <span class="ap-tool-name">Canva</span>
-                </li>
+                <div class="carousel-track-clip" aria-label="Tools carousel" role="region" aria-roledescription="carousel">
 
-                <li class="ap-tool-item">
-                    <div class="ap-tool-logo ap-tool-logo-meta" aria-label="Meta Business Suite">
-                        <span aria-hidden="true">M</span>
-                    </div>
-                    <span class="ap-tool-name">Meta Business<br>Suite</span>
-                </li>
+                    <ul class="carousel-track" role="list">
 
-                <li class="ap-tool-item">
-                    <div class="ap-tool-logo ap-tool-logo-davinci" aria-label="DaVinci Resolve">
-                        <span aria-hidden="true">DV</span>
-                    </div>
-                    <span class="ap-tool-name">Da Vinci<br>Resolve</span>
-                </li>
+                        <li class="tool-slide">
+                            <div class="ap-tool-logo ap-tool-logo-canva" aria-label="Canva">
+                                <span aria-hidden="true">Ca</span>
+                            </div>
+                            <span class="ap-tool-name">Canva</span>
+                        </li>
 
-                <li class="ap-tool-item">
-                    <div class="ap-tool-logo ap-tool-logo-premiere" aria-label="Adobe Premiere Pro">
-                        <span aria-hidden="true">Pr</span>
-                    </div>
-                    <span class="ap-tool-name">Adobe<br>Premiere Pro</span>
-                </li>
+                        <li class="tool-slide">
+                            <div class="ap-tool-logo ap-tool-logo-meta" aria-label="Meta Business Suite">
+                                <span aria-hidden="true">M</span>
+                            </div>
+                            <span class="ap-tool-name">Meta Business<br>Suite</span>
+                        </li>
 
-                <li class="ap-tool-item">
-                    <div class="ap-tool-logo ap-tool-logo-hubspot" aria-label="Hubspot">
-                        <span aria-hidden="true">Hs</span>
-                    </div>
-                    <span class="ap-tool-name">Hubspot</span>
-                </li>
+                        <li class="tool-slide">
+                            <div class="ap-tool-logo ap-tool-logo-davinci" aria-label="DaVinci Resolve">
+                                <span aria-hidden="true">DV</span>
+                            </div>
+                            <span class="ap-tool-name">Da Vinci<br>Resolve</span>
+                        </li>
 
-                <li class="ap-tool-item">
-                    <div class="ap-tool-logo ap-tool-logo-capcut" aria-label="CapCut">
-                        <span aria-hidden="true">CC</span>
-                    </div>
-                    <span class="ap-tool-name">Capcut</span>
-                </li>
+                        <li class="tool-slide">
+                            <div class="ap-tool-logo ap-tool-logo-premiere" aria-label="Adobe Premiere Pro">
+                                <span aria-hidden="true">Pr</span>
+                            </div>
+                            <span class="ap-tool-name">Adobe<br>Premiere Pro</span>
+                        </li>
 
-                <li class="ap-tool-item">
-                    <div class="ap-tool-logo ap-tool-logo-chatgpt" aria-label="ChatGPT">
-                        <span aria-hidden="true">AI</span>
-                    </div>
-                    <span class="ap-tool-name">Chat GPT</span>
-                </li>
+                        <li class="tool-slide">
+                            <div class="ap-tool-logo ap-tool-logo-hubspot" aria-label="Hubspot">
+                                <span aria-hidden="true">Hs</span>
+                            </div>
+                            <span class="ap-tool-name">Hubspot</span>
+                        </li>
 
-            </ul>
+                        <li class="tool-slide">
+                            <div class="ap-tool-logo ap-tool-logo-capcut" aria-label="CapCut">
+                                <span aria-hidden="true">CC</span>
+                            </div>
+                            <span class="ap-tool-name">Capcut</span>
+                        </li>
+
+                        <li class="tool-slide">
+                            <div class="ap-tool-logo ap-tool-logo-chatgpt" aria-label="ChatGPT">
+                                <span aria-hidden="true">AI</span>
+                            </div>
+                            <span class="ap-tool-name">Chat GPT</span>
+                        </li>
+
+                    </ul>
+
+                </div><!-- /.carousel-track-clip -->
+
+                <div class="carousel-controls">
+                    <button class="carousel-btn carousel-btn-prev" aria-label="Previous tools">&#8592;</button>
+                    <div class="carousel-dots" role="tablist" aria-label="Tools pages"></div>
+                    <button class="carousel-btn carousel-btn-next" aria-label="Next tools">&#8594;</button>
+                </div>
+
+            </div><!-- /.carousel-wrapper -->
 
         </section>
 
@@ -184,92 +199,106 @@
 
 
         <!-- =====================================================
-             6. CERTIFICATIONS
+             6. CERTIFICATIONS — CAROUSEL
         ====================================================== -->
         <section class="ap-section ap-section-alt section-wrap section-pad" id="certificates">
 
             <h2 class="ap-section-title ap-title-yellow">Some of the Platform Training and<br>Certifications I Have Completed</h2>
 
-            <div class="ap-certs-grid reveal-stagger">
+            <div class="carousel-wrapper reveal">
 
-                <div class="ap-cert-item">
-                    <div class="ap-cert-logo ap-cert-hubspot">
-                        <span>HubSpot<br>Academy</span>
-                    </div>
-                    <span class="ap-cert-name">Social Media Certified</span>
+                <div class="carousel-track-clip" aria-label="Certifications carousel" role="region" aria-roledescription="carousel">
+
+                    <ul class="carousel-track" role="list">
+
+                        <li class="cert-slide">
+                            <div class="ap-cert-logo ap-cert-hubspot">
+                                <span>HubSpot<br>Academy</span>
+                            </div>
+                            <span class="ap-cert-name">Social Media Certified</span>
+                        </li>
+
+                        <li class="cert-slide">
+                            <div class="ap-cert-logo ap-cert-meta1">
+                                <span>Meta</span>
+                            </div>
+                            <span class="ap-cert-name">Meta</span>
+                        </li>
+
+                        <li class="cert-slide">
+                            <div class="ap-cert-logo ap-cert-meta2">
+                                <span>Meta</span>
+                            </div>
+                            <span class="ap-cert-name">Meta</span>
+                        </li>
+
+                        <li class="cert-slide">
+                            <div class="ap-cert-logo ap-cert-badge1">
+                                <span>✦</span>
+                            </div>
+                            <span class="ap-cert-name">&nbsp;</span>
+                        </li>
+
+                        <li class="cert-slide">
+                            <div class="ap-cert-logo ap-cert-badge2">
+                                <span>✦</span>
+                            </div>
+                            <span class="ap-cert-name">&nbsp;</span>
+                        </li>
+
+                        <li class="cert-slide">
+                            <div class="ap-cert-logo ap-cert-flight">
+                                <span>✈ Flight<br>school</span>
+                            </div>
+                            <span class="ap-cert-name">Flightschool</span>
+                        </li>
+
+                        <li class="cert-slide">
+                            <div class="ap-cert-logo ap-cert-wp">
+                                <span>W</span>
+                            </div>
+                            <span class="ap-cert-name">WordPress</span>
+                        </li>
+
+                        <li class="cert-slide">
+                            <div class="ap-cert-logo ap-cert-academy">
+                                <span>🅟 Academy</span>
+                            </div>
+                            <span class="ap-cert-name">Academy</span>
+                        </li>
+
+                        <li class="cert-slide">
+                            <div class="ap-cert-logo ap-cert-gworkspace">
+                                <span>Google<br>Workspace</span>
+                            </div>
+                            <span class="ap-cert-name">Google Workspace</span>
+                        </li>
+
+                        <li class="cert-slide">
+                            <div class="ap-cert-logo ap-cert-openlearn">
+                                <span>OpenLearn</span>
+                            </div>
+                            <span class="ap-cert-name">OpenLearn</span>
+                        </li>
+
+                        <li class="cert-slide">
+                            <div class="ap-cert-logo ap-cert-gdigital">
+                                <span>Google<br>Digital Skills</span>
+                            </div>
+                            <span class="ap-cert-name">Google Digital Skills for Africa</span>
+                        </li>
+
+                    </ul>
+
+                </div><!-- /.carousel-track-clip -->
+
+                <div class="carousel-controls">
+                    <button class="carousel-btn carousel-btn-prev" aria-label="Previous certifications">&#8592;</button>
+                    <div class="carousel-dots" role="tablist" aria-label="Certification pages"></div>
+                    <button class="carousel-btn carousel-btn-next" aria-label="Next certifications">&#8594;</button>
                 </div>
 
-                <div class="ap-cert-item">
-                    <div class="ap-cert-logo ap-cert-meta1">
-                        <span>Meta</span>
-                    </div>
-                    <span class="ap-cert-name">Meta</span>
-                </div>
-
-                <div class="ap-cert-item">
-                    <div class="ap-cert-logo ap-cert-meta2">
-                        <span>Meta</span>
-                    </div>
-                    <span class="ap-cert-name">Meta</span>
-                </div>
-
-                <div class="ap-cert-item">
-                    <div class="ap-cert-logo ap-cert-badge1">
-                        <span>✦</span>
-                    </div>
-                    <span class="ap-cert-name">&nbsp;</span>
-                </div>
-
-                <div class="ap-cert-item">
-                    <div class="ap-cert-logo ap-cert-badge2">
-                        <span>✦</span>
-                    </div>
-                    <span class="ap-cert-name">&nbsp;</span>
-                </div>
-
-                <div class="ap-cert-item">
-                    <div class="ap-cert-logo ap-cert-flight">
-                        <span>✈ Flight<br>school</span>
-                    </div>
-                    <span class="ap-cert-name">Flightschool</span>
-                </div>
-
-                <div class="ap-cert-item">
-                    <div class="ap-cert-logo ap-cert-wp">
-                        <span>W</span>
-                    </div>
-                    <span class="ap-cert-name">WordPress</span>
-                </div>
-
-                <div class="ap-cert-item">
-                    <div class="ap-cert-logo ap-cert-academy">
-                        <span>🅟 Academy</span>
-                    </div>
-                    <span class="ap-cert-name">Academy</span>
-                </div>
-
-                <div class="ap-cert-item">
-                    <div class="ap-cert-logo ap-cert-gworkspace">
-                        <span>Google<br>Workspace</span>
-                    </div>
-                    <span class="ap-cert-name">Google Workspace</span>
-                </div>
-
-                <div class="ap-cert-item">
-                    <div class="ap-cert-logo ap-cert-openlearn">
-                        <span>OpenLearn</span>
-                    </div>
-                    <span class="ap-cert-name">OpenLearn</span>
-                </div>
-
-                <div class="ap-cert-item">
-                    <div class="ap-cert-logo ap-cert-gdigital">
-                        <span>Google<br>Digital Skills</span>
-                    </div>
-                    <span class="ap-cert-name">Google Digital Skills for Africa</span>
-                </div>
-
-            </div>
+            </div><!-- /.carousel-wrapper -->
 
         </section>
 
@@ -293,28 +322,8 @@
         <a class="back-top" href="#about">Back to top ↑</a>
     </footer>
 
-    <script>
-    /* ── Scroll-reveal via IntersectionObserver ─────────────── */
-    (function () {
-        const singles  = document.querySelectorAll('.reveal');
-        const staggers = document.querySelectorAll('.reveal-stagger');
-
-        const obs = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((e) => {
-                    if (e.isIntersecting) {
-                        e.target.classList.add('is-visible');
-                        obs.unobserve(e.target);
-                    }
-                });
-            },
-            { threshold: 0.08 }
-        );
-
-        singles.forEach((el)  => obs.observe(el));
-        staggers.forEach((el) => obs.observe(el));
-    })();
-    </script>
+    <!-- about.js handles scroll-reveal + both carousels -->
+    <script src="js/about.js"></script>
 
 </body>
 </html>

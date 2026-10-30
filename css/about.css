@@ -1,0 +1,436 @@
+/* =========================================================
+   ABOUT PAGE — css/about.css
+   Loaded only on about.html. Never mix with style.css.
+   Relies on the CSS custom properties declared in style.css
+   (--color-*, --shadow-card, --transition-smooth, etc.)
+   ========================================================= */
+
+
+/* =========================
+   1. SHARED SECTION SHELL
+   ========================= */
+
+.ap-section {
+    max-width: 740px;
+    margin-inline: auto;
+    padding-block: clamp(52px, 7vw, 88px);
+}
+
+.ap-section-alt {
+    background: transparent;
+}
+
+/* Centred section titles with the outlined/stroked look from the mockup */
+.ap-section-title {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-align: center;
+    margin: 0 0 36px;
+
+    -webkit-text-stroke: 1.5px currentColor;
+    paint-order: stroke fill;
+}
+
+.ap-title-yellow { color: var(--color-yellow); }
+.ap-title-teal   { color: var(--color-teal); }
+
+
+/* =========================
+   2. PROSE BLOCKS (About + How It Started)
+   ========================= */
+
+.ap-prose p,
+.ap-story-text p {
+    font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+    line-height: 1.75;
+    color: var(--color-black);
+    margin-bottom: 1.2em;
+}
+
+.ap-prose p:last-child,
+.ap-story-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* How It Started — floated graduation photo */
+.ap-story { position: relative; }
+
+.ap-story-img-wrap {
+    float: right;
+    width: clamp(160px, 30%, 240px);
+    margin: 8px 0 16px 28px;
+    shape-outside: border-box;
+}
+
+.ap-story-img {
+    width: 100%;
+    border-radius: 16px;
+    border: 3px solid var(--color-black);
+    box-shadow: 5px 5px var(--color-yellow);
+    object-fit: cover;
+    aspect-ratio: 3 / 4;
+    object-position: top;
+    display: block;
+}
+
+.ap-story::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* =========================
+   3. TOOLS CAROUSEL
+   ========================= */
+
+.carousel-wrapper {
+    position: relative;
+}
+
+.carousel-track-clip {
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 20px;
+    /* width set by JS based on slide count */
+    transition: transform 0.45s var(--transition-smooth);
+    will-change: transform;
+}
+
+/* ── Tool slide ── */
+.tool-slide {
+    flex: 0 0 calc((100% - 60px) / 4); /* 4 visible at a time */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 24px 16px 20px;
+
+    border: 2px solid var(--color-black);
+    border-radius: 16px;
+    background: var(--color-background);
+    box-shadow: var(--shadow-card);
+
+    transition: transform 0.25s var(--transition-smooth);
+    cursor: default;
+    user-select: none;
+}
+
+.tool-slide:hover {
+    transform: translateY(-4px);
+}
+
+.ap-tool-logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    font: 700 1.1rem/1 "Space Grotesk";
+    color: #fff;
+    flex-shrink: 0;
+}
+
+/* Brand colours */
+.ap-tool-logo-canva    { background: #00C4CC; }
+.ap-tool-logo-meta     { background: #0866FF; font-size: 1.4rem; }
+.ap-tool-logo-davinci  { background: #2C2C2C; }
+.ap-tool-logo-premiere { background: #9999FF; color: #000; font-size: 1rem; }
+.ap-tool-logo-hubspot  { background: #FF7A59; }
+.ap-tool-logo-capcut   { background: #000; font-size: 0.9rem; letter-spacing: -0.05em; }
+.ap-tool-logo-chatgpt  { background: #10A37F; }
+
+.ap-tool-name {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.3;
+    color: var(--color-black);
+}
+
+
+/* =========================
+   4. CERTIFICATIONS CAROUSEL
+   ========================= */
+
+/* Cert slides reuse .carousel-track / .carousel-track-clip */
+
+.cert-slide {
+    flex: 0 0 calc((100% - 60px) / 4); /* 4 visible at a time */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 12px;
+
+    border: 2px solid var(--color-black);
+    border-radius: 16px;
+    background: var(--color-background);
+    box-shadow: var(--shadow-card);
+
+    transition: transform 0.25s var(--transition-smooth);
+    cursor: default;
+    user-select: none;
+}
+
+.cert-slide:hover {
+    transform: translateY(-4px);
+}
+
+.ap-cert-logo {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font: 700 0.65rem/1.2 "Space Grotesk";
+    text-align: center;
+    color: #fff;
+    border: 2px solid rgba(0,0,0,0.1);
+}
+
+/* Cert brand colours */
+.ap-cert-hubspot    { background: #FF7A59; }
+.ap-cert-meta1      { background: #0866FF; }
+.ap-cert-meta2      { background: #0866FF; }
+.ap-cert-badge1     { background: var(--color-teal);   font-size: 1.2rem; }
+.ap-cert-badge2     { background: var(--color-yellow); color: var(--color-black); font-size: 1.2rem; }
+.ap-cert-flight     { background: #1A1A2E; font-size: 0.6rem; }
+.ap-cert-wp         { background: #21759B; font-size: 1.8rem; font-weight: 700; }
+.ap-cert-academy    { background: #E60023; font-size: 0.6rem; }
+.ap-cert-gworkspace { background: #fff; color: var(--color-black); border-color: var(--color-border); font-size: 0.6rem; }
+.ap-cert-openlearn  { background: #C8008F; }
+.ap-cert-gdigital   { background: #4285F4; font-size: 0.6rem; }
+
+.ap-cert-name {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.3;
+    color: var(--color-text-muted);
+}
+
+
+/* =========================
+   5. SHARED CAROUSEL CONTROLS
+   ========================= */
+
+.carousel-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.carousel-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--color-black);
+    background: var(--color-background);
+    color: var(--color-black);
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    box-shadow: 3px 3px var(--color-black);
+    transition:
+        transform 0.2s var(--transition-smooth),
+        box-shadow 0.2s ease;
+    line-height: 1;
+}
+
+.carousel-btn:hover:not(:disabled) {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px var(--color-black);
+}
+
+.carousel-btn:disabled {
+    opacity: 0.3;
+    cursor: default;
+    box-shadow: 3px 3px var(--color-black);
+    transform: none;
+}
+
+.carousel-dots {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-border);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.carousel-dot.is-active {
+    background: var(--color-black);
+    transform: scale(1.35);
+}
+
+
+/* =========================
+   6. FUN FACT
+   ========================= */
+
+.ap-funfact {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    padding: 28px 32px;
+    border-top: 1.5px solid var(--color-border);
+    border-bottom: 1.5px solid var(--color-border);
+}
+
+.ap-funfact-icon {
+    font-size: 3.5rem;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.ap-funfact-text p {
+    margin: 0 0 6px;
+    font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+    line-height: 1.6;
+    color: var(--color-black);
+}
+
+.ap-funfact-text p:last-child {
+    margin: 0;
+    color: var(--color-text-muted);
+}
+
+.ap-funfact-text strong { color: var(--color-teal-dark); }
+
+
+/* =========================
+   7. EDUCATION LOGOS
+   ========================= */
+
+.ap-edu-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(32px, 8vw, 80px);
+    flex-wrap: wrap;
+}
+
+.ap-edu-logo-box {
+    display: grid;
+    place-items: center;
+    min-width: 160px;
+    min-height: 80px;
+}
+
+.ap-edu-wordmark {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 1.1;
+    text-align: center;
+    display: block;
+}
+
+.ap-edu-wordmark em {
+    font-style: normal;
+    font-size: 0.9rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    display: block;
+}
+
+.ap-edu-digify     { color: var(--color-black); }
+.ap-edu-digify em  { color: var(--color-teal); }
+.ap-edu-ihub       { color: var(--color-black); }
+.ap-edu-ihub-i     { color: var(--color-yellow); font-size: 2.4rem; }
+.ap-edu-ihub em    { color: var(--color-teal); }
+
+
+/* =========================
+   8. CTA
+   ========================= */
+
+.ap-cta {
+    text-align: center;
+    padding-bottom: clamp(72px, 10vw, 120px);
+}
+
+.ap-cta-text {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--color-black);
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+
+/* =========================
+   9. RESPONSIVE
+   ========================= */
+
+@media (max-width: 900px) {
+
+    .tool-slide,
+    .cert-slide {
+        flex-basis: calc((100% - 40px) / 3); /* 3 visible */
+    }
+}
+
+@media (max-width: 760px) {
+
+    .ap-section {
+        max-width: 100%;
+    }
+
+    .ap-story-img-wrap {
+        float: none;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto 24px;
+    }
+
+    .ap-funfact {
+        gap: 20px;
+        padding: 22px 20px;
+    }
+
+    .tool-slide,
+    .cert-slide {
+        flex-basis: calc((100% - 20px) / 2); /* 2 visible */
+    }
+}
+
+@media (max-width: 480px) {
+
+    .tool-slide,
+    .cert-slide {
+        flex-basis: 100%; /* 1 visible */
+    }
+
+    .ap-tool-logo {
+        width: 54px;
+        height: 54px;
+        border-radius: 12px;
+        font-size: 0.95rem;
+    }
+
+    .ap-cert-logo {
+        width: 56px;
+        height: 56px;
+    }
+}
