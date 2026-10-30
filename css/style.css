@@ -541,8 +541,10 @@ p {
 }
 
 .service-icon {
-    font-size: 2rem;
-    line-height: 1;
+    display: block;
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
 }
 
 .service-number {
