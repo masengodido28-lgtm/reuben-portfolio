@@ -105,7 +105,7 @@
                 <h2>What I bring <span class="highlight">to the table.</span></h2>
                 <p class="section-intro">Big ideas, thoughtful execution, and a little bit of creative magic.</p>
             </div>
-            <div class="service-grid reveal-stagger">
+            <div class="service-grid is-deck" id="serviceDeck" role="button" tabindex="0" aria-label="Deal the service cards">
                 <article class="service-card service-yellow">
                     <img class="service-icon" src="./assets/camera%20icon.png" alt="" aria-hidden="true">
                     <span class="service-number">01</span>
@@ -141,6 +141,7 @@
                     <p>Clear creative direction for brands that feel stuck or scattered. I help refine ideas, improve content strategy, and turn vague thoughts into actionable plans.</p>
                     <a href="#contact" aria-label="Ask about creative consultation">↗</a>
                 </article>
+                <div class="deck-hint" aria-hidden="true"><span class="deck-hint-pulse"></span>Tap the deck</div>
             </div>
         </section>
 
@@ -249,8 +250,16 @@
     (function () {
         const cards = document.querySelectorAll('.service-card, .work-card');
 
+        const inDeck = (card) => {
+            if (!card.classList.contains('service-card')) return false;
+            const g = card.closest('.service-grid');
+            return !!g && g.classList.contains('is-deck');
+        };
+
         cards.forEach((card) => {
             card.addEventListener('mousemove', (e) => {
+                if (inDeck(card)) return;
+
                 const r  = card.getBoundingClientRect();
                 const cx = r.left + r.width  / 2;
                 const cy = r.top  + r.height / 2;
@@ -266,9 +275,100 @@
             });
 
             card.addEventListener('mouseleave', () => {
+                if (inDeck(card)) return;
                 card.style.transform = '';
             });
         });
+    })();
+
+    /* ── Service cards — deck of cards, tap to deal ─────────── */
+    (function () {
+        const grid = document.querySelector('.service-grid');
+        if (!grid) return;
+        const cards = Array.from(grid.querySelectorAll('.service-card'));
+        const n = cards.length;
+        if (!n) return;
+
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        let dealt = false;
+        let tidyTimer = null;
+        let rzTimer = null;
+
+        function stackDeck() {
+            // offsetLeft/offsetTop ignore CSS transforms, so the target
+            // position stays correct even while the cards are stacked.
+            const cx = grid.offsetWidth / 2;
+            const cy = grid.offsetHeight / 2;
+            const half = (n - 1) / 2;
+
+            cards.forEach((card, i) => {
+                const cardCx = card.offsetLeft + card.offsetWidth / 2;
+                const cardCy = card.offsetTop + card.offsetHeight / 2;
+                const dx = cx - cardCx;
+                const dy = cy - cardCy;
+                const rot = (i - half) * 4;                          // gentle fan
+                card.style.transition = 'none';
+                card.style.transform =
+                    `translate(${dx}px, ${dy}px) rotate(${rot}deg)`;
+                card.style.zIndex = String(20 - Math.abs(i - half)); // centre card on top
+            });
+
+            // Re-enable transitions next frame so the deal animates smoothly.
+            requestAnimationFrame(() => {
+                cards.forEach((c) => { c.style.transition = ''; });
+            });
+        }
+
+        function dealDeck() {
+            if (dealt) return;
+            dealt = true;
+
+            grid.classList.remove('is-deck');
+            grid.classList.add('is-dealt');
+            grid.removeAttribute('role');
+            grid.removeAttribute('tabindex');
+            grid.removeAttribute('aria-label');
+
+            const dur = reduceMotion ? 0.01 : 0.7;
+            cards.forEach((card) => {
+                card.style.transition =
+                    `transform ${dur}s var(--transition-smooth), box-shadow 0.35s ease`;
+                card.style.transform = '';
+                card.style.zIndex = '';
+            });
+
+            grid.removeEventListener('click', dealDeck);
+            grid.removeEventListener('keydown', onKey);
+
+            window.clearTimeout(tidyTimer);
+            tidyTimer = window.setTimeout(() => {
+                cards.forEach((c) => { c.style.transition = ''; });
+            }, dur * 1000 + 80);
+        }
+
+        function onKey(e) {
+            if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+                e.preventDefault();
+                dealDeck();
+            }
+        }
+
+        function onResize() {
+            if (dealt) return;
+            window.clearTimeout(rzTimer);
+            rzTimer = window.setTimeout(stackDeck, 150);
+        }
+
+        // Build the deck straight away (it stays hidden until scrolled into view).
+        stackDeck();
+
+        grid.addEventListener('click', dealDeck);
+        grid.addEventListener('keydown', onKey);
+        window.addEventListener('resize', onResize);
+        window.addEventListener('load', () => { if (!dealt) stackDeck(); });
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(() => { if (!dealt) stackDeck(); });
+        }
     })();
     </script>
 </body>

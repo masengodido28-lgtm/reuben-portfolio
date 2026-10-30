@@ -493,9 +493,84 @@ p {
    ========================= */
 
 .service-grid {
+    position: relative;
+
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 20px;
+
+    transition: opacity 0.6s ease;
+}
+
+/* Deck state: cards are stacked and hidden until the section scrolls in */
+.service-grid.is-deck {
+    opacity: 0;
+    cursor: pointer;
+}
+
+.services.is-visible .service-grid.is-deck {
+    opacity: 1;
+}
+
+/* While stacked, the card links shouldn't swallow the tap that deals the deck */
+.service-grid.is-deck .service-card > a {
+    pointer-events: none;
+}
+
+.service-grid.is-deck .service-card:hover {
+    box-shadow: var(--shadow-card);
+}
+
+/* "Tap the deck" prompt that sits over the stacked cards */
+.deck-hint {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 50;
+    transform: translate(-50%, -50%);
+
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 16px;
+
+    border: 2px solid var(--color-black);
+    border-radius: 999px;
+    background: var(--color-white);
+
+    font: 700 0.7rem/1 "Space Grotesk";
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-black);
+    white-space: nowrap;
+
+    box-shadow: 3px 3px var(--color-black);
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s var(--transition-smooth);
+}
+
+.deck-hint-pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-teal);
+    animation: deck-pulse 1.5s var(--transition-smooth) infinite;
+}
+
+@keyframes deck-pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(0, 158, 174, 0.5); }
+    70%  { box-shadow: 0 0 0 10px rgba(0, 158, 174, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 158, 174, 0); }
+}
+
+/* Fade the prompt out once the deck has been dealt */
+.service-grid.is-dealt .deck-hint {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.7);
 }
 
 .service-card {
