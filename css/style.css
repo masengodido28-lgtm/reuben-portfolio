@@ -1159,6 +1159,18 @@ p {
     animation-delay: 0.32s;
 }
 
+.reveal-stagger.is-visible > *:nth-child(6) {
+    animation-delay: 0.40s;
+}
+
+.reveal-stagger.is-visible > *:nth-child(7) {
+    animation-delay: 0.48s;
+}
+
+.reveal-stagger.is-visible > *:nth-child(8) {
+    animation-delay: 0.56s;
+}
+
 @keyframes card-rise {
     from {
         opacity: 0;
@@ -1177,6 +1189,377 @@ p {
 :focus-visible {
     outline: 3px solid var(--color-teal-dark);
     outline-offset: 4px;
+}
+
+
+/* =========================
+   14. ABOUT PAGE
+   ========================= */
+
+/* ── 1. Hero ─────────────────────────────────────────────── */
+
+.ap-hero {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: center;
+    gap: clamp(44px, 8vw, 100px);
+
+    padding-top: clamp(100px, 12vw, 140px);
+}
+
+.ap-hero-visual {
+    position: relative;
+    min-height: 520px;
+}
+
+/* Reuse the existing .portrait + .portrait-sticker + .about-star styles */
+
+.ap-hero-copy h1 {
+    margin-bottom: 20px;
+}
+
+.ap-hero-copy p {
+    color: var(--color-text-muted);
+    max-width: 520px;
+    margin-bottom: 16px;
+}
+
+.ap-hero-copy .button {
+    margin-top: 8px;
+}
+
+
+/* ── 2. Tools ────────────────────────────────────────────── */
+
+.ap-tools {
+    background: var(--color-black);
+    border-radius: 28px;
+
+    padding: clamp(48px, 7vw, 88px) clamp(28px, 6vw, 80px);
+
+    margin-block: clamp(60px, 8vw, 100px);
+}
+
+.ap-tools .section-heading {
+    margin-bottom: 48px;
+}
+
+.ap-tools .section-heading p,
+.ap-tools .section-heading .eyebrow {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.ap-tools .section-heading h2 {
+    color: var(--color-white);
+}
+
+.ap-tools .highlight {
+    color: var(--color-yellow);
+    text-shadow: 2px 2px var(--color-teal-dark);
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.tool-card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 22px 20px;
+
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    transition:
+        transform 0.3s var(--transition-smooth),
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.28);
+}
+
+.tool-yellow .tool-icon {
+    color: var(--color-yellow);
+}
+
+.tool-teal .tool-icon {
+    color: var(--color-teal);
+}
+
+.tool-icon {
+    font: 700 1.5rem/1 "Space Grotesk";
+    letter-spacing: -0.04em;
+}
+
+.tool-name {
+    color: var(--color-white);
+    font: 600 1rem/1.2 "Space Grotesk";
+}
+
+.tool-cat {
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+}
+
+
+/* ── 3. Fun facts ────────────────────────────────────────── */
+
+.facts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.fact-card {
+    position: relative;
+    padding: 32px 28px 28px;
+
+    border: 2px solid var(--color-black);
+    border-radius: 20px;
+
+    background: var(--color-background);
+
+    box-shadow: var(--shadow-card);
+
+    transition:
+        transform 0.3s var(--transition-smooth),
+        box-shadow 0.3s ease;
+}
+
+.fact-card:hover {
+    transform: translateY(-6px) rotate(-0.5deg);
+    box-shadow: 8px 10px var(--color-black);
+}
+
+.fact-card.fact-yellow {
+    background: var(--color-yellow);
+}
+
+.fact-num {
+    display: block;
+    margin-bottom: 14px;
+
+    font: 700 0.7rem/1 "Space Grotesk";
+    letter-spacing: 0.16em;
+    color: var(--color-teal-dark);
+}
+
+.fact-card.fact-yellow .fact-num {
+    color: var(--color-black);
+    opacity: 0.45;
+}
+
+.fact-card p {
+    margin: 0;
+    font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+    line-height: 1.55;
+}
+
+
+/* ── 4. Education ────────────────────────────────────────── */
+
+.education-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.education-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 32px;
+    align-items: start;
+
+    padding-block: 36px;
+
+    border-top: 2px solid var(--color-black);
+}
+
+.education-item:last-child {
+    border-bottom: 2px solid var(--color-black);
+}
+
+.education-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 6px;
+}
+
+.education-year {
+    font: 700 0.78rem/1 "Space Grotesk";
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+}
+
+.education-badge {
+    display: inline-block;
+    padding: 5px 12px;
+
+    border: 2px solid var(--color-black);
+    border-radius: 999px;
+
+    font: 700 0.68rem/1 "Space Grotesk";
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.education-badge-teal {
+    background: var(--color-teal);
+    color: var(--color-white);
+}
+
+.education-badge-yellow {
+    background: var(--color-yellow);
+    color: var(--color-black);
+}
+
+.education-body h3 {
+    margin-bottom: 4px;
+}
+
+.education-institution {
+    font: 600 0.88rem/1 "DM Sans";
+    color: var(--color-teal-dark);
+    margin-bottom: 12px;
+    letter-spacing: 0.02em;
+}
+
+.education-body p:last-child {
+    color: var(--color-text-muted);
+    margin-bottom: 0;
+}
+
+
+/* ── 5. Certificates ─────────────────────────────────────── */
+
+.certs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.cert-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 28px 24px;
+
+    border: 2px solid var(--color-black);
+    border-radius: 20px;
+
+    background: var(--color-background);
+
+    box-shadow: var(--shadow-card);
+
+    transition:
+        transform 0.3s var(--transition-smooth),
+        box-shadow 0.3s ease;
+}
+
+.cert-card:hover {
+    transform: translate(4px, 4px);
+    box-shadow: 1px 2px var(--color-black);
+}
+
+.cert-card.cert-teal {
+    background: var(--color-teal);
+    color: var(--color-white);
+}
+
+.cert-platform {
+    font: 700 1.15rem/1.1 "Space Grotesk";
+    letter-spacing: -0.03em;
+}
+
+.cert-detail {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    flex: 1;
+}
+
+.cert-card.cert-teal .cert-detail {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.cert-arrow {
+    font-size: 1.4rem;
+    font-weight: 700;
+    align-self: flex-end;
+}
+
+
+/* ── About-page responsive overrides ─────────────────────── */
+
+@media (max-width: 900px) {
+
+    .ap-hero {
+        grid-template-columns: 1fr;
+        padding-top: 80px;
+    }
+
+    .ap-hero-visual {
+        min-height: 380px;
+    }
+
+    .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .facts-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .certs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .education-item {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .education-meta {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+@media (max-width: 620px) {
+
+    .ap-tools {
+        border-radius: 20px;
+        margin-inline: 0;
+    }
+
+    .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .facts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .certs-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 
