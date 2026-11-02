@@ -1395,3 +1395,69 @@ p {
         transition-duration: 0.01ms !important;
     }
 }
+
+.brand-logo {
+    width: 150px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* =========================================================
+   COMPACT NAVBAR
+========================================================= */
+
+.site-header {
+    min-height: 110px;
+    height: 110px;
+    padding: 12px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+/* Logo */
+.brand {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.brand-logo {
+    width: 100px;
+    height: 90px;
+    object-fit: contain;
+    display: block;
+}
+
+/* Navigation */
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+/* Header button */
+.header-cta {
+    flex-shrink: 0;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .site-header {
+        height: auto;
+        min-height: 85px;
+        padding: 12px 5%;
+        flex-wrap: wrap;
+    }
+
+    .brand-logo {
+        width: 75px;
+        height: 70px;
+    }
+
+    .main-nav {
+        gap: 18px;
+    }
+}
