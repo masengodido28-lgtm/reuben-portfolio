@@ -557,3 +557,78 @@
         transition: none;
     }
 }
+
+/* =========================================
+   ABOUT ME + HOW IT STARTED
+   TWO-COLUMN LAYOUT
+========================================= */
+
+.ap-two-column {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    gap: 65px;
+    width: 100%;
+}
+
+/* LEFT SIDE */
+
+.ap-two-column-text {
+    width: 100%;
+    min-width: 0;
+}
+
+.ap-two-column-text .ap-section-title {
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.ap-two-column-text .ap-prose p,
+.ap-two-column-text .ap-story-text p {
+    text-align: left;
+}
+
+/* RIGHT SIDE */
+
+.ap-two-column-image {
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.ap-two-column-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .ap-two-column {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .ap-two-column-image {
+        height: 500px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .ap-two-column-image {
+        height: 380px;
+    }
+
+    .ap-two-column {
+        gap: 25px;
+    }
+
+}
