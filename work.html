@@ -65,14 +65,7 @@
             <div class="wp-categories">
 
                 <!-- CONTENT CREATION -->
-                <article
-                    class="wp-cat-card"
-                    role="button"
-                    tabindex="0"
-                    aria-expanded="false"
-                    aria-controls="panel-content"
-                    id="card-content"
-                >
+                <a class="wp-cat-card" href="content-creation.html">
                     <div class="wp-cat-illus">
                         <img
                             src="./assets/camera%20icon.png"
@@ -80,48 +73,12 @@
                             loading="eager"
                         >
                     </div>
-
                     <span class="wp-cat-label">Content Creation</span>
-
-                    <div class="wp-cat-toggle" aria-hidden="true">
-                        <span class="wp-cat-toggle-arrow">▾</span>
-                        <span>See projects</span>
-                    </div>
-
-                    <div class="wp-items-panel" id="panel-content" role="region" aria-label="Content creation projects">
-                        <div class="wp-items-panel-inner">
-                            <ul class="wp-items-list">
-                                <li class="wp-item">
-                                    <span class="wp-item-dot"></span>
-                                    Church Social Media Management
-                                </li>
-                                <li class="wp-item">
-                                    <span class="wp-item-dot"></span>
-                                    Short-form Reels &amp; TikToks
-                                </li>
-                                <li class="wp-item">
-                                    <span class="wp-item-dot"></span>
-                                    Brand Video Production
-                                </li>
-                                <li class="wp-item">
-                                    <span class="wp-item-dot"></span>
-                                    Product Photography &amp; Editing
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </article>
-
+                    <span class="wp-cat-cta">See projects <span aria-hidden="true">↗</span></span>
+                </a>
 
                 <!-- GRAPHIC DESIGN -->
-                <article
-                    class="wp-cat-card"
-                    role="button"
-                    tabindex="0"
-                    aria-expanded="false"
-                    aria-controls="panel-design"
-                    id="card-design"
-                >
+                <a class="wp-cat-card" href="graphic-design.html">
                     <div class="wp-cat-illus">
                         <img
                             src="./assets/graphic%20icon.png"
@@ -129,48 +86,12 @@
                             loading="eager"
                         >
                     </div>
-
                     <span class="wp-cat-label">Graphic Design</span>
-
-                    <div class="wp-cat-toggle" aria-hidden="true">
-                        <span class="wp-cat-toggle-arrow">▾</span>
-                        <span>See projects</span>
-                    </div>
-
-                    <div class="wp-items-panel" id="panel-design" role="region" aria-label="Graphic design projects">
-                        <div class="wp-items-panel-inner">
-                            <ul class="wp-items-list">
-                                <li class="wp-item">
-                                    <span class="wp-item-dot"></span>
-                                    Social Media Post Design
-                                </li>
-                                <li class="wp-item">
-                                    <span class="wp-item-dot"></span>
-                                    Brand Identity &amp; Logos
-                                </li>
-                                <li class="wp-item">
-                                    <span class="wp-item-dot"></span>
-                                    Flyers &amp; Print Material
-                                </li>
-                                <li class="wp-item">
-                                    <span class="wp-item-dot"></span>
-                                    Canva Templates &amp; Decks
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </article>
-
+                    <span class="wp-cat-cta">See projects <span aria-hidden="true">↗</span></span>
+                </a>
 
                 <!-- SOCIAL MEDIA -->
-                <article
-                    class="wp-cat-card"
-                    role="button"
-                    tabindex="0"
-                    aria-expanded="false"
-                    aria-controls="panel-social"
-                    id="card-social"
-                >
+                <a class="wp-cat-card" href="social-media.html">
                     <div class="wp-cat-illus">
                         <img
                             src="./assets/social-media%20icon.png"
@@ -178,37 +99,9 @@
                             loading="eager"
                         >
                     </div>
-
                     <span class="wp-cat-label">Social Media</span>
-
-                    <div class="wp-cat-toggle" aria-hidden="true">
-                        <span class="wp-cat-toggle-arrow">▾</span>
-                        <span>See projects</span>
-                    </div>
-
-                    <div class="wp-items-panel" id="panel-social" role="region" aria-label="Social media projects">
-                        <div class="wp-items-panel-inner">
-                            <ul class="wp-items-list">
-                                <li class="wp-item">
-                                    <span class="wp-item-dot"></span>
-                                    Account Strategy &amp; Growth
-                                </li>
-                                <li class="wp-item">
-                                    <span class="wp-item-dot"></span>
-                                    Content Calendars &amp; Planning
-                                </li>
-                                <li class="wp-item">
-                                    <span class="wp-item-dot"></span>
-                                    Community Management
-                                </li>
-                                <li class="wp-item">
-                                    <span class="wp-item-dot"></span>
-                                    Paid Ads &amp; Campaign Work
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </article>
+                    <span class="wp-cat-cta">See projects <span aria-hidden="true">↗</span></span>
+                </a>
 
             </div>
 
@@ -261,40 +154,6 @@
                 nav.classList.remove('is-open');
                 toggle.setAttribute('aria-expanded', 'false');
             }
-        });
-    })();
-
-    /* ── Category card expand / collapse ─────────────── */
-    (function () {
-        const cards = document.querySelectorAll('.wp-cat-card');
-
-        cards.forEach(card => {
-            function toggle(e) {
-                // Don't re-trigger if user is interacting with a link inside
-                if (e.target.closest('a')) return;
-
-                const isActive = card.classList.contains('is-active');
-
-                // Close all cards first
-                cards.forEach(c => {
-                    c.classList.remove('is-active');
-                    c.setAttribute('aria-expanded', 'false');
-                });
-
-                // Open clicked card if it wasn't already open
-                if (!isActive) {
-                    card.classList.add('is-active');
-                    card.setAttribute('aria-expanded', 'true');
-                }
-            }
-
-            card.addEventListener('click', toggle);
-            card.addEventListener('keydown', e => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    toggle(e);
-                }
-            });
         });
     })();
 

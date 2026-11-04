@@ -135,7 +135,7 @@
 
 /* Teal pill label */
 .wp-cat-label {
-    margin: 20px auto 24px;
+    margin: 20px auto 16px;
     padding: 10px 28px;
 
     background: var(--color-teal);
@@ -154,116 +154,25 @@
     box-shadow: 3px 3px var(--color-black);
 }
 
-
-/* =========================
-   4. WORK ITEMS PANEL
-   (expands below when card is active)
-   ========================= */
-
-.wp-items-panel {
-    width: 100%;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s var(--transition-smooth), padding 0.4s ease;
-}
-
-.wp-cat-card.is-active .wp-items-panel {
-    max-height: 1200px;
-    padding-bottom: 28px;
-}
-
-.wp-items-panel-inner {
-    padding: 0 20px;
-}
-
-.wp-items-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.wp-item {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 14px 16px;
-
-    background: var(--color-background);
-    border: 1.5px solid var(--color-border);
-    border-radius: 12px;
-
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--color-black);
-
-    transition: background 0.2s ease, border-color 0.2s ease;
-}
-
-.wp-item:hover {
-    background: var(--color-yellow);
-    border-color: var(--color-black);
-}
-
-.wp-item-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--color-teal);
-    flex-shrink: 0;
-}
-
-/* Expand/collapse arrow on card */
-.wp-cat-toggle {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 0 0 20px;
-
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--color-text-muted);
-}
-
-.wp-cat-toggle-arrow {
-    display: inline-block;
-    font-size: 0.9rem;
-    transition: transform 0.35s var(--transition-smooth);
-}
-
-.wp-cat-card.is-active .wp-cat-toggle-arrow {
-    transform: rotate(180deg);
-}
-
-
-/* =========================
-   5. COMING SOON BADGE
-   ========================= */
-
-.wp-soon {
+/* "See projects ↗" link at the bottom of each card */
+.wp-cat-cta {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 5px 12px;
-    border: 1.5px solid var(--color-border);
-    border-radius: 999px;
-    background: var(--color-background);
-    font-size: 0.7rem;
+    margin-bottom: 24px;
+
+    font-size: 0.82rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--color-text-muted);
+
+    transition: color 0.2s ease, gap 0.25s var(--transition-smooth);
 }
 
-.wp-soon-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--color-yellow);
+.wp-cat-card:hover .wp-cat-cta {
+    color: var(--color-teal-dark);
+    gap: 10px;
 }
 
 
@@ -352,8 +261,7 @@
 
 
 /* =========================
-   7. REVEAL ANIMATIONS
-   (reuses .reveal / .is-visible from style.css)
+   4. REVEAL ANIMATIONS
    ========================= */
 
 .wp-cat-card {
