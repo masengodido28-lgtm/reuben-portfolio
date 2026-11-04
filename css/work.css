@@ -1,0 +1,400 @@
+/* =========================================================
+   WORK PAGE — css/work.css
+   Mobile-first. Breakpoints: 600px (tablet), 900px (desktop).
+   Relies on custom properties from style.css.
+   ========================================================= */
+
+
+/* =========================
+   1. PAGE HERO
+   ========================= */
+
+.wp-hero {
+    padding-block: clamp(56px, 9vw, 100px) clamp(32px, 5vw, 56px);
+    text-align: center;
+}
+
+.wp-hero-title {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(2rem, 7vw, 3.8rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin: 0 0 20px;
+
+    /* Outlined stroke effect matching about page titles */
+    -webkit-text-stroke: 2px currentColor;
+    paint-order: stroke fill;
+    color: var(--color-yellow);
+}
+
+.wp-hero-title em {
+    font-style: normal;
+    color: var(--color-teal);
+    -webkit-text-stroke: 2px var(--color-teal);
+}
+
+.wp-hero-sub {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    color: var(--color-text-muted);
+    line-height: 1.65;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+
+/* =========================
+   2. CATEGORY GRID
+   ========================= */
+
+.wp-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: clamp(48px, 7vw, 88px);
+}
+
+@media (min-width: 600px) {
+    .wp-categories {
+        flex-direction: row;
+        align-items: stretch;
+        gap: 24px;
+    }
+}
+
+
+/* =========================
+   3. CATEGORY CARD
+   ========================= */
+
+.wp-cat-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: var(--color-white);
+    border: 2px solid var(--color-black);
+    border-radius: 24px;
+    box-shadow: var(--shadow-card);
+
+    overflow: hidden;
+    cursor: pointer;
+
+    transition:
+        transform 0.3s var(--transition-smooth),
+        box-shadow 0.3s ease;
+}
+
+.wp-cat-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 8px 10px var(--color-black);
+}
+
+.wp-cat-card:focus-visible {
+    outline: 3px solid var(--color-teal-dark);
+    outline-offset: 4px;
+}
+
+/* Illustration area */
+.wp-cat-illus {
+    width: 100%;
+    padding: clamp(28px, 5vw, 44px) clamp(24px, 4vw, 40px) clamp(20px, 3vw, 32px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-background);
+    border-bottom: 2px solid var(--color-black);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle dot-pattern background inside illustration area */
+.wp-cat-illus::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(var(--color-border) 1.2px, transparent 1.2px);
+    background-size: 18px 18px;
+    opacity: 0.6;
+}
+
+.wp-cat-illus img {
+    width: clamp(100px, 18vw, 160px);
+    height: clamp(100px, 18vw, 160px);
+    object-fit: contain;
+    display: block;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.4s var(--transition-smooth);
+}
+
+.wp-cat-card:hover .wp-cat-illus img {
+    transform: scale(1.08) rotate(-3deg);
+}
+
+/* Teal pill label */
+.wp-cat-label {
+    margin: 20px auto 24px;
+    padding: 10px 28px;
+
+    background: var(--color-teal);
+    color: var(--color-white);
+
+    border: 2px solid var(--color-black);
+    border-radius: 999px;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(0.82rem, 1.5vw, 0.95rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-align: center;
+    white-space: nowrap;
+
+    box-shadow: 3px 3px var(--color-black);
+}
+
+
+/* =========================
+   4. WORK ITEMS PANEL
+   (expands below when card is active)
+   ========================= */
+
+.wp-items-panel {
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s var(--transition-smooth), padding 0.4s ease;
+}
+
+.wp-cat-card.is-active .wp-items-panel {
+    max-height: 1200px;
+    padding-bottom: 28px;
+}
+
+.wp-items-panel-inner {
+    padding: 0 20px;
+}
+
+.wp-items-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.wp-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+
+    background: var(--color-background);
+    border: 1.5px solid var(--color-border);
+    border-radius: 12px;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-black);
+
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.wp-item:hover {
+    background: var(--color-yellow);
+    border-color: var(--color-black);
+}
+
+.wp-item-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-teal);
+    flex-shrink: 0;
+}
+
+/* Expand/collapse arrow on card */
+.wp-cat-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 0 20px;
+
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.wp-cat-toggle-arrow {
+    display: inline-block;
+    font-size: 0.9rem;
+    transition: transform 0.35s var(--transition-smooth);
+}
+
+.wp-cat-card.is-active .wp-cat-toggle-arrow {
+    transform: rotate(180deg);
+}
+
+
+/* =========================
+   5. COMING SOON BADGE
+   ========================= */
+
+.wp-soon {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border: 1.5px solid var(--color-border);
+    border-radius: 999px;
+    background: var(--color-background);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.wp-soon-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-yellow);
+}
+
+
+/* =========================
+   6. CTA
+   ========================= */
+
+.wp-cta {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    text-align: center;
+    padding: clamp(52px, 8vw, 96px) clamp(24px, 5vw, 60px);
+    margin-bottom: clamp(52px, 8vw, 96px);
+
+    border: 2px solid var(--color-black);
+    border-radius: 28px;
+    background: var(--color-black);
+    color: var(--color-white);
+    box-shadow: 8px 8px var(--color-yellow);
+}
+
+.wp-cta::before {
+    content: "";
+    position: absolute;
+    inset: -40px;
+    z-index: -1;
+    background: radial-gradient(
+        ellipse 65% 50% at 50% 110%,
+        rgba(0, 158, 174, 0.35) 0%,
+        rgba(243, 184, 47, 0.12) 50%,
+        transparent 70%
+    );
+    animation: cta-glow 6s ease-in-out infinite alternate;
+}
+
+.wp-cta-spark {
+    position: absolute;
+    top: 24px;
+    right: 7%;
+    color: var(--color-yellow);
+    font-size: 3.8rem;
+    line-height: 1;
+    animation: spark-spin 12s linear infinite;
+    transform-origin: center;
+}
+
+.wp-cta .eyebrow {
+    justify-content: center;
+    color: var(--color-teal);
+    letter-spacing: 0.18em;
+    margin-bottom: 20px;
+}
+
+.wp-cta h2 {
+    color: var(--color-white);
+    font-size: clamp(2rem, 4.5vw, 3.8rem);
+    margin-bottom: 16px;
+}
+
+.wp-cta h2 span {
+    color: var(--color-yellow);
+}
+
+.wp-cta p {
+    color: rgba(255,255,255,0.72);
+    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+    max-width: 480px;
+    margin: 0 auto 32px;
+    line-height: 1.65;
+}
+
+.wp-cta-note {
+    display: inline-block;
+    margin-top: 28px;
+    padding: 7px 16px;
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 999px;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: rgba(255,255,255,0.45);
+    background: rgba(255,255,255,0.05);
+}
+
+
+/* =========================
+   7. REVEAL ANIMATIONS
+   (reuses .reveal / .is-visible from style.css)
+   ========================= */
+
+.wp-cat-card {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+        opacity 0.65s var(--transition-smooth),
+        transform 0.65s var(--transition-smooth),
+        box-shadow 0.3s ease;
+}
+
+.wp-cat-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.wp-cat-card:nth-child(2) { transition-delay: 0.1s; }
+.wp-cat-card:nth-child(3) { transition-delay: 0.2s; }
+
+
+/* =========================
+   8. RESPONSIVE
+   ========================= */
+
+@media (min-width: 600px) {
+    .wp-cat-illus img {
+        width: clamp(110px, 14vw, 160px);
+        height: clamp(110px, 14vw, 160px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .wp-cat-card,
+    .wp-cat-illus img,
+    .wp-items-panel,
+    .wp-cat-toggle-arrow {
+        transition: none;
+    }
+
+    .wp-cta::before,
+    .wp-cta-spark {
+        animation: none;
+    }
+}
