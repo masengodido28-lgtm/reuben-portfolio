@@ -1,178 +1,290 @@
+
 /* =========================================================
-   ABOUT PAGE — js/about.js
-   Handles the image carousels for the Tools and
-   Certifications sections.
-   ========================================================= */
+   ABOUT PAGE JAVASCRIPT
+   Handles:
+   1. Automatic carousels
+   2. Scroll reveal animations
+========================================================= */
 
-(function () {
-    'use strict';
 
-    /* ── Helpers ─────────────────────────────────────────── */
+/* =========================================================
+   1. AUTOMATIC CAROUSEL
+========================================================= */
 
-    /**
-     * Returns the number of fully visible slides at the current
-     * viewport width, matching the CSS breakpoints in about.css.
-     */
-    function visibleCount() {
-        const w = window.innerWidth;
-        if (w <= 480) return 1;
-        if (w <= 760) return 2;
-        if (w <= 900) return 3;
+function initCarousel(section) {
+
+    const track = section.querySelector(".carousel-track");
+    const clip = section.querySelector(".carousel-track-clip");
+
+    if (!track || !clip) return;
+
+    // Original slides before creating the looping copies
+    const originalSlides = Array.from(track.children);
+
+    if (originalSlides.length < 2) return;
+
+    const gap = 20;
+    const speed = 3000;
+
+    let currentIndex = 0;
+    let visibleSlides = 4;
+    let slideWidth = 0;
+    let autoplayInterval = null;
+    let isPaused = false;
+
+    // Save the original slides so we can rebuild on resize
+    const slides = originalSlides;
+
+    // Work out how many slides should be visible
+    function getVisibleSlides() {
+
+        if (window.innerWidth <= 480) {
+            return 1;
+        }
+
+        if (window.innerWidth <= 760) {
+            return 2;
+        }
+
+        if (window.innerWidth <= 900) {
+            return 3;
+        }
+
         return 4;
     }
 
-    /**
-     * Builds and wires up a carousel.
-     *
-     * @param {HTMLElement} section  - The <section> containing the carousel
-     * @param {string}      trackSel - Selector for .carousel-track inside section
-     */
-    function initCarousel(section) {
-        const track    = section.querySelector('.carousel-track');
-        const prevBtn  = section.querySelector('.carousel-btn-prev');
-        const nextBtn  = section.querySelector('.carousel-btn-next');
-        const dotsWrap = section.querySelector('.carousel-dots');
 
-        if (!track || !prevBtn || !nextBtn) return;
+    // Set up the slide widths and create copies for looping
+    function setupCarousel() {
 
-        const slides = Array.from(track.children);
-        const total  = slides.length;
-        let current  = 0;
-        let visible  = visibleCount();
-
-        /* ── Dot generation ────────────────────────────────── */
-        function buildDots() {
-            if (!dotsWrap) return;
-            dotsWrap.innerHTML = '';
-            const pages = Math.ceil(total / visible);
-            for (let i = 0; i < pages; i++) {
-                const dot = document.createElement('button');
-                dot.className = 'carousel-dot' + (i === 0 ? ' is-active' : '');
-                dot.setAttribute('aria-label', 'Go to page ' + (i + 1));
-                dot.addEventListener('click', () => goTo(i * visible));
-                dotsWrap.appendChild(dot);
-            }
-        }
-
-        /* ── Slide sizing ──────────────────────────────────── */
-        function resizeSlides() {
-            visible = visibleCount();
-            const gap        = 20; // px, must match CSS gap
-            const clipWidth  = track.parentElement.offsetWidth;
-            const slideWidth = (clipWidth - gap * (visible - 1)) / visible;
-
-            slides.forEach(s => {
-                s.style.flex = `0 0 ${slideWidth}px`;
-            });
-
-            // Rebuild track width so translate works predictably
-            track.style.width = (slideWidth * total + gap * (total - 1)) + 'px';
-        }
-
-        /* ── Navigation ────────────────────────────────────── */
-        function goTo(index) {
-            visible = visibleCount();
-            const maxIndex = total - visible;
-            current = Math.max(0, Math.min(index, maxIndex));
-
-            const gap       = 20;
-            const clipWidth = track.parentElement.offsetWidth;
-            const slideW    = (clipWidth - gap * (visible - 1)) / visible;
-            const offset    = current * (slideW + gap);
-
-            track.style.transform = `translateX(-${offset}px)`;
-
-            // Button states
-            prevBtn.disabled = current === 0;
-            nextBtn.disabled = current >= maxIndex;
-
-            // Dot states
-            if (dotsWrap) {
-                const activePage = Math.floor(current / visible);
-                Array.from(dotsWrap.children).forEach((dot, i) => {
-                    dot.classList.toggle('is-active', i === activePage);
-                });
-            }
-        }
-
-        /* ── Touch / swipe ─────────────────────────────────── */
-        let touchStartX = 0;
-        let touchDeltaX = 0;
-
-        track.addEventListener('touchstart', e => {
-            touchStartX = e.touches[0].clientX;
-            touchDeltaX = 0;
-        }, { passive: true });
-
-        track.addEventListener('touchmove', e => {
-            touchDeltaX = e.touches[0].clientX - touchStartX;
-        }, { passive: true });
-
-        track.addEventListener('touchend', () => {
-            if (Math.abs(touchDeltaX) > 40) {
-                touchDeltaX < 0 ? goTo(current + visible) : goTo(current - visible);
-            }
-            touchDeltaX = 0;
+        // Remove old cloned slides before rebuilding
+        track.querySelectorAll(".carousel-clone").forEach(clone => {
+            clone.remove();
         });
 
-        /* ── Button listeners ──────────────────────────────── */
-        prevBtn.addEventListener('click', () => goTo(current - visible));
-        nextBtn.addEventListener('click', () => goTo(current + visible));
-
-        /* ── Keyboard on the section ───────────────────────── */
-        section.addEventListener('keydown', e => {
-            if (e.key === 'ArrowLeft')  { e.preventDefault(); goTo(current - visible); }
-            if (e.key === 'ArrowRight') { e.preventDefault(); goTo(current + visible); }
-        });
-
-        /* ── Resize handler ────────────────────────────────── */
-        let rzTimer;
-        window.addEventListener('resize', () => {
-            clearTimeout(rzTimer);
-            rzTimer = setTimeout(() => {
-                resizeSlides();
-                buildDots();
-                goTo(0); // reset to start on resize — keeps layout clean
-            }, 150);
-        });
-
-        /* ── Init ──────────────────────────────────────────── */
-        resizeSlides();
-        buildDots();
-        goTo(0);
-    }
-
-    /* ── Scroll-reveal (mirrors index.html inline script) ── */
-    function initReveal() {
-        const singles  = document.querySelectorAll('.reveal');
-        const staggers = document.querySelectorAll('.reveal-stagger');
-
-        const obs = new IntersectionObserver(
-            entries => {
-                entries.forEach(e => {
-                    if (e.isIntersecting) {
-                        e.target.classList.add('is-visible');
-                        obs.unobserve(e.target);
-                    }
-                });
-            },
-            { threshold: 0.08 }
+        visibleSlides = Math.min(
+            getVisibleSlides(),
+            slides.length
         );
 
-        singles.forEach(el  => obs.observe(el));
-        staggers.forEach(el => obs.observe(el));
+        const clipWidth = clip.clientWidth;
+
+        slideWidth =
+            (clipWidth - gap * (visibleSlides - 1)) / visibleSlides;
+
+        // Apply consistent widths to original slides
+        slides.forEach(slide => {
+            slide.style.flex = `0 0 ${slideWidth}px`;
+        });
+
+        // Copy enough slides to make the loop appear continuous
+        slides.slice(0, visibleSlides).forEach(slide => {
+
+            const clone = slide.cloneNode(true);
+
+            clone.classList.add("carousel-clone");
+            clone.setAttribute("aria-hidden", "true");
+
+            // Prevent cloned images from being announced
+            clone.querySelectorAll("img").forEach(image => {
+                image.alt = "";
+            });
+
+            // Prevent cloned content from receiving keyboard focus
+            clone.querySelectorAll("a, button, input, select, textarea").forEach(element => {
+                element.setAttribute("tabindex", "-1");
+            });
+
+            clone.style.flex = `0 0 ${slideWidth}px`;
+
+            track.appendChild(clone);
+        });
+
+        // Reset position without animation after resizing
+        currentIndex = 0;
+        track.style.transition = "none";
+        moveCarousel();
+
+        // Allow the browser to apply the reset before restoring transition
+        requestAnimationFrame(() => {
+            track.style.transition = "";
+        });
     }
 
-    /* ── Boot ──────────────────────────────────────────────── */
-    document.addEventListener('DOMContentLoaded', () => {
-        // Wire up both carousels by their section id
-        const toolsSection = document.getElementById('tools');
-        const certsSection = document.getElementById('certificates');
 
-        if (toolsSection) initCarousel(toolsSection);
-        if (certsSection) initCarousel(certsSection);
+    // Move the carousel to the current slide
+    function moveCarousel() {
 
-        initReveal();
+        const distance = currentIndex * (slideWidth + gap);
+
+        track.style.transform = `translateX(-${distance}px)`;
+    }
+
+
+    // Move forward by one slide
+    function nextSlide() {
+
+        if (isPaused) return;
+
+        currentIndex++;
+
+        moveCarousel();
+
+        // When the original slides finish, reset to the beginning
+        if (currentIndex === slides.length) {
+
+            setTimeout(() => {
+
+                currentIndex = 0;
+
+                track.style.transition = "none";
+
+                moveCarousel();
+
+                requestAnimationFrame(() => {
+                    track.style.transition = "";
+                });
+
+            }, 700);
+        }
+    }
+
+
+    // Start automatic movement
+    function startAutoplay() {
+
+        stopAutoplay();
+
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            return;
+        }
+
+        autoplayInterval = setInterval(nextSlide, speed);
+    }
+
+
+    // Stop automatic movement
+    function stopAutoplay() {
+
+        if (autoplayInterval) {
+            clearInterval(autoplayInterval);
+            autoplayInterval = null;
+        }
+    }
+
+
+    // Pause when the visitor interacts with the carousel
+    clip.addEventListener("mouseenter", () => {
+        isPaused = true;
     });
 
-})();
+    clip.addEventListener("mouseleave", () => {
+        isPaused = false;
+    });
+
+    // Also pause when using keyboard navigation
+    clip.addEventListener("focusin", () => {
+        isPaused = true;
+    });
+
+    clip.addEventListener("focusout", () => {
+        isPaused = false;
+    });
+
+
+    // Recalculate slide sizes when the screen changes
+    let resizeTimeout;
+
+    window.addEventListener("resize", () => {
+
+        clearTimeout(resizeTimeout);
+
+        resizeTimeout = setTimeout(() => {
+            setupCarousel();
+        }, 150);
+
+    });
+
+
+    // Initial setup
+    setupCarousel();
+    startAutoplay();
+
+    // Stop moving when the browser tab is hidden
+    document.addEventListener("visibilitychange", () => {
+
+        if (document.hidden) {
+            stopAutoplay();
+        } else {
+            startAutoplay();
+        }
+
+    });
+
+}
+
+
+/* =========================================================
+   2. SCROLL REVEAL
+========================================================= */
+
+function initScrollReveal() {
+
+    const revealElements = document.querySelectorAll(
+        ".reveal, .reveal-stagger"
+    );
+
+    if (!("IntersectionObserver" in window)) {
+
+        revealElements.forEach(element => {
+            element.classList.add("is-visible");
+        });
+
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries, observer) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("is-visible");
+
+                observer.unobserve(entry.target);
+            }
+
+        });
+
+    }, {
+        threshold: 0.15
+    });
+
+
+    revealElements.forEach(element => {
+        observer.observe(element);
+    });
+
+}
+
+
+/* =========================================================
+   3. INITIALISE ABOUT PAGE
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const toolsCarousel = document.querySelector("#tools");
+    const certificatesCarousel = document.querySelector("#certificates");
+
+    if (toolsCarousel) {
+        initCarousel(toolsCarousel);
+    }
+
+    if (certificatesCarousel) {
+        initCarousel(certificatesCarousel);
+    }
+
+    initScrollReveal();
+
+});

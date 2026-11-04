@@ -434,3 +434,126 @@
         height: 56px;
     }
 }
+
+
+/* =========================================================
+   IMAGE ASSETS
+========================================================= */
+
+/* Tool logos */
+.ap-tool-logo {
+    width: 64px;
+    height: 64px;
+    display: block;
+    object-fit: contain;
+    flex-shrink: 0;
+    border-radius: 12px;
+}
+
+/* Certificate images */
+.ap-cert-image {
+    width: 100%;
+    max-width: 180px;
+    height: 115px;
+    display: block;
+    object-fit: contain;
+    margin: 0 auto 12px;
+}
+
+/* Education logos */
+.ap-edu-image {
+    display: block;
+    width: 100%;
+    max-width: 180px;
+    max-height: 85px;
+    object-fit: contain;
+}
+
+/* Keep education images centred */
+.ap-edu-logo-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =========================================================
+   AUTOMATIC CAROUSELS
+========================================================= */
+
+/* The visible window */
+.carousel-track-clip {
+    width: 100%;
+    overflow: hidden;
+}
+
+/* The moving row */
+.carousel-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    transition: transform 650ms ease-in-out;
+    will-change: transform;
+}
+
+/* Individual tool slides */
+.tool-slide {
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    text-align: center;
+    min-width: 0;
+}
+
+/* Individual certificate slides */
+.cert-slide {
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    min-width: 0;
+    text-align: center;
+}
+
+/* Image labels */
+.ap-tool-name,
+.ap-cert-name {
+    display: block;
+    text-align: center;
+    line-height: 1.4;
+}
+
+/* Hide the old arrow and dot controls */
+.carousel-controls {
+    display: none !important;
+}
+
+/* Smaller logos on mobile */
+@media (max-width: 480px) {
+    .ap-tool-logo {
+        width: 54px;
+        height: 54px;
+    }
+
+    .ap-cert-image {
+        max-width: 150px;
+        height: 100px;
+    }
+}
+
+/* Respect visitors who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .carousel-track {
+        transition: none;
+    }
+}
