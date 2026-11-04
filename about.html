@@ -17,7 +17,9 @@
 
     <header class="site-header">
         <a class="brand" href="index.html" aria-label="Reuben Lotsima home">
-            <span class="brand-mark" aria-hidden="true">RL<span>®</span></span>
+            <span class="brand-logo-wrap" aria-hidden="true">
+                <img class="brand-logo" src="./assets/logo.png" alt="" width="72" height="72">
+            </span>
             <span class="brand-name">REUBEN<br>LOTSIMA</span>
         </a>
         <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
@@ -94,45 +96,69 @@
             <h2 class="ap-section-title ap-title-yellow">A Few of the Tools I Use to Create the Magic</h2>
 
             <div class="carousel-wrapper reveal">
-                <div class="carousel-track-clip" role="region" aria-label="Tools I use" aria-roledescription="carousel">
-                    <ul class="carousel-track" role="list">
-
-                        <li class="tool-slide">
-                            <img src="./assets/canva-tool.jpg" alt="Canva" class="ap-tool-img" loading="lazy">
-                            <span class="ap-tool-name">Canva</span>
-                        </li>
-                        <li class="tool-slide">
-                            <img src="./assets/meta-tool.jpg" alt="Meta Business Suite" class="ap-tool-img" loading="lazy">
-                            <span class="ap-tool-name">Meta Business Suite</span>
-                        </li>
-                        <li class="tool-slide">
-                            <img src="./assets/davinci-tool.jpg" alt="DaVinci Resolve" class="ap-tool-img" loading="lazy">
-                            <span class="ap-tool-name">DaVinci Resolve</span>
-                        </li>
-                        <li class="tool-slide">
-                            <img src="./assets/adobe-tool.jpg" alt="Adobe Premiere Pro" class="ap-tool-img" loading="lazy">
-                            <span class="ap-tool-name">Adobe Premiere Pro</span>
-                        </li>
-                        <li class="tool-slide">
-                            <img src="./assets/hubspot-tool.jpg" alt="HubSpot" class="ap-tool-img" loading="lazy">
-                            <span class="ap-tool-name">HubSpot</span>
-                        </li>
-                        <li class="tool-slide">
-                            <img src="./assets/capcut-tool.jpg" alt="CapCut" class="ap-tool-img" loading="lazy">
-                            <span class="ap-tool-name">CapCut</span>
-                        </li>
-                        <li class="tool-slide">
-                            <img src="./assets/chat-tool.jpg" alt="ChatGPT" class="ap-tool-img" loading="lazy">
-                            <span class="ap-tool-name">ChatGPT</span>
-                        </li>
-
-                    </ul>
-                </div>
-
-                <div class="carousel-controls" aria-label="Tools carousel controls">
-                    <button class="carousel-btn carousel-btn-prev" aria-label="Previous tools">&#8592;</button>
-                    <div class="carousel-dots" role="tablist" aria-label="Tools pages"></div>
-                    <button class="carousel-btn carousel-btn-next" aria-label="Next tools">&#8594;</button>
+                <div class="carousel-track-clip" role="region" aria-label="Tools I use">
+                    <div class="carousel-track">
+                        <ul class="carousel-group" role="list">
+                            <li class="tool-slide">
+                                <img src="./assets/canva-tool.jpg" alt="Canva" class="ap-tool-img" loading="lazy">
+                                <span class="ap-tool-name">Canva</span>
+                            </li>
+                            <li class="tool-slide">
+                                <img src="./assets/meta-tool.jpg" alt="Meta Business Suite" class="ap-tool-img" loading="lazy">
+                                <span class="ap-tool-name">Meta Business Suite</span>
+                            </li>
+                            <li class="tool-slide">
+                                <img src="./assets/davinci-tool.jpg" alt="DaVinci Resolve" class="ap-tool-img" loading="lazy">
+                                <span class="ap-tool-name">DaVinci Resolve</span>
+                            </li>
+                            <li class="tool-slide">
+                                <img src="./assets/adobe-tool.jpg" alt="Adobe Premiere Pro" class="ap-tool-img" loading="lazy">
+                                <span class="ap-tool-name">Adobe Premiere Pro</span>
+                            </li>
+                            <li class="tool-slide">
+                                <img src="./assets/hubspot-tool.jpg" alt="HubSpot" class="ap-tool-img" loading="lazy">
+                                <span class="ap-tool-name">HubSpot</span>
+                            </li>
+                            <li class="tool-slide">
+                                <img src="./assets/capcut-tool.jpg" alt="CapCut" class="ap-tool-img" loading="lazy">
+                                <span class="ap-tool-name">CapCut</span>
+                            </li>
+                            <li class="tool-slide">
+                                <img src="./assets/chat-tool.jpg" alt="ChatGPT" class="ap-tool-img" loading="lazy">
+                                <span class="ap-tool-name">ChatGPT</span>
+                            </li>
+                        </ul>
+                        <ul class="carousel-group" aria-hidden="true">
+                            <li class="tool-slide">
+                                <img src="./assets/canva-tool.jpg" alt="" class="ap-tool-img" loading="lazy">
+                                <span class="ap-tool-name">Canva</span>
+                            </li>
+                            <li class="tool-slide">
+                                <img src="./assets/meta-tool.jpg" alt="" class="ap-tool-img" loading="lazy">
+                                <span class="ap-tool-name">Meta Business Suite</span>
+                            </li>
+                            <li class="tool-slide">
+                                <img src="./assets/davinci-tool.jpg" alt="" class="ap-tool-img" loading="lazy">
+                                <span class="ap-tool-name">DaVinci Resolve</span>
+                            </li>
+                            <li class="tool-slide">
+                                <img src="./assets/adobe-tool.jpg" alt="" class="ap-tool-img" loading="lazy">
+                                <span class="ap-tool-name">Adobe Premiere Pro</span>
+                            </li>
+                            <li class="tool-slide">
+                                <img src="./assets/hubspot-tool.jpg" alt="" class="ap-tool-img" loading="lazy">
+                                <span class="ap-tool-name">HubSpot</span>
+                            </li>
+                            <li class="tool-slide">
+                                <img src="./assets/capcut-tool.jpg" alt="" class="ap-tool-img" loading="lazy">
+                                <span class="ap-tool-name">CapCut</span>
+                            </li>
+                            <li class="tool-slide">
+                                <img src="./assets/chat-tool.jpg" alt="" class="ap-tool-img" loading="lazy">
+                                <span class="ap-tool-name">ChatGPT</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
@@ -186,36 +212,31 @@
             <h2 class="ap-section-title ap-title-yellow">Some of the Platform Training and Certifications I Have Completed</h2>
 
             <div class="carousel-wrapper reveal">
-                <div class="carousel-track-clip" role="region" aria-label="Certifications" aria-roledescription="carousel">
-                    <ul class="carousel-track" role="list">
-
-                        <li class="cert-slide">
-                            <img src="./assets/cert-img1.jpg" alt="Certification 1" class="ap-cert-img" loading="lazy">
-                        </li>
-                        <li class="cert-slide">
-                            <img src="./assets/cert-img2.jpg" alt="Certification 2" class="ap-cert-img" loading="lazy">
-                        </li>
-                        <li class="cert-slide">
-                            <img src="./assets/cert-img3.jpg" alt="Certification 3" class="ap-cert-img" loading="lazy">
-                        </li>
-                        <!-- Duplicate slides for seamless looping -->
-                        <li class="cert-slide" aria-hidden="true">
-                            <img src="./assets/cert-img1.jpg" alt="" class="ap-cert-img" loading="lazy">
-                        </li>
-                        <li class="cert-slide" aria-hidden="true">
-                            <img src="./assets/cert-img2.jpg" alt="" class="ap-cert-img" loading="lazy">
-                        </li>
-                        <li class="cert-slide" aria-hidden="true">
-                            <img src="./assets/cert-img3.jpg" alt="" class="ap-cert-img" loading="lazy">
-                        </li>
-
-                    </ul>
-                </div>
-
-                <div class="carousel-controls" aria-label="Certifications carousel controls">
-                    <button class="carousel-btn carousel-btn-prev" aria-label="Previous certifications">&#8592;</button>
-                    <div class="carousel-dots" role="tablist" aria-label="Certification pages"></div>
-                    <button class="carousel-btn carousel-btn-next" aria-label="Next certifications">&#8594;</button>
+                <div class="carousel-track-clip" role="region" aria-label="Certifications">
+                    <div class="carousel-track carousel-track-slow">
+                        <ul class="carousel-group" role="list">
+                            <li class="cert-slide">
+                                <img src="./assets/cert-img1.jpg" alt="Certification 1" class="ap-cert-img" loading="lazy">
+                            </li>
+                            <li class="cert-slide">
+                                <img src="./assets/cert-img2.jpg" alt="Certification 2" class="ap-cert-img" loading="lazy">
+                            </li>
+                            <li class="cert-slide">
+                                <img src="./assets/cert-img3.jpg" alt="Certification 3" class="ap-cert-img" loading="lazy">
+                            </li>
+                        </ul>
+                        <ul class="carousel-group" aria-hidden="true">
+                            <li class="cert-slide">
+                                <img src="./assets/cert-img1.jpg" alt="" class="ap-cert-img" loading="lazy">
+                            </li>
+                            <li class="cert-slide">
+                                <img src="./assets/cert-img2.jpg" alt="" class="ap-cert-img" loading="lazy">
+                            </li>
+                            <li class="cert-slide">
+                                <img src="./assets/cert-img3.jpg" alt="" class="ap-cert-img" loading="lazy">
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
@@ -234,7 +255,9 @@
 
     <footer class="site-footer">
         <a class="brand footer-brand" href="index.html" aria-label="Back to home">
-            <span class="brand-mark" aria-hidden="true">RL<span>®</span></span>
+            <span class="brand-logo-wrap" aria-hidden="true">
+                <img class="brand-logo" src="./assets/logo.png" alt="" width="56" height="56">
+            </span>
             <span class="brand-name">REUBEN<br>LOTSIMA</span>
         </a>
         <p>Creative ideas, made real. <span>© 2026 Reuben Lotsima</span></p>

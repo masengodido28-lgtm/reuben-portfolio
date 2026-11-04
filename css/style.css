@@ -213,39 +213,28 @@ p {
 .brand {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
 
     flex-shrink: 0;
 }
 
-.brand-mark {
-    position: relative;
-
-    display: grid;
-    place-items: center;
-
-    width: 48px;
-    height: 48px;
-
-    border: 3px solid var(--color-black);
+.brand-logo-wrap {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    overflow: hidden;
     border-radius: 14px;
-
-    background: var(--color-teal);
-
-    font-size: 1.45rem;
-    font-weight: 700;
-
-    transform: rotate(-5deg);
-
-    box-shadow: 3px 3px var(--color-yellow);
+    background: #000;
+    border: 2px solid var(--color-black);
 }
 
-.brand-mark span {
-    position: absolute;
-    top: 1px;
-    right: 3px;
-
-    font: 700 0.55rem "DM Sans";
+.brand-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 46%;
+    display: block;
+    transform: scale(1.42);
 }
 
 .brand-name {
@@ -1082,11 +1071,10 @@ p {
     margin-left: 12px;
 }
 
-.footer-brand .brand-mark {
-    width: 40px;
-    height: 40px;
-
-    font-size: 1.2rem;
+.footer-brand .brand-logo-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
 }
 
 .back-top {
@@ -1254,6 +1242,12 @@ p {
 .brand {
     order: 1;
     flex: 1;
+}
+
+.brand-logo-wrap {
+    width: 52px;
+    height: 52px;
+    border-radius: 13px;
 }
 
 .header-cta {
@@ -1433,6 +1427,12 @@ p {
     .site-header {
         flex-wrap: nowrap;
         padding: 20px 0;
+    }
+
+    .brand-logo-wrap {
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
     }
 
     .section-wrap,
