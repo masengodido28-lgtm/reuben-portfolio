@@ -238,7 +238,7 @@
     margin: 0 0 6px;
     line-height: 1.25;
     transform: translateY(8px);
-    transition: transform 0.35s var(--transition-smooth));
+    transition: transform 0.35s var(--transition-smooth);
 }
 
 .gd-card:hover .gd-card-title {
