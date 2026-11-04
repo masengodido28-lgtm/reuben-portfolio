@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#fbfaf6">
-    <meta name="description" content="Graphic design work by Reuben Lotsima — brand identities, social posts, and print material.">
+    <meta name="description" content="Graphic design work by Reuben Lotsima — brand identities, social posts, posters, and logos.">
     <title>Graphic Design — Reuben Lotsima</title>
     <link rel="icon" type="image/png" href="./assets/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/graphic-design.css">
+    <script src="js/theme.js"></script>
 </head>
 <body>
 
@@ -24,10 +26,14 @@
         <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
             <span></span><span></span><span></span>
         </button>
+        <button class="theme-toggle" aria-label="Switch to dark mode" title="Toggle dark/light mode">
+            <span class="icon-moon" aria-hidden="true">🌙</span>
+            <span class="icon-sun"  aria-hidden="true">☀️</span>
+        </button>
         <nav class="main-nav" id="main-nav" aria-label="Main navigation">
             <a href="index.html">Home</a>
             <a href="about.html">About Me</a>
-            <a href="work.html">Explore My Work</a>
+            <a href="work.html" aria-current="page">Explore My Work</a>
             <a class="nav-contact" href="contact.html">Get In Touch <span aria-hidden="true">↗</span></a>
         </nav>
         <a class="header-cta" href="contact.html">Let's make something <span aria-hidden="true">↗</span></a>
@@ -35,18 +41,230 @@
 
     <main>
 
-        <section class="section-wrap section-pad" style="text-align:center; padding-top: clamp(80px,12vw,140px);">
-            <p class="eyebrow" style="justify-content:center;">
-                <span class="eyebrow-dot"></span>
-                GRAPHIC DESIGN
+        <!-- ================================================
+             HERO
+        ================================================ -->
+        <section class="gd-hero section-wrap">
+
+            <p class="gd-breadcrumb">
+                <a href="work.html">Work</a>
+                <span class="gd-breadcrumb-sep">›</span>
+                <span>Graphic Design</span>
             </p>
-            <h1 style="font-size: clamp(2.2rem,6vw,4.5rem); letter-spacing:-0.05em; margin-bottom:20px;">
-                Coming <span class="highlight">soon.</span>
+
+            <h1 class="gd-hero-title">
+                Graphic <em>Design.</em>
             </h1>
-            <p style="color:var(--color-text-muted); max-width:480px; margin:0 auto 36px; font-size:1.05rem; line-height:1.7;">
-                This page is being built. In the meantime, feel free to get in touch and ask about any graphic design projects directly.
+
+            <p class="gd-hero-sub">
+                Posters, brand campaigns, social posts, logos — each piece built with intention and made to stop the scroll.
             </p>
-            <a class="button button-teal" href="work.html">← Back to work</a>
+
+            <span class="gd-count">15 pieces</span>
+
+        </section>
+
+
+        <!-- ================================================
+             FILTER PILLS
+        ================================================ -->
+        <nav class="gd-filters section-wrap" aria-label="Filter designs by category">
+            <button class="gd-filter is-active" data-filter="all">All work</button>
+            <button class="gd-filter" data-filter="brand">Brand Design</button>
+            <button class="gd-filter" data-filter="social">Social Media</button>
+            <button class="gd-filter" data-filter="print">Print &amp; Posters</button>
+            <button class="gd-filter" data-filter="logo">Logos</button>
+        </nav>
+
+
+        <!-- ================================================
+             MASONRY GRID
+        ================================================ -->
+        <section class="gd-grid section-wrap" id="gallery" aria-label="Design portfolio">
+
+            <!-- iHub Africa — Recruitment Poster -->
+            <button class="gd-card" data-category="brand" data-index="0"
+                    aria-label="View: iHub Africa — Recruitment Poster">
+                <img src="./assets/design1.jpg" alt="iHub Africa recruitment poster" loading="lazy">
+                <div class="gd-card-overlay" aria-hidden="true">
+                    <p class="gd-card-title">iHub Africa — Recruitment Poster</p>
+                    <span class="gd-card-cat">Brand Design</span>
+                </div>
+            </button>
+
+            <!-- iHub Africa — Investor Campaign -->
+            <button class="gd-card" data-category="brand" data-index="1"
+                    aria-label="View: iHub Africa — Investor Campaign">
+                <img src="./assets/design3.jpg" alt="iHub Africa investor campaign banner" loading="lazy">
+                <div class="gd-card-overlay" aria-hidden="true">
+                    <p class="gd-card-title">iHub Africa — Investor Campaign</p>
+                    <span class="gd-card-cat">Brand Design</span>
+                </div>
+            </button>
+
+            <!-- The Exam That Couldn't Connect -->
+            <button class="gd-card" data-category="print" data-index="2"
+                    aria-label="View: The Exam That Couldn't Connect">
+                <img src="./assets/design4.jpg" alt="Movie poster — The Exam That Couldn't Connect" loading="lazy">
+                <div class="gd-card-overlay" aria-hidden="true">
+                    <p class="gd-card-title">The Exam That Couldn't Connect</p>
+                    <span class="gd-card-cat">Print &amp; Posters</span>
+                </div>
+            </button>
+
+            <!-- It's Okay Buddy -->
+            <button class="gd-card" data-category="social" data-index="3"
+                    aria-label="View: It's Okay Buddy">
+                <img src="./assets/design5.jpg" alt="It's Okay Buddy typographic design" loading="lazy">
+                <div class="gd-card-overlay" aria-hidden="true">
+                    <p class="gd-card-title">It's Okay Buddy</p>
+                    <span class="gd-card-cat">Social Media</span>
+                </div>
+            </button>
+
+            <!-- The Garden of Secrets -->
+            <button class="gd-card" data-category="print" data-index="4"
+                    aria-label="View: The Garden of Secrets">
+                <img src="./assets/design6.jpg" alt="Book cover — The Garden of Secrets" loading="lazy">
+                <div class="gd-card-overlay" aria-hidden="true">
+                    <p class="gd-card-title">The Garden of Secrets</p>
+                    <span class="gd-card-cat">Print &amp; Posters</span>
+                </div>
+            </button>
+
+            <!-- Conflict Resolution Roadmap -->
+            <button class="gd-card" data-category="brand" data-index="5"
+                    aria-label="View: Conflict Resolution Roadmap">
+                <img src="./assets/design7.jpg" alt="Conflict Resolution Roadmap infographic" loading="lazy">
+                <div class="gd-card-overlay" aria-hidden="true">
+                    <p class="gd-card-title">Conflict Resolution Roadmap</p>
+                    <span class="gd-card-cat">Brand Design</span>
+                </div>
+            </button>
+
+            <!-- Nike Do — Brand Post -->
+            <button class="gd-card" data-category="social" data-index="6"
+                    aria-label="View: Nike Do — Brand Post">
+                <img src="./assets/design8.png" alt="Nike Do brand social post" loading="lazy">
+                <div class="gd-card-overlay" aria-hidden="true">
+                    <p class="gd-card-title">Nike Do — Brand Post</p>
+                    <span class="gd-card-cat">Social Media</span>
+                </div>
+            </button>
+
+            <!-- Gourmet Kotaz — Delivery -->
+            <button class="gd-card" data-category="social" data-index="7"
+                    aria-label="View: Gourmet Kotaz — Delivery Campaign">
+                <img src="./assets/design9.jpg" alt="Gourmet Kotaz delivery promotion" loading="lazy">
+                <div class="gd-card-overlay" aria-hidden="true">
+                    <p class="gd-card-title">Gourmet Kotaz — Delivery</p>
+                    <span class="gd-card-cat">Social Media</span>
+                </div>
+            </button>
+
+            <!-- Garabi Jazz Band — Live Event -->
+            <button class="gd-card" data-category="social" data-index="8"
+                    aria-label="View: Garabi Jazz Band — Live Event">
+                <img src="./assets/design10.jpg" alt="Garabi Jazz Band live event poster" loading="lazy">
+                <div class="gd-card-overlay" aria-hidden="true">
+                    <p class="gd-card-title">Garabi Jazz Band — Live Event</p>
+                    <span class="gd-card-cat">Social Media</span>
+                </div>
+            </button>
+
+            <!-- Gourmet Kotaz — Bigger is Better -->
+            <button class="gd-card" data-category="social" data-index="9"
+                    aria-label="View: Gourmet Kotaz — Bigger is Better">
+                <img src="./assets/design11.jpg" alt="Gourmet Kotaz bigger is better menu post" loading="lazy">
+                <div class="gd-card-overlay" aria-hidden="true">
+                    <p class="gd-card-title">Gourmet Kotaz — Bigger is Better</p>
+                    <span class="gd-card-cat">Social Media</span>
+                </div>
+            </button>
+
+            <!-- Master Graphic Design -->
+            <button class="gd-card" data-category="brand" data-index="10"
+                    aria-label="View: Master Graphic Design — YouTube Thumbnail">
+                <img src="./assets/design12.jpg" alt="Master Graphic Design YouTube thumbnail" loading="lazy">
+                <div class="gd-card-overlay" aria-hidden="true">
+                    <p class="gd-card-title">Master Graphic Design</p>
+                    <span class="gd-card-cat">Brand Design</span>
+                </div>
+            </button>
+
+            <!-- Adonai Bookstore -->
+            <button class="gd-card" data-category="logo" data-index="11"
+                    aria-label="View: Adonai Bookstore Logo">
+                <img src="./assets/design13.jpg" alt="Adonai Bookstore logo" loading="lazy">
+                <div class="gd-card-overlay" aria-hidden="true">
+                    <p class="gd-card-title">Adonai Bookstore</p>
+                    <span class="gd-card-cat">Logos</span>
+                </div>
+            </button>
+
+            <!-- NFE Logo -->
+            <button class="gd-card" data-category="logo" data-index="12"
+                    aria-label="View: NFE Logo">
+                <img src="./assets/design14.jpg" alt="NFE UFO logo mark" loading="lazy">
+                <div class="gd-card-overlay" aria-hidden="true">
+                    <p class="gd-card-title">NFE Logo</p>
+                    <span class="gd-card-cat">Logos</span>
+                </div>
+            </button>
+
+            <!-- RL Logo -->
+            <button class="gd-card" data-category="logo" data-index="13"
+                    aria-label="View: RL Personal Brand Logo">
+                <img src="./assets/design15.jpg" alt="RL personal brand logo" loading="lazy">
+                <div class="gd-card-overlay" aria-hidden="true">
+                    <p class="gd-card-title">RL Personal Brand</p>
+                    <span class="gd-card-cat">Logos</span>
+                </div>
+            </button>
+
+            <!-- about-img3 -->
+            <button class="gd-card" data-category="brand" data-index="14"
+                    aria-label="View: Brand Design — 3">
+                <img src="./assets/about-img3.png" alt="Brand design piece" loading="lazy">
+                <div class="gd-card-overlay" aria-hidden="true">
+                    <p class="gd-card-title">Brand Campaign</p>
+                    <span class="gd-card-cat">Brand Design</span>
+                </div>
+            </button>
+
+        </section>
+
+
+        <!-- ================================================
+             LIGHTBOX
+        ================================================ -->
+        <div class="gd-lightbox" id="gdLightbox" role="dialog" aria-modal="true"
+             aria-label="Design preview" hidden>
+            <button class="gd-lightbox-close" id="gdLbClose" aria-label="Close preview">✕</button>
+            <button class="gd-lightbox-prev" id="gdLbPrev" aria-label="Previous design">‹</button>
+            <button class="gd-lightbox-next" id="gdLbNext" aria-label="Next design">›</button>
+            <div class="gd-lightbox-inner">
+                <img class="gd-lightbox-img" id="gdLbImg" src="" alt="">
+                <div class="gd-lightbox-caption">
+                    <strong id="gdLbTitle"></strong>
+                    <span id="gdLbCat"></span>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ================================================
+             CTA
+        ================================================ -->
+        <section class="gd-cta section-wrap reveal" id="contact">
+            <span class="gd-cta-spark" aria-hidden="true">✳</span>
+            <p class="eyebrow">LIKE WHAT YOU SEE?</p>
+            <h2>Let's build your <span>brand.</span></h2>
+            <p>Need a poster, a brand identity, or something completely fresh? Let's make it happen.</p>
+            <a class="button button-yellow" href="mailto:hello@reubenlotsima.com">
+                Get in touch <span aria-hidden="true">↗</span>
+            </a>
+            <span class="gd-cta-note">GOOD DESIGN STARTS WITH A CONVERSATION.</span>
         </section>
 
     </main>
@@ -63,9 +281,10 @@
     </footer>
 
     <script>
+    /* ── Hamburger ───────────────────────────────────── */
     (function () {
         const toggle = document.querySelector('.nav-toggle');
-        const nav = document.querySelector('.main-nav');
+        const nav    = document.querySelector('.main-nav');
         if (!toggle || !nav) return;
         toggle.addEventListener('click', () => {
             const open = nav.classList.toggle('is-open');
@@ -80,6 +299,125 @@
                 nav.classList.remove('is-open');
                 toggle.setAttribute('aria-expanded', 'false');
             }
+        });
+    })();
+
+    /* ── Filter pills ────────────────────────────────── */
+    (function () {
+        const filters = document.querySelectorAll('.gd-filter');
+        const cards   = document.querySelectorAll('.gd-card');
+
+        filters.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const cat = btn.dataset.filter;
+
+                // Toggle active pill
+                filters.forEach(f => f.classList.remove('is-active'));
+                btn.classList.add('is-active');
+
+                // Show / hide cards
+                cards.forEach(card => {
+                    const match = cat === 'all' || card.dataset.category === cat;
+                    card.dataset.hidden = match ? 'false' : 'true';
+                    // Re-trigger reveal for newly shown cards
+                    if (match && !card.classList.contains('is-visible')) {
+                        card.classList.add('is-visible');
+                    }
+                });
+            });
+        });
+    })();
+
+    /* ── Scroll reveal ───────────────────────────────── */
+    (function () {
+        const els = document.querySelectorAll('.gd-card, .reveal');
+        if (!('IntersectionObserver' in window)) {
+            els.forEach(el => el.classList.add('is-visible'));
+            return;
+        }
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('is-visible');
+                    obs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.06 });
+        els.forEach(el => obs.observe(el));
+    })();
+
+    /* ── Lightbox ────────────────────────────────────── */
+    (function () {
+        const lb       = document.getElementById('gdLightbox');
+        const lbImg    = document.getElementById('gdLbImg');
+        const lbTitle  = document.getElementById('gdLbTitle');
+        const lbCat    = document.getElementById('gdLbCat');
+        const lbClose  = document.getElementById('gdLbClose');
+        const lbPrev   = document.getElementById('gdLbPrev');
+        const lbNext   = document.getElementById('gdLbNext');
+
+        let allCards = [];
+        let visibleCards = [];
+        let current = 0;
+
+        function getVisible() {
+            return Array.from(document.querySelectorAll('.gd-card'))
+                .filter(c => c.dataset.hidden !== 'true');
+        }
+
+        function open(card) {
+            visibleCards = getVisible();
+            current = visibleCards.indexOf(card);
+            render();
+            lb.removeAttribute('hidden');
+            requestAnimationFrame(() => lb.classList.add('is-open'));
+            document.body.style.overflow = 'hidden';
+            lbClose.focus();
+        }
+
+        function close() {
+            lb.classList.remove('is-open');
+            setTimeout(() => {
+                lb.setAttribute('hidden', '');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        function render() {
+            const card = visibleCards[current];
+            if (!card) return;
+            const img   = card.querySelector('img');
+            const title = card.querySelector('.gd-card-title');
+            const cat   = card.querySelector('.gd-card-cat');
+            lbImg.src       = img.src;
+            lbImg.alt       = img.alt;
+            lbTitle.textContent = title ? title.textContent.trim() : '';
+            lbCat.textContent   = cat  ? cat.textContent.trim()   : '';
+            lbPrev.disabled = current === 0;
+            lbNext.disabled = current === visibleCards.length - 1;
+        }
+
+        function prev() { if (current > 0) { current--; render(); } }
+        function next() { if (current < visibleCards.length - 1) { current++; render(); } }
+
+        // Open on card click
+        document.querySelectorAll('.gd-card').forEach(card => {
+            card.addEventListener('click', () => open(card));
+        });
+
+        lbClose.addEventListener('click', close);
+        lbPrev.addEventListener('click', prev);
+        lbNext.addEventListener('click', next);
+
+        // Click backdrop to close
+        lb.addEventListener('click', e => { if (e.target === lb) close(); });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', e => {
+            if (!lb.classList.contains('is-open')) return;
+            if (e.key === 'Escape')      close();
+            if (e.key === 'ArrowLeft')   prev();
+            if (e.key === 'ArrowRight')  next();
         });
     })();
     </script>

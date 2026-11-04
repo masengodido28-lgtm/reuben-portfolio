@@ -1,0 +1,531 @@
+/* =========================================================
+   GRAPHIC DESIGN PAGE — css/graphic-design.css
+   Mobile-first. Breakpoints: 600px (tablet), 900px (desktop).
+   ========================================================= */
+
+
+/* =========================
+   1. PAGE HERO
+   ========================= */
+
+.gd-hero {
+    padding-block: clamp(72px, 10vw, 120px) clamp(24px, 4vw, 44px);
+    text-align: center;
+}
+
+.gd-breadcrumb {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.gd-breadcrumb a {
+    color: var(--color-teal);
+    transition: color 0.2s ease;
+}
+
+.gd-breadcrumb a:hover {
+    color: var(--color-teal-dark);
+}
+
+.gd-breadcrumb-sep {
+    opacity: 0.4;
+}
+
+.gd-hero-title {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(2.4rem, 7vw, 5rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    margin: 0 0 20px;
+}
+
+.gd-hero-title em {
+    font-style: normal;
+    color: var(--color-teal);
+}
+
+.gd-hero-sub {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    color: var(--color-text-muted);
+    line-height: 1.65;
+    max-width: 540px;
+    margin: 0 auto 0;
+}
+
+.gd-count {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 6px 14px;
+    border: 1.5px solid var(--color-border);
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+
+/* =========================
+   2. FILTER PILLS
+   ========================= */
+
+.gd-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding-block: clamp(28px, 4vw, 48px);
+}
+
+.gd-filter {
+    padding: 9px 20px;
+    border: 2px solid var(--color-black);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--color-black);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s var(--transition-smooth),
+        box-shadow 0.2s ease;
+}
+
+.gd-filter:hover {
+    background: var(--color-black);
+    color: var(--color-white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(17, 17, 17, 0.12);
+}
+
+.gd-filter.is-active {
+    background: var(--color-teal);
+    border-color: var(--color-teal);
+    color: var(--color-white);
+    box-shadow: 3px 3px var(--color-black);
+}
+
+.gd-filter.is-active:hover {
+    background: var(--color-teal-dark);
+    border-color: var(--color-teal-dark);
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   3. MASONRY GRID
+   ========================= */
+
+.gd-grid {
+    columns: 1;
+    column-gap: 20px;
+    padding-bottom: clamp(60px, 8vw, 100px);
+}
+
+@media (min-width: 500px) {
+    .gd-grid {
+        columns: 2;
+    }
+}
+
+@media (min-width: 800px) {
+    .gd-grid {
+        columns: 3;
+        column-gap: 24px;
+    }
+}
+
+@media (min-width: 1100px) {
+    .gd-grid {
+        columns: 4;
+    }
+}
+
+
+/* =========================
+   4. DESIGN CARD
+   ========================= */
+
+.gd-card {
+    break-inside: avoid;
+    margin-bottom: 20px;
+    display: block;
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid var(--color-black);
+    box-shadow: var(--shadow-card);
+
+    /* Reveal animation start state */
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+        opacity 0.55s var(--transition-smooth),
+        transform 0.55s var(--transition-smooth),
+        box-shadow 0.3s ease;
+}
+
+.gd-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gd-card:hover {
+    box-shadow: 7px 8px var(--color-black);
+    transform: translateY(-4px);
+}
+
+@media (min-width: 800px) {
+    .gd-card:hover {
+        box-shadow: 10px 12px var(--color-black);
+        transform: translateY(-6px);
+    }
+}
+
+.gd-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s var(--transition-smooth);
+}
+
+.gd-card:hover img {
+    transform: scale(1.04);
+}
+
+/* Overlay on hover */
+.gd-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0, 158, 174, 0.88) 0%,
+        rgba(0, 130, 148, 0.6) 40%,
+        transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px 18px;
+}
+
+.gd-card:hover .gd-card-overlay,
+.gd-card:focus-visible .gd-card-overlay {
+    opacity: 1;
+}
+
+.gd-card-title {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(0.85rem, 1.4vw, 1rem);
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 6px;
+    line-height: 1.25;
+    transform: translateY(8px);
+    transition: transform 0.35s var(--transition-smooth));
+}
+
+.gd-card:hover .gd-card-title {
+    transform: translateY(0);
+}
+
+.gd-card-cat {
+    display: inline-block;
+    padding: 4px 10px;
+    border: 1.5px solid rgba(255,255,255,0.5);
+    border-radius: 999px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+    transform: translateY(8px);
+    transition: transform 0.35s var(--transition-smooth) 0.04s;
+}
+
+.gd-card:hover .gd-card-cat {
+    transform: translateY(0);
+}
+
+/* Hidden state for filter */
+.gd-card[data-hidden="true"] {
+    display: none;
+}
+
+
+/* =========================
+   5. LIGHTBOX
+   ========================= */
+
+.gd-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+
+    background: rgba(14, 14, 14, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.gd-lightbox.is-open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.gd-lightbox-inner {
+    position: relative;
+    max-width: min(90vw, 860px);
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+
+    transform: scale(0.94);
+    transition: transform 0.35s var(--transition-smooth);
+}
+
+.gd-lightbox.is-open .gd-lightbox-inner {
+    transform: scale(1);
+}
+
+.gd-lightbox-img {
+    display: block;
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 16px;
+    border: 2px solid rgba(255,255,255,0.12);
+    box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+}
+
+.gd-lightbox-caption {
+    text-align: center;
+}
+
+.gd-lightbox-caption strong {
+    display: block;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(0.9rem, 2vw, 1.05rem);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.gd-lightbox-caption span {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-teal);
+}
+
+.gd-lightbox-close {
+    position: fixed;
+    top: 20px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    font-size: 1.4rem;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: background 0.2s ease, transform 0.2s ease;
+    line-height: 1;
+}
+
+.gd-lightbox-close:hover {
+    background: rgba(255,255,255,0.18);
+    transform: rotate(90deg);
+}
+
+/* Prev / Next arrows */
+.gd-lightbox-prev,
+.gd-lightbox-next {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.07);
+    color: #fff;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.gd-lightbox-prev { left: 16px; }
+.gd-lightbox-next { right: 16px; }
+
+.gd-lightbox-prev:hover {
+    background: rgba(255,255,255,0.16);
+    transform: translateY(-50%) translateX(-3px);
+}
+
+.gd-lightbox-next:hover {
+    background: rgba(255,255,255,0.16);
+    transform: translateY(-50%) translateX(3px);
+}
+
+@media (min-width: 600px) {
+    .gd-lightbox-prev { left: 28px; }
+    .gd-lightbox-next { right: 28px; }
+}
+
+
+/* =========================
+   6. CTA SECTION
+   ========================= */
+
+.gd-cta {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    text-align: center;
+    padding: clamp(52px, 8vw, 96px) clamp(24px, 5vw, 60px);
+    margin-bottom: clamp(52px, 8vw, 96px);
+    border: 2px solid var(--color-black);
+    border-radius: 28px;
+    background: var(--color-black);
+    color: var(--color-white);
+    box-shadow: 8px 8px var(--color-yellow);
+}
+
+.gd-cta::before {
+    content: "";
+    position: absolute;
+    inset: -40px;
+    z-index: -1;
+    background: radial-gradient(
+        ellipse 65% 50% at 50% 110%,
+        rgba(243, 184, 47, 0.32) 0%,
+        rgba(0, 158, 174, 0.14) 50%,
+        transparent 70%
+    );
+    animation: cta-glow 6s ease-in-out infinite alternate;
+}
+
+.gd-cta-spark {
+    position: absolute;
+    top: 24px;
+    right: 7%;
+    color: var(--color-yellow);
+    font-size: 3.8rem;
+    line-height: 1;
+    animation: spark-spin 12s linear infinite;
+    transform-origin: center;
+}
+
+.gd-cta .eyebrow {
+    justify-content: center;
+    color: var(--color-teal);
+    letter-spacing: 0.18em;
+    margin-bottom: 20px;
+}
+
+.gd-cta h2 {
+    color: var(--color-white);
+    font-size: clamp(2rem, 4.5vw, 3.8rem);
+    margin-bottom: 16px;
+}
+
+.gd-cta h2 span { color: var(--color-yellow); }
+
+.gd-cta p {
+    color: rgba(255,255,255,0.72);
+    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+    max-width: 480px;
+    margin: 0 auto 32px;
+    line-height: 1.65;
+}
+
+.gd-cta-note {
+    display: inline-block;
+    margin-top: 28px;
+    padding: 7px 16px;
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 999px;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: rgba(255,255,255,0.45);
+    background: rgba(255,255,255,0.05);
+}
+
+
+/* =========================
+   7. DARK MODE
+   ========================= */
+
+[data-theme="dark"] .gd-filter {
+    border-color: rgba(240, 237, 230, 0.25);
+    color: var(--color-black);
+}
+
+[data-theme="dark"] .gd-filter:hover {
+    background: var(--color-black);
+    color: var(--color-background);
+}
+
+[data-theme="dark"] .gd-card {
+    border-color: rgba(240, 237, 230, 0.15);
+}
+
+[data-theme="dark"] .gd-cta {
+    border-color: rgba(240, 237, 230, 0.15);
+    box-shadow: 8px 8px rgba(243, 184, 47, 0.35);
+}
+
+
+/* =========================
+   8. REDUCED MOTION
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .gd-card,
+    .gd-card img,
+    .gd-card-overlay,
+    .gd-card-title,
+    .gd-card-cat,
+    .gd-lightbox,
+    .gd-lightbox-inner {
+        transition: none;
+    }
+
+    .gd-cta::before,
+    .gd-cta-spark {
+        animation: none;
+    }
+}
