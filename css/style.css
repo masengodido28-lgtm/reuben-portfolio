@@ -1199,193 +1199,377 @@ p {
 
 
 /* =========================
-   14. TABLET RESPONSIVENESS
+   15. MOBILE-FIRST RESPONSIVE
+   Base = mobile. Enhance at 600px (tablet) and 900px (desktop).
    ========================= */
 
-@media (max-width: 900px) {
+/* ── Hamburger toggle (mobile only, hidden on wider screens) ── */
 
-    .site-header {
-        flex-wrap: wrap;
+.nav-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 8px;
+    background: none;
+    border: 2px solid var(--color-black);
+    border-radius: 10px;
+    cursor: pointer;
+    order: 2;
+    flex-shrink: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--color-black);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Animate to × when open */
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Mobile header layout ── */
+
+.site-header {
+    flex-wrap: wrap;
+    gap: 0;
+    padding: 16px 0;
+    align-items: center;
+}
+
+.brand {
+    order: 1;
+    flex: 1;
+}
+
+.header-cta {
+    order: 3;
+    display: none; /* hidden on mobile, shown at tablet+ */
+}
+
+/* ── Mobile nav: collapsed drawer ── */
+
+.main-nav {
+    order: 4;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+
+    /* Hidden by default */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+}
+
+.main-nav.is-open {
+    max-height: 400px;
+    padding: 12px 0 16px;
+}
+
+.main-nav a {
+    display: block;
+    padding: 12px 0;
+    font-size: 1rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.main-nav a:last-child {
+    border-bottom: none;
+}
+
+/* ── Mobile: full-width containers ── */
+
+.section-wrap,
+.site-footer {
+    width: calc(100% - 32px);
+}
+
+/* ── Mobile: section padding ── */
+
+.section-pad {
+    padding-block: 64px;
+}
+
+.section-heading {
+    margin-bottom: 28px;
+}
+
+/* ── Mobile: hero ── */
+
+.hero {
+    min-height: 78svh;
+    padding-block: 72px 96px;
+}
+
+.hero h1 {
+    font-size: clamp(2.6rem, 12vw, 4rem);
+}
+
+.hero-video {
+    object-position: 60% center;
+}
+
+/* ── Mobile: service cards — single column ── */
+
+.service-grid {
+    grid-template-columns: 1fr;
+}
+
+.service-card,
+.service-card:nth-child(4),
+.service-card:nth-child(5) {
+    grid-column: auto;
+    min-height: 240px;
+}
+
+/* ── Mobile: about section — stacked ── */
+
+.about,
+.approach {
+    grid-template-columns: 1fr;
+}
+
+.about-visual {
+    min-height: 340px;
+}
+
+/* ── Mobile: work grid ── */
+
+.work-grid {
+    grid-template-columns: 1fr;
+}
+
+.work-wide {
+    grid-column: auto;
+}
+
+.work-image,
+.work-large .work-image,
+.work-wide .work-image {
+    aspect-ratio: 1.1 / 1;
+    min-height: 250px;
+}
+
+.work-image-word {
+    font-size: clamp(2.8rem, 13vw, 5rem);
+}
+
+/* ── Mobile: contact & footer ── */
+
+.contact {
+    width: calc(100% - 32px);
+    margin-bottom: 56px;
+}
+
+.site-footer {
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.site-footer p {
+    order: 3;
+    width: 100%;
+    margin: 0;
+}
+
+.site-footer p span {
+    display: block;
+    margin: 4px 0 0;
+}
+
+
+/* =========================
+   TABLET — min-width: 600px
+   ========================= */
+
+@media (min-width: 600px) {
+
+    /* Header: show CTA, hide hamburger */
+    .nav-toggle {
+        display: none;
     }
 
-    .main-nav {
+    .header-cta {
+        display: inline-flex;
         order: 3;
-
-        width: 100%;
-
-        justify-content: center;
-        flex-wrap: wrap;
     }
 
+    /* Nav: horizontal row */
+    .main-nav {
+        order: 2;
+        flex-direction: row;
+        align-items: center;
+        width: auto;
+        max-height: none;
+        overflow: visible;
+        padding: 0;
+        gap: clamp(14px, 2.5vw, 28px);
+    }
+
+    .main-nav a {
+        display: inline;
+        padding: 0;
+        border-bottom: none;
+        font-size: 0.88rem;
+    }
+
+    /* Site header */
+    .site-header {
+        flex-wrap: nowrap;
+        padding: 20px 0;
+    }
+
+    .section-wrap,
+    .site-footer {
+        width: min(1160px, calc(100% - 48px));
+    }
+
+    /* Sections */
+    .section-pad {
+        padding-block: 88px;
+    }
+
+    .section-heading {
+        margin-bottom: 40px;
+    }
+
+    /* Hero */
     .hero {
-        grid-template-columns: 1fr 1fr;
-        gap: 28px;
+        min-height: 82svh;
+        padding-block: 90px 110px;
     }
 
-    .hero-visual {
-        min-height: 350px;
+    /* Service grid: 2 columns */
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .service-card {
-        grid-column: span 3;
+        grid-column: span 1;
     }
 
     .service-card:nth-child(4),
     .service-card:nth-child(5) {
-        grid-column: span 3;
+        grid-column: span 1;
     }
 
+    /* About: 2 columns */
     .about {
+        grid-template-columns: 0.9fr 1.1fr;
         gap: 44px;
     }
 
     .about-visual {
-        min-height: 380px;
+        min-height: 400px;
     }
 
+    /* Approach */
     .approach {
+        grid-template-columns: 0.8fr 1.2fr;
         gap: 40px;
     }
-}
 
-
-/* =========================
-   15. MOBILE RESPONSIVENESS
-   ========================= */
-
-@media (max-width: 620px) {
-
-    .section-wrap,
-    .site-header,
-    .site-footer {
-        width: calc(100% - 32px);
-    }
-
-    .site-header {
-        padding-block: 18px;
-    }
-
-    .header-cta {
-        padding: 10px 13px;
-        font-size: 0.78rem;
-    }
-
-    .main-nav {
-        gap: 14px 20px;
-    }
-
-    .main-nav a {
-        font-size: 0.82rem;
-    }
-
-    /* Hero */
-
-    .hero {
-        min-height: auto;
-
-        padding-block: 58px 88px;
-
-        grid-template-columns: 1fr;
-    }
-
-    .hero h1 {
-        font-size: clamp(2.8rem, 13vw, 4.5rem);
-    }
-
-    .hero-visual {
-        min-height: 370px;
-        margin: 10px 8px 0;
-    }
-
-    .video-placeholder {
-        width: min(82%, 360px);
-    }
-
-    .image-note {
-        right: 0;
-    }
-
-    /* General sections */
-
-    .section-pad {
-        padding-block: 76px;
-    }
-
-    .section-heading {
-        margin-bottom: 32px;
-    }
-
-    /* Services and projects */
-
-    .service-grid,
+    /* Work grid */
     .work-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
-
-    .service-card,
-    .service-card:nth-child(4),
-    .service-card:nth-child(5) {
-        grid-column: auto;
-        min-height: 250px;
-    }
-
-    /* About and approach */
-
-    .about,
-    .approach {
-        grid-template-columns: 1fr;
-    }
-
-    .about-visual {
-        min-height: 360px;
-    }
-
-    /* Project cards */
 
     .work-wide {
-        grid-column: auto;
+        grid-column: 1 / -1;
     }
 
     .work-image,
-    .work-large .work-image,
+    .work-large .work-image {
+        aspect-ratio: 1.25 / 1;
+        min-height: 280px;
+    }
+
     .work-wide .work-image {
-        aspect-ratio: 1.1 / 1;
-        min-height: 260px;
+        aspect-ratio: 2.1 / 1;
     }
 
-    .work-image-word {
-        font-size: clamp(3rem, 14vw, 5rem);
-    }
-
-    /* Contact and footer */
-
-    .contact {
-        width: calc(100% - 32px);
-        margin-bottom: 60px;
-    }
-
+    /* Footer */
     .site-footer {
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        gap: 24px;
     }
 
     .site-footer p {
-        order: 3;
-        width: 100%;
+        order: unset;
+        width: auto;
     }
 
     .site-footer p span {
-        display: block;
-        margin: 5px 0 0;
+        display: inline;
+        margin-left: 10px;
     }
 }
 
 
 /* =========================
-   16. REDUCED MOTION ACCESSIBILITY
+   DESKTOP — min-width: 900px
+   ========================= */
+
+@media (min-width: 900px) {
+
+    .section-pad {
+        padding-block: clamp(100px, 10vw, 140px);
+    }
+
+    /* Service grid: back to 6-col with offset last two */
+    .service-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .service-card {
+        grid-column: span 2;
+    }
+
+    .service-card:nth-child(4) {
+        grid-column: 2 / span 2;
+    }
+
+    .service-card:nth-child(5) {
+        grid-column: 4 / span 2;
+    }
+
+    /* About */
+    .about {
+        gap: clamp(44px, 8vw, 100px);
+    }
+
+    .about-visual {
+        min-height: 460px;
+    }
+
+    /* Approach */
+    .approach {
+        gap: 70px;
+    }
+}
+
+
+/* =========================
+   16. REDUCED MOTION
    ========================= */
 
 @media (prefers-reduced-motion: reduce) {
-
     *,
     *::before,
     *::after {
@@ -1393,71 +1577,5 @@ p {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
-    }
-}
-
-.brand-logo {
-    width: 150px;
-    height: auto;
-    display: block;
-    object-fit: contain;
-}
-
-/* =========================================================
-   COMPACT NAVBAR
-========================================================= */
-
-.site-header {
-    min-height: 110px;
-    height: 110px;
-    padding: 12px 7%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-sizing: border-box;
-}
-
-/* Logo */
-.brand {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-}
-
-.brand-logo {
-    width: 100px;
-    height: 90px;
-    object-fit: contain;
-    display: block;
-}
-
-/* Navigation */
-.main-nav {
-    display: flex;
-    align-items: center;
-    gap: 35px;
-}
-
-/* Header button */
-.header-cta {
-    flex-shrink: 0;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-    .site-header {
-        height: auto;
-        min-height: 85px;
-        padding: 12px 5%;
-        flex-wrap: wrap;
-    }
-
-    .brand-logo {
-        width: 75px;
-        height: 70px;
-    }
-
-    .main-nav {
-        gap: 18px;
     }
 }

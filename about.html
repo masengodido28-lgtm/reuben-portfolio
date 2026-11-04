@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,18 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#fbfaf6">
     <meta name="description" content="Learn more about Reuben Lotsima — creative, content king, and full-stack digital marketer based in Johannesburg.">
-
     <title>About — Reuben Lotsima</title>
-
+    <link rel="icon" type="image/png" href="./assets/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/about.css">
-     <link rel="icon" type="image/png" href="./assets/logo.png">
 </head>
-
 <body>
 
     <header class="site-header">
@@ -25,162 +20,38 @@
             <span class="brand-mark" aria-hidden="true">RL<span>®</span></span>
             <span class="brand-name">REUBEN<br>LOTSIMA</span>
         </a>
-
-        <nav class="main-nav" aria-label="Main navigation">
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="main-nav" id="main-nav" aria-label="Main navigation">
             <a href="index.html">Home</a>
             <a href="about.html" aria-current="page">About Me</a>
             <a href="work.html">Explore My Work</a>
             <a class="nav-contact" href="contact.html">Get In Touch <span aria-hidden="true">↗</span></a>
         </nav>
-
-        <a class="header-cta" href="contact.html">
-            Let's make something <span aria-hidden="true">↗</span>
-        </a>
+        <a class="header-cta" href="contact.html">Let's make something <span aria-hidden="true">↗</span></a>
     </header>
 
     <main>
 
-        <!-- =====================================================
+        <!-- ============================================
              1. ABOUT ME
-        ====================================================== 
+        ============================================ -->
         <section class="ap-section section-wrap section-pad" id="about">
 
             <h2 class="ap-section-title ap-title-yellow">About Me</h2>
 
-            <div class="ap-prose">
-                <p>I'm Reuben Lotsima, a creative and full-stack digital marketer based in Joburg. I build content that doesn't just look good but also moves people. The kind that makes you pause mid-scroll, double back, and actually remember the brand behind it.</p>
+            <div class="ap-about-grid">
 
-                <p>I call myself the Content King not because of ego, but because it's a name I'm intentionally building and a mindset I live by. I understand one simple truth: relevance is royalty. In a world where attention is the real currency, those who understand relevance rule.</p>
-
-                <p>I operate at the intersection of creativity, strategy, and culture. Video, design, social media, and storytelling, all backed by intention. I don't create for algorithms. I create for people. I study how audiences scroll, where they pause, what they ignore, and what makes them stop in their tracks. That understanding guides every creative decision I make.</p>
-
-                <p>As a Gen Z creative who is deeply plugged into online culture, I understand trends, humour, attention spans, and how quickly audiences spot inauthenticity. Creativity without strategy is decoration. Strategy without creativity is forgettable. I aim for the space where both collide and actually move the needle.</p>
-            </div>
-
-        </div>
-
-        <!-- RIGHT: IMAGE -->
-        <div class="ap-two-column-image reveal">
-            <img src="./assets/about-me.jpg" alt="Reuben Lotsima">
-        </div>
-
-    </div>
-
-</section>
-
-
-        <!-- =====================================================
-             2. HOW IT STARTED
-        ======================================================
-        <section class="ap-section ap-section-alt section-wrap section-pad" id="story">
-
-            <h2 class="ap-section-title ap-title-teal">How It Started</h2>
-
-                
-
-                <!-- Replace src with your graduation photo when ready -->
-                <div class="ap-story-img-wrap">
-                    <img
-                        src="./assets/about-section%20img1.jpg"
-                        alt="Reuben Lotsima at graduation"
-                        class="ap-story-img">
+                <div class="ap-prose reveal">
+                    <p>I'm Reuben Lotsima, a creative and full-stack digital marketer based in Joburg. I build content that doesn't just look good but also moves people. The kind that makes you pause mid-scroll, double back, and actually remember the brand behind it.</p>
+                    <p>I call myself the Content King not because of ego, but because it's a name I'm intentionally building and a mindset I live by. I understand one simple truth: relevance is royalty. In a world where attention is the real currency, those who understand relevance rule.</p>
+                    <p>I operate at the intersection of creativity, strategy, and culture. Video, design, social media, and storytelling, all backed by intention. I don't create for algorithms. I create for people. I study how audiences scroll, where they pause, what they ignore, and what makes them stop in their tracks. That understanding guides every creative decision I make.</p>
+                    <p>As a Gen Z creative who is deeply plugged into online culture, I understand trends, humour, attention spans, and how quickly audiences spot inauthenticity. Creativity without strategy is decoration. Strategy without creativity is forgettable. I aim for the space where both collide and actually move the needle.</p>
                 </div>
 
-    </div>
-
-</section>
-
-
-        <!-- 3. TOOLS CAROUSEL -->
-        <section class="ap-section section-wrap section-pad" id="tools">
-
-            <h2 class="ap-section-title ap-title-yellow">
-                A Few of the Tools I Use to Create<br>the Magic
-            </h2>
-
-            <div class="carousel-wrapper reveal">
-
-                <div
-                    class="carousel-track-clip"
-                    role="region"
-                    aria-label="Tools I use"
-                    aria-roledescription="carousel"
-                >
-
-                    <ul class="carousel-track">
-
-                        <li class="tool-slide">
-                            <img
-                                src="./assets/tools/canva.png"
-                                alt="Canva logo"
-                                class="ap-tool-logo"
-                                loading="lazy"
-                            >
-                            <span class="ap-tool-name">Canva</span>
-                        </li>
-
-                        <li class="tool-slide">
-                            <img
-                                src="./assets/tools/meta-business-suite.png"
-                                alt="Meta Business Suite logo"
-                                class="ap-tool-logo"
-                                loading="lazy"
-                            >
-                            <span class="ap-tool-name">Meta Business<br>Suite</span>
-                        </li>
-
-                        <li class="tool-slide">
-                            <img
-                                src="./assets/tools/davinci-resolve.png"
-                                alt="DaVinci Resolve logo"
-                                class="ap-tool-logo"
-                                loading="lazy"
-                            >
-                            <span class="ap-tool-name">DaVinci<br>Resolve</span>
-                        </li>
-
-                        <li class="tool-slide">
-                            <img
-                                src="./assets/tools/premiere-pro.png"
-                                alt="Adobe Premiere Pro logo"
-                                class="ap-tool-logo"
-                                loading="lazy"
-                            >
-                            <span class="ap-tool-name">Adobe<br>Premiere Pro</span>
-                        </li>
-
-                        <li class="tool-slide">
-                            <img
-                                src="./assets/tools/hubspot.png"
-                                alt="HubSpot logo"
-                                class="ap-tool-logo"
-                                loading="lazy"
-                            >
-                            <span class="ap-tool-name">HubSpot</span>
-                        </li>
-
-                        <li class="tool-slide">
-                            <img
-                                src="./assets/tools/capcut.png"
-                                alt="CapCut logo"
-                                class="ap-tool-logo"
-                                loading="lazy"
-                            >
-                            <span class="ap-tool-name">CapCut</span>
-                        </li>
-
-                        <li class="tool-slide">
-                            <img
-                                src="./assets/tools/chatgpt.png"
-                                alt="ChatGPT logo"
-                                class="ap-tool-logo"
-                                loading="lazy"
-                            >
-                            <span class="ap-tool-name">ChatGPT</span>
-                        </li>
-
-                    </ul>
-
+                <div class="ap-about-img reveal">
+                    <img src="./assets/about-section%20img1.jpg" alt="Reuben Lotsima">
                 </div>
 
             </div>
@@ -188,14 +59,95 @@
         </section>
 
 
-        <!-- 4. FUN FACT -->
+        <!-- ============================================
+             2. HOW IT STARTED
+        ============================================ -->
+        <section class="ap-section ap-section-alt section-wrap section-pad" id="story">
+
+            <h2 class="ap-section-title ap-title-teal">How It Started</h2>
+
+            <div class="ap-story reveal">
+
+                <div class="ap-story-text">
+                    <p>My journey into content didn't start in a fancy studio or agency boardroom. It started in a church. Managing my church's social media showed me the real power of content when it connects emotionally and drives action. People didn't just watch, they showed up, they engaged and they were moved. That curiosity turned into obsession.</p>
+                    <p>Before fully stepping into the creative world, I worked in retail at Hamleys. Selling toys might sound unrelated, but it taught me something priceless: sales. How to grab attention fast, how people behave when they're curious, distracted, or excited, and what makes them stop in their tracks.</p>
+                    <p>Those experiences shaped how I think today. Content is psychology before it is pixels.</p>
+                    <p>I'm a recent graduate of iHub Africa's 2025 cohort, a 10-month digital skills and employability programme focused on developing industry-ready digital creatives. Alongside technical training in digital marketing and content creation, the programme placed a strong emphasis on soft skills, professionalism, and personal growth, shaping how I work with people as much as how I create.</p>
+                </div>
+
+                <div class="ap-story-img-wrap">
+                    <img src="./assets/grad-pic.png" alt="Reuben Lotsima at graduation" class="ap-story-img">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ============================================
+             3. TOOLS — CAROUSEL
+        ============================================ -->
+        <section class="ap-section section-wrap section-pad" id="tools">
+
+            <h2 class="ap-section-title ap-title-yellow">A Few of the Tools I Use to Create the Magic</h2>
+
+            <div class="carousel-wrapper reveal">
+                <div class="carousel-track-clip" role="region" aria-label="Tools I use" aria-roledescription="carousel">
+                    <ul class="carousel-track" role="list">
+
+                        <li class="tool-slide">
+                            <img src="./assets/canva-tool.jpg" alt="Canva" class="ap-tool-img" loading="lazy">
+                            <span class="ap-tool-name">Canva</span>
+                        </li>
+                        <li class="tool-slide">
+                            <img src="./assets/meta-tool.jpg" alt="Meta Business Suite" class="ap-tool-img" loading="lazy">
+                            <span class="ap-tool-name">Meta Business Suite</span>
+                        </li>
+                        <li class="tool-slide">
+                            <img src="./assets/davinci-tool.jpg" alt="DaVinci Resolve" class="ap-tool-img" loading="lazy">
+                            <span class="ap-tool-name">DaVinci Resolve</span>
+                        </li>
+                        <li class="tool-slide">
+                            <img src="./assets/adobe-tool.jpg" alt="Adobe Premiere Pro" class="ap-tool-img" loading="lazy">
+                            <span class="ap-tool-name">Adobe Premiere Pro</span>
+                        </li>
+                        <li class="tool-slide">
+                            <img src="./assets/hubspot-tool.jpg" alt="HubSpot" class="ap-tool-img" loading="lazy">
+                            <span class="ap-tool-name">HubSpot</span>
+                        </li>
+                        <li class="tool-slide">
+                            <img src="./assets/capcut-tool.jpg" alt="CapCut" class="ap-tool-img" loading="lazy">
+                            <span class="ap-tool-name">CapCut</span>
+                        </li>
+                        <li class="tool-slide">
+                            <img src="./assets/chat-tool.jpg" alt="ChatGPT" class="ap-tool-img" loading="lazy">
+                            <span class="ap-tool-name">ChatGPT</span>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div class="carousel-controls" aria-label="Tools carousel controls">
+                    <button class="carousel-btn carousel-btn-prev" aria-label="Previous tools">&#8592;</button>
+                    <div class="carousel-dots" role="tablist" aria-label="Tools pages"></div>
+                    <button class="carousel-btn carousel-btn-next" aria-label="Next tools">&#8594;</button>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- ============================================
+             4. FUN FACT
+        ============================================ -->
         <section class="ap-section ap-section-alt section-wrap section-pad" id="funfact">
 
             <h2 class="ap-section-title ap-title-yellow">Fun Fact</h2>
 
             <div class="ap-funfact reveal">
-                <div class="ap-funfact-icon" aria-hidden="true">🎲</div>
-
+                <div class="ap-funfact-img" aria-hidden="true">
+                    <img src="./assets/rubix%20cube.jpg" alt="">
+                </div>
                 <div class="ap-funfact-text">
                     <p>I can solve a Rubik's Cube in <strong>1 minute or less!</strong></p>
                     <p>If that doesn't scream "problem solver/genius/cool guy", I'm not sure what will.</p>
@@ -205,206 +157,87 @@
         </section>
 
 
-        <!-- 5. EDUCATION BACKGROUND -->
+        <!-- ============================================
+             5. EDUCATION BACKGROUND
+        ============================================ -->
         <section class="ap-section section-wrap section-pad" id="education">
 
             <h2 class="ap-section-title ap-title-teal">Education Background</h2>
 
             <div class="ap-edu-logos reveal-stagger">
-
                 <div class="ap-edu-item">
-                    <div class="ap-edu-logo-box">
-                        <img
-                            src="./assets/education/digify-africa.png"
-                            alt="Digify Africa logo"
-                            class="ap-edu-image"
-                            loading="lazy"
-                        >
-                    </div>
+                    <img src="./assets/edu-img1.jpg" alt="Digify Africa" class="ap-edu-img" loading="lazy">
                 </div>
-
                 <div class="ap-edu-item">
-                    <div class="ap-edu-logo-box">
-                        <img
-                            src="./assets/education/ihub-africa.png"
-                            alt="iHub Africa logo"
-                            class="ap-edu-image"
-                            loading="lazy"
-                        >
-                    </div>
+                    <img src="./assets/edu-img2.jpg" alt="iHub Africa" class="ap-edu-img" loading="lazy">
                 </div>
-
             </div>
 
         </section>
 
 
-        <!-- 6. CERTIFICATIONS CAROUSEL -->
+        <!-- ============================================
+             6. CERTIFICATIONS — CAROUSEL
+        ============================================ -->
         <section class="ap-section ap-section-alt section-wrap section-pad" id="certificates">
 
-            <h2 class="ap-section-title ap-title-yellow">
-                Some of the Platform Training and<br>Certifications I Have Completed
-            </h2>
+            <h2 class="ap-section-title ap-title-yellow">Some of the Platform Training and Certifications I Have Completed</h2>
 
             <div class="carousel-wrapper reveal">
-
-                <div
-                    class="carousel-track-clip"
-                    role="region"
-                    aria-label="Certifications"
-                    aria-roledescription="carousel"
-                >
-
-                    <ul class="carousel-track">
+                <div class="carousel-track-clip" role="region" aria-label="Certifications" aria-roledescription="carousel">
+                    <ul class="carousel-track" role="list">
 
                         <li class="cert-slide">
-                            <img
-                                src="./assets/certificates/hubspot-social-media.png"
-                                alt="HubSpot Social Media certification"
-                                class="ap-cert-image"
-                                loading="lazy"
-                            >
-                            <span class="ap-cert-name">Social Media Certified</span>
+                            <img src="./assets/cert-img1.jpg" alt="Certification 1" class="ap-cert-img" loading="lazy">
                         </li>
-
                         <li class="cert-slide">
-                            <img
-                                src="./assets/certificates/meta-certificate-1.png"
-                                alt="Meta certification"
-                                class="ap-cert-image"
-                                loading="lazy"
-                            >
-                            <span class="ap-cert-name">Meta</span>
+                            <img src="./assets/cert-img2.jpg" alt="Certification 2" class="ap-cert-img" loading="lazy">
                         </li>
-
                         <li class="cert-slide">
-                            <img
-                                src="./assets/certificates/meta-certificate-2.png"
-                                alt="Meta certification"
-                                class="ap-cert-image"
-                                loading="lazy"
-                            >
-                            <span class="ap-cert-name">Meta</span>
+                            <img src="./assets/cert-img3.jpg" alt="Certification 3" class="ap-cert-img" loading="lazy">
                         </li>
-
-                        <li class="cert-slide">
-                            <img
-                                src="./assets/certificates/certificate-4.png"
-                                alt="Professional training certificate"
-                                class="ap-cert-image"
-                                loading="lazy"
-                            >
-                            <span class="ap-cert-name">Training Certificate</span>
+                        <!-- Duplicate slides for seamless looping -->
+                        <li class="cert-slide" aria-hidden="true">
+                            <img src="./assets/cert-img1.jpg" alt="" class="ap-cert-img" loading="lazy">
                         </li>
-
-                        <li class="cert-slide">
-                            <img
-                                src="./assets/certificates/certificate-5.png"
-                                alt="Professional training certificate"
-                                class="ap-cert-image"
-                                loading="lazy"
-                            >
-                            <span class="ap-cert-name">Training Certificate</span>
+                        <li class="cert-slide" aria-hidden="true">
+                            <img src="./assets/cert-img2.jpg" alt="" class="ap-cert-img" loading="lazy">
                         </li>
-
-                        <li class="cert-slide">
-                            <img
-                                src="./assets/certificates/google-ads.png"
-                                alt="Google Ads certification"
-                                class="ap-cert-image"
-                                loading="lazy"
-                            >
-                            <span class="ap-cert-name">Google Ads</span>
-                        </li>
-
-                        <li class="cert-slide">
-                            <img
-                                src="./assets/certificates/wordpress.png"
-                                alt="WordPress certification"
-                                class="ap-cert-image"
-                                loading="lazy"
-                            >
-                            <span class="ap-cert-name">WordPress</span>
-                        </li>
-
-                        <li class="cert-slide">
-                            <img
-                                src="./assets/certificates/academy.png"
-                                alt="Academy certification"
-                                class="ap-cert-image"
-                                loading="lazy"
-                            >
-                            <span class="ap-cert-name">Academy</span>
-                        </li>
-
-                        <li class="cert-slide">
-                            <img
-                                src="./assets/certificates/google-workspace.png"
-                                alt="Google Workspace certification"
-                                class="ap-cert-image"
-                                loading="lazy"
-                            >
-                            <span class="ap-cert-name">Google Workspace</span>
-                        </li>
-
-                        <li class="cert-slide">
-                            <img
-                                src="./assets/certificates/openlearn.png"
-                                alt="OpenLearn certification"
-                                class="ap-cert-image"
-                                loading="lazy"
-                            >
-                            <span class="ap-cert-name">OpenLearn</span>
-                        </li>
-
-                        <li class="cert-slide">
-                            <img
-                                src="./assets/certificates/google-digital-skills.png"
-                                alt="Google Digital Skills for Africa certification"
-                                class="ap-cert-image"
-                                loading="lazy"
-                            >
-                            <span class="ap-cert-name">Google Digital Skills for Africa</span>
+                        <li class="cert-slide" aria-hidden="true">
+                            <img src="./assets/cert-img3.jpg" alt="" class="ap-cert-img" loading="lazy">
                         </li>
 
                     </ul>
-
                 </div>
 
+                <div class="carousel-controls" aria-label="Certifications carousel controls">
+                    <button class="carousel-btn carousel-btn-prev" aria-label="Previous certifications">&#8592;</button>
+                    <div class="carousel-dots" role="tablist" aria-label="Certification pages"></div>
+                    <button class="carousel-btn carousel-btn-next" aria-label="Next certifications">&#8594;</button>
+                </div>
             </div>
 
         </section>
 
 
-        <!-- 7. CTA -->
+        <!-- ============================================
+             7. CTA
+        ============================================ -->
         <section class="ap-cta section-wrap section-pad reveal" id="cta">
-
-            <p class="ap-cta-text">
-                Talk is cheap. Click below to see<br>what I've actually created.
-            </p>
-
-            <a class="button button-yellow" href="work.html">
-                View My Work <span aria-hidden="true">↗</span>
-            </a>
-
+            <p class="ap-cta-text">Talk is cheap. Click below to see<br>what I've actually created.</p>
+            <a class="button button-yellow" href="work.html">View My Work <span aria-hidden="true">↗</span></a>
         </section>
 
     </main>
 
-
     <footer class="site-footer">
-
         <a class="brand footer-brand" href="index.html" aria-label="Back to home">
             <span class="brand-mark" aria-hidden="true">RL<span>®</span></span>
             <span class="brand-name">REUBEN<br>LOTSIMA</span>
         </a>
-
         <p>Creative ideas, made real. <span>© 2026 Reuben Lotsima</span></p>
-
         <a class="back-top" href="#about">Back to top ↑</a>
-
     </footer>
-
 
     <script src="js/about.js"></script>
 

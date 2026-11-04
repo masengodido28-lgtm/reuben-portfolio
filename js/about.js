@@ -269,7 +269,39 @@ function initScrollReveal() {
 
 
 /* =========================================================
-   3. INITIALISE ABOUT PAGE
+   3. HAMBURGER NAV TOGGLE
+========================================================= */
+
+function initNavToggle() {
+    const toggle = document.querySelector(".nav-toggle");
+    const nav    = document.querySelector(".main-nav");
+    if (!toggle || !nav) return;
+
+    toggle.addEventListener("click", () => {
+        const isOpen = nav.classList.toggle("is-open");
+        toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    // Close when a nav link is tapped (single-page feel)
+    nav.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            nav.classList.remove("is-open");
+            toggle.setAttribute("aria-expanded", "false");
+        });
+    });
+
+    // Close when clicking outside the header
+    document.addEventListener("click", e => {
+        if (!e.target.closest(".site-header")) {
+            nav.classList.remove("is-open");
+            toggle.setAttribute("aria-expanded", "false");
+        }
+    });
+}
+
+
+/* =========================================================
+   4. INITIALISE ABOUT PAGE
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -286,5 +318,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     initScrollReveal();
+    initNavToggle();
 
 });

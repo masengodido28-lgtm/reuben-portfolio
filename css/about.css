@@ -1,8 +1,7 @@
 /* =========================================================
    ABOUT PAGE — css/about.css
-   Loaded only on about.html. Never mix with style.css.
-   Relies on the CSS custom properties declared in style.css
-   (--color-*, --shadow-card, --transition-smooth, etc.)
+   Mobile-first. Breakpoints: 600px (tablet), 900px (desktop).
+   Relies on custom properties from style.css.
    ========================================================= */
 
 
@@ -11,24 +10,17 @@
    ========================= */
 
 .ap-section {
-    max-width: 740px;
-    margin-inline: auto;
-    padding-block: clamp(52px, 7vw, 88px);
+    padding-block: clamp(48px, 8vw, 88px);
 }
 
-.ap-section-alt {
-    background: transparent;
-}
-
-/* Centred section titles with the outlined/stroked look from the mockup */
 .ap-section-title {
     font-family: "Space Grotesk", sans-serif;
-    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-size: clamp(1.3rem, 5vw, 2rem);
     font-weight: 700;
     letter-spacing: -0.02em;
     text-align: center;
-    margin: 0 0 36px;
-
+    margin: 0 0 32px;
+    line-height: 1.2;
     -webkit-text-stroke: 1.5px currentColor;
     paint-order: stroke fill;
 }
@@ -38,30 +30,83 @@
 
 
 /* =========================
-   2. PROSE BLOCKS (About + How It Started)
+   2. ABOUT ME — stacked on mobile, side-by-side on desktop
    ========================= */
 
-.ap-prose p,
-.ap-story-text p {
-    font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+.ap-about-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.ap-prose p {
+    font-size: 1rem;
     line-height: 1.75;
     color: var(--color-black);
-    margin-bottom: 1.2em;
+    margin-bottom: 1.1em;
 }
 
-.ap-prose p:last-child,
-.ap-story-text p:last-child {
-    margin-bottom: 0;
+.ap-prose p:last-child { margin-bottom: 0; }
+
+.ap-about-img {
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 3px solid var(--color-black);
+    box-shadow: 6px 6px var(--color-yellow);
+    aspect-ratio: 4 / 3;
 }
 
-/* How It Started — floated graduation photo */
+.ap-about-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+}
+
+/* Tablet+ */
+@media (min-width: 600px) {
+    .ap-about-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: start;
+        gap: 48px;
+    }
+
+    .ap-about-img {
+        aspect-ratio: 3 / 4;
+    }
+}
+
+/* Desktop */
+@media (min-width: 900px) {
+    .ap-about-grid {
+        gap: 72px;
+    }
+}
+
+
+/* =========================
+   3. HOW IT STARTED
+   ========================= */
+
 .ap-story { position: relative; }
 
+.ap-story-text p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--color-black);
+    margin-bottom: 1.1em;
+}
+
+.ap-story-text p:last-child { margin-bottom: 0; }
+
+/* Image stacks below text on mobile */
 .ap-story-img-wrap {
-    float: right;
-    width: clamp(160px, 30%, 240px);
-    margin: 8px 0 16px 28px;
-    shape-outside: border-box;
+    width: 100%;
+    max-width: 280px;
+    margin: 24px auto 0;
 }
 
 .ap-story-img {
@@ -75,15 +120,25 @@
     display: block;
 }
 
-.ap-story::after {
-    content: "";
-    display: table;
-    clear: both;
+/* Tablet+: float right into the text */
+@media (min-width: 600px) {
+    .ap-story-img-wrap {
+        float: right;
+        width: clamp(180px, 32%, 260px);
+        margin: 4px 0 20px 28px;
+        shape-outside: border-box;
+    }
+
+    .ap-story::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
 }
 
 
 /* =========================
-   3. TOOLS CAROUSEL
+   4. TOOLS CAROUSEL
    ========================= */
 
 .carousel-wrapper {
@@ -91,134 +146,138 @@
 }
 
 .carousel-track-clip {
+    width: 100%;
     overflow: hidden;
-    border-radius: 16px;
 }
 
 .carousel-track {
     display: flex;
-    gap: 20px;
-    /* width set by JS based on slide count */
-    transition: transform 0.45s var(--transition-smooth);
+    gap: 16px;
+    transition: transform 0.5s cubic-bezier(0.2, 0.75, 0.25, 1);
     will-change: transform;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-/* ── Tool slide ── */
+/* Tool slides — 1 visible on mobile */
 .tool-slide {
-    flex: 0 0 calc((100% - 60px) / 4); /* 4 visible at a time */
+    flex: 0 0 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-    padding: 24px 16px 20px;
-
+    gap: 12px;
+    padding: 20px 16px;
     border: 2px solid var(--color-black);
     border-radius: 16px;
     background: var(--color-background);
     box-shadow: var(--shadow-card);
-
-    transition: transform 0.25s var(--transition-smooth);
-    cursor: default;
     user-select: none;
 }
 
-.tool-slide:hover {
-    transform: translateY(-4px);
+.ap-tool-img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 12px;
+    display: block;
 }
-
-.ap-tool-logo {
-    width: 64px;
-    height: 64px;
-    border-radius: 14px;
-    display: grid;
-    place-items: center;
-    font: 700 1.1rem/1 "Space Grotesk";
-    color: #fff;
-    flex-shrink: 0;
-}
-
-/* Brand colours */
-.ap-tool-logo-canva    { background: #00C4CC; }
-.ap-tool-logo-meta     { background: #0866FF; font-size: 1.4rem; }
-.ap-tool-logo-davinci  { background: #2C2C2C; }
-.ap-tool-logo-premiere { background: #9999FF; color: #000; font-size: 1rem; }
-.ap-tool-logo-hubspot  { background: #FF7A59; }
-.ap-tool-logo-capcut   { background: #000; font-size: 0.9rem; letter-spacing: -0.05em; }
-.ap-tool-logo-chatgpt  { background: #10A37F; }
 
 .ap-tool-name {
-    font-size: 0.78rem;
+    font-size: 0.82rem;
     font-weight: 600;
     text-align: center;
     line-height: 1.3;
     color: var(--color-black);
 }
 
+/* 2 visible on small tablet */
+@media (min-width: 480px) {
+    .tool-slide {
+        flex: 0 0 calc((100% - 16px) / 2);
+    }
+}
+
+/* 3 visible on tablet */
+@media (min-width: 600px) {
+    .tool-slide {
+        flex: 0 0 calc((100% - 32px) / 3);
+    }
+
+    .ap-tool-img {
+        width: 88px;
+        height: 88px;
+    }
+}
+
+/* 4 visible on desktop */
+@media (min-width: 900px) {
+    .tool-slide {
+        flex: 0 0 calc((100% - 48px) / 4);
+    }
+}
+
 
 /* =========================
-   4. CERTIFICATIONS CAROUSEL
+   5. CERTIFICATIONS CAROUSEL
    ========================= */
 
-/* Cert slides reuse .carousel-track / .carousel-track-clip */
-
+/* Cert slides — 1 visible on mobile */
 .cert-slide {
-    flex: 0 0 calc((100% - 60px) / 4); /* 4 visible at a time */
+    flex: 0 0 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    padding: 20px 12px;
-
+    padding: 16px;
     border: 2px solid var(--color-black);
     border-radius: 16px;
     background: var(--color-background);
     box-shadow: var(--shadow-card);
-
-    transition: transform 0.25s var(--transition-smooth);
-    cursor: default;
     user-select: none;
 }
 
-.cert-slide:hover {
-    transform: translateY(-4px);
+.ap-cert-img {
+    width: 100%;
+    max-width: 240px;
+    height: 150px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
 }
 
-.ap-cert-logo {
-    width: 68px;
-    height: 68px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    font: 700 0.65rem/1.2 "Space Grotesk";
-    text-align: center;
-    color: #fff;
-    border: 2px solid rgba(0,0,0,0.1);
+/* 2 visible on small tablet */
+@media (min-width: 480px) {
+    .cert-slide {
+        flex: 0 0 calc((100% - 16px) / 2);
+    }
 }
 
-/* Cert brand colours */
-.ap-cert-hubspot    { background: #FF7A59; }
-.ap-cert-meta1      { background: #0866FF; }
-.ap-cert-meta2      { background: #0866FF; }
-.ap-cert-badge1     { background: var(--color-teal);   font-size: 1.2rem; }
-.ap-cert-badge2     { background: var(--color-yellow); color: var(--color-black); font-size: 1.2rem; }
-.ap-cert-flight     { background: #1A1A2E; font-size: 0.6rem; }
-.ap-cert-wp         { background: #21759B; font-size: 1.8rem; font-weight: 700; }
-.ap-cert-academy    { background: #E60023; font-size: 0.6rem; }
-.ap-cert-gworkspace { background: #fff; color: var(--color-black); border-color: var(--color-border); font-size: 0.6rem; }
-.ap-cert-openlearn  { background: #C8008F; }
-.ap-cert-gdigital   { background: #4285F4; font-size: 0.6rem; }
+/* 2 still on tablet (cert images need more space) */
+@media (min-width: 600px) {
+    .cert-slide {
+        flex: 0 0 calc((100% - 16px) / 2);
+    }
 
-.ap-cert-name {
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-align: center;
-    line-height: 1.3;
-    color: var(--color-text-muted);
+    .ap-cert-img {
+        height: 170px;
+    }
+}
+
+/* 3 on desktop */
+@media (min-width: 900px) {
+    .cert-slide {
+        flex: 0 0 calc((100% - 32px) / 3);
+    }
+
+    .ap-cert-img {
+        height: 190px;
+    }
 }
 
 
 /* =========================
-   5. SHARED CAROUSEL CONTROLS
+   6. CAROUSEL CONTROLS
    ========================= */
 
 .carousel-controls {
@@ -226,12 +285,12 @@
     align-items: center;
     justify-content: center;
     gap: 12px;
-    margin-top: 24px;
+    margin-top: 20px;
 }
 
 .carousel-btn {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     border: 2px solid var(--color-black);
     background: var(--color-background);
@@ -243,9 +302,10 @@
     place-items: center;
     box-shadow: 3px 3px var(--color-black);
     transition:
-        transform 0.2s var(--transition-smooth),
+        transform 0.2s cubic-bezier(0.2, 0.75, 0.25, 1),
         box-shadow 0.2s ease;
-    line-height: 1;
+    /* Large tap target for mobile */
+    -webkit-tap-highlight-color: transparent;
 }
 
 .carousel-btn:hover:not(:disabled) {
@@ -256,19 +316,18 @@
 .carousel-btn:disabled {
     opacity: 0.3;
     cursor: default;
-    box-shadow: 3px 3px var(--color-black);
     transform: none;
 }
 
 .carousel-dots {
     display: flex;
-    gap: 6px;
+    gap: 8px;
     align-items: center;
 }
 
 .carousel-dot {
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background: var(--color-border);
     border: none;
@@ -277,36 +336,53 @@
     transition:
         background 0.25s ease,
         transform 0.25s ease;
+    /* Larger tap target */
+    position: relative;
+}
+
+.carousel-dot::before {
+    content: "";
+    position: absolute;
+    inset: -6px;
 }
 
 .carousel-dot.is-active {
     background: var(--color-black);
-    transform: scale(1.35);
+    transform: scale(1.3);
 }
 
 
 /* =========================
-   6. FUN FACT
+   7. FUN FACT
    ========================= */
 
 .ap-funfact {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 28px;
-    padding: 28px 32px;
+    gap: 20px;
+    padding: 28px 20px;
     border-top: 1.5px solid var(--color-border);
     border-bottom: 1.5px solid var(--color-border);
+    text-align: center;
 }
 
-.ap-funfact-icon {
-    font-size: 3.5rem;
+.ap-funfact-img {
+    width: 120px;
+    height: 120px;
     flex-shrink: 0;
-    line-height: 1;
+}
+
+.ap-funfact-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
 }
 
 .ap-funfact-text p {
-    margin: 0 0 6px;
-    font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+    margin: 0 0 8px;
+    font-size: 1rem;
     line-height: 1.6;
     color: var(--color-black);
 }
@@ -318,61 +394,72 @@
 
 .ap-funfact-text strong { color: var(--color-teal-dark); }
 
+/* Tablet+: side by side */
+@media (min-width: 600px) {
+    .ap-funfact {
+        flex-direction: row;
+        text-align: left;
+        gap: 32px;
+        padding: 28px 32px;
+    }
+
+    .ap-funfact-img {
+        width: 140px;
+        height: 140px;
+    }
+}
+
 
 /* =========================
-   7. EDUCATION LOGOS
+   8. EDUCATION LOGOS
    ========================= */
 
 .ap-edu-logos {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    gap: clamp(32px, 8vw, 80px);
-    flex-wrap: wrap;
+    gap: 32px;
 }
 
-.ap-edu-logo-box {
-    display: grid;
-    place-items: center;
-    min-width: 160px;
-    min-height: 80px;
+.ap-edu-item {
+    width: 100%;
+    max-width: 280px;
 }
 
-.ap-edu-wordmark {
-    font-family: "Space Grotesk", sans-serif;
-    font-weight: 700;
-    font-size: 2rem;
-    line-height: 1.1;
-    text-align: center;
+.ap-edu-img {
+    width: 100%;
+    height: auto;
+    max-height: 100px;
+    object-fit: contain;
     display: block;
+    margin: 0 auto;
 }
 
-.ap-edu-wordmark em {
-    font-style: normal;
-    font-size: 0.9rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    display: block;
-}
+/* Tablet+: side by side */
+@media (min-width: 600px) {
+    .ap-edu-logos {
+        flex-direction: row;
+        justify-content: center;
+        gap: clamp(40px, 8vw, 100px);
+    }
 
-.ap-edu-digify     { color: var(--color-black); }
-.ap-edu-digify em  { color: var(--color-teal); }
-.ap-edu-ihub       { color: var(--color-black); }
-.ap-edu-ihub-i     { color: var(--color-yellow); font-size: 2.4rem; }
-.ap-edu-ihub em    { color: var(--color-teal); }
+    .ap-edu-item {
+        max-width: 220px;
+    }
+}
 
 
 /* =========================
-   8. CTA
+   9. CTA
    ========================= */
 
 .ap-cta {
     text-align: center;
-    padding-bottom: clamp(72px, 10vw, 120px);
+    padding-bottom: clamp(60px, 10vw, 120px);
 }
 
 .ap-cta-text {
-    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-size: clamp(1rem, 3vw, 1.2rem);
     color: var(--color-black);
     line-height: 1.6;
     margin-bottom: 24px;
@@ -380,251 +467,11 @@
 
 
 /* =========================
-   9. RESPONSIVE
+   10. REDUCED MOTION
    ========================= */
 
-@media (max-width: 900px) {
-
-    .tool-slide,
-    .cert-slide {
-        flex-basis: calc((100% - 40px) / 3); /* 3 visible */
-    }
-}
-
-@media (max-width: 760px) {
-
-    .ap-section {
-        max-width: 100%;
-    }
-
-    .ap-story-img-wrap {
-        float: none;
-        width: 100%;
-        max-width: 320px;
-        margin: 0 auto 24px;
-    }
-
-    .ap-funfact {
-        gap: 20px;
-        padding: 22px 20px;
-    }
-
-    .tool-slide,
-    .cert-slide {
-        flex-basis: calc((100% - 20px) / 2); /* 2 visible */
-    }
-}
-
-@media (max-width: 480px) {
-
-    .tool-slide,
-    .cert-slide {
-        flex-basis: 100%; /* 1 visible */
-    }
-
-    .ap-tool-logo {
-        width: 54px;
-        height: 54px;
-        border-radius: 12px;
-        font-size: 0.95rem;
-    }
-
-    .ap-cert-logo {
-        width: 56px;
-        height: 56px;
-    }
-}
-
-
-/* =========================================================
-   IMAGE ASSETS
-========================================================= */
-
-/* Tool logos */
-.ap-tool-logo {
-    width: 64px;
-    height: 64px;
-    display: block;
-    object-fit: contain;
-    flex-shrink: 0;
-    border-radius: 12px;
-}
-
-/* Certificate images */
-.ap-cert-image {
-    width: 100%;
-    max-width: 180px;
-    height: 115px;
-    display: block;
-    object-fit: contain;
-    margin: 0 auto 12px;
-}
-
-/* Education logos */
-.ap-edu-image {
-    display: block;
-    width: 100%;
-    max-width: 180px;
-    max-height: 85px;
-    object-fit: contain;
-}
-
-/* Keep education images centred */
-.ap-edu-logo-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-/* =========================================================
-   AUTOMATIC CAROUSELS
-========================================================= */
-
-/* The visible window */
-.carousel-track-clip {
-    width: 100%;
-    overflow: hidden;
-}
-
-/* The moving row */
-.carousel-track {
-    display: flex;
-    gap: 20px;
-    width: max-content;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    transition: transform 650ms ease-in-out;
-    will-change: transform;
-}
-
-/* Individual tool slides */
-.tool-slide {
-    box-sizing: border-box;
-    flex: 0 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    text-align: center;
-    min-width: 0;
-}
-
-/* Individual certificate slides */
-.cert-slide {
-    box-sizing: border-box;
-    flex: 0 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 8px;
-    min-width: 0;
-    text-align: center;
-}
-
-/* Image labels */
-.ap-tool-name,
-.ap-cert-name {
-    display: block;
-    text-align: center;
-    line-height: 1.4;
-}
-
-/* Hide the old arrow and dot controls */
-.carousel-controls {
-    display: none !important;
-}
-
-/* Smaller logos on mobile */
-@media (max-width: 480px) {
-    .ap-tool-logo {
-        width: 54px;
-        height: 54px;
-    }
-
-    .ap-cert-image {
-        max-width: 150px;
-        height: 100px;
-    }
-}
-
-/* Respect visitors who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
     .carousel-track {
         transition: none;
-    }
-}
-
-/* =======================
-   ABOUT ME + HOW IT STARTED
-   TWO-COLUMN LAYOUT
-========================================= */
-
-.ap-two-column {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    align-items: center;
-    gap: 65px;
-    width: 100%;
-}
-
-/* LEFT SIDE */
-
-.ap-two-column-text {
-    width: 100%;
-    min-width: 0;
-}
-
-.ap-two-column-text .ap-section-title {
-    text-align: left;
-    margin-top: 0;
-    margin-bottom: 30px;
-}
-
-.ap-two-column-text .ap-prose p,
-.ap-two-column-text .ap-story-text p {
-    text-align: left;
-}
-
-/* RIGHT SIDE */
-
-.ap-two-column-image {
-    width: 100%;
-    height: 600px;
-    overflow: hidden;
-    border-radius: 12px;
-}
-
-.ap-two-column-image img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-
-/* RESPONSIVE */
-
-@media (max-width: 900px) {
-    .ap-two-column {
-        grid-template-columns: 1fr;
-        gap: 35px;
-    }
-
-    .ap-two-column-image {
-        height: 500px;
-    }
-}
-
-@media (max-width: 600px) {
-    .ap-two-column-image {
-        height: 380px;
-    }
-
-    .ap-two-column {
-        gap: 25px;
     }
 }
