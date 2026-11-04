@@ -224,8 +224,8 @@ p {
     flex-shrink: 0;
     overflow: hidden;
     border-radius: 14px;
-    background: #000;
-    border: 2px solid var(--color-black);
+    background: transparent;
+    
 }
 
 .brand-logo {
