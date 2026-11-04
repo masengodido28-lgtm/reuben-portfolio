@@ -398,3 +398,38 @@
         animation: none;
     }
 }
+
+
+/* =========================
+   DARK MODE OVERRIDES
+   ========================= */
+
+[data-theme="dark"] .wp-cat-card {
+    background: #1a1a1a;
+    border-color: rgba(240, 237, 230, 0.16);
+}
+
+[data-theme="dark"] .wp-cat-card:hover {
+    box-shadow: 8px 10px rgba(240, 237, 230, 0.18);
+}
+
+[data-theme="dark"] .wp-cat-illus {
+    background: #0e0e0e;
+    border-bottom-color: rgba(240, 237, 230, 0.12);
+}
+
+[data-theme="dark"] .wp-item {
+    background: #0e0e0e;
+    border-color: rgba(240, 237, 230, 0.1);
+    color: var(--color-black);
+}
+
+[data-theme="dark"] .wp-item:hover {
+    background: rgba(243, 184, 47, 0.15);
+    border-color: rgba(243, 184, 47, 0.4);
+}
+
+[data-theme="dark"] .wp-cta {
+    border-color: rgba(240, 237, 230, 0.16);
+    box-shadow: 8px 8px rgba(243, 184, 47, 0.35);
+}

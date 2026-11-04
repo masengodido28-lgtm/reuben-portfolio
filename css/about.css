@@ -490,3 +490,47 @@
         overflow: visible;
     }
 }
+
+
+/* =========================
+   DARK MODE OVERRIDES
+   ========================= */
+
+[data-theme="dark"] .ap-prose p,
+[data-theme="dark"] .ap-story-text p,
+[data-theme="dark"] .ap-story-grad-text {
+    color: var(--color-black);
+}
+
+[data-theme="dark"] .ap-about-img {
+    border-color: rgba(240, 237, 230, 0.18);
+    box-shadow: 6px 6px rgba(243, 184, 47, 0.4);
+}
+
+[data-theme="dark"] .ap-story-img {
+    border-color: rgba(240, 237, 230, 0.18);
+    box-shadow: 5px 5px rgba(243, 184, 47, 0.4);
+}
+
+[data-theme="dark"] .tool-slide,
+[data-theme="dark"] .cert-slide {
+    background: #1a1a1a;
+    border-color: rgba(240, 237, 230, 0.14);
+}
+
+[data-theme="dark"] .ap-tool-name {
+    color: var(--color-black);
+}
+
+[data-theme="dark"] .ap-funfact {
+    border-color: var(--color-border);
+}
+
+[data-theme="dark"] .ap-funfact-text p {
+    color: var(--color-black);
+}
+
+[data-theme="dark"] .ap-cta {
+    border-color: rgba(240, 237, 230, 0.18);
+    box-shadow: 8px 8px rgba(243, 184, 47, 0.35);
+}
