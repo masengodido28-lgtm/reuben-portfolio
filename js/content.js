@@ -95,7 +95,31 @@ const videos = [
         title: "Matric Dance Reel",
         category: "Events & Lifestyle",
         filename: "%F0%9F%92%83%F0%9F%8F%BD%F0%9F%92%83%F0%9F%8F%BD%F0%9F%92%83%F0%9F%8F%BD%23matricdance%20%23md25.mp4"
-    }
+    },
+
+    {
+    title: "Framed in Denim",
+    category: "Fashion & Lifestyle",
+    filename: "Framed%20in%20denim%2C%20focused%20on%20feeling.Styled%20by%20%40cottonon.mp4"
+},
+
+{
+    title: "A Weekend on the Court",
+    category: "Lifestyle & Sports",
+    filename: "Had%20so%20much%20fun%20this%20weekend%20playing%20tennis%20%40rangerover.mp4"
+},
+
+{
+    title: "Factorie — Brand Feature",
+    category: "Fashion & Lifestyle",
+    filename: "Thanks%20to%20%40factorie_africa.mp4"
+},
+
+{
+    title: "Transformer 4000 — For Victory",
+    category: "Commercial & Fitness",
+    filename: "https://pub-7340b1ba7eea4d748d0197271a70e003.r2.dev/Why%20choose%20the%20Transformer%204000%20%20For%20Victory%20www.fortfitness.co.za%23gym.mp4"
+},
 
 ];
 
