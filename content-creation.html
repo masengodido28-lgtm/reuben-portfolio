@@ -1,54 +1,211 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="theme-color" content="#fbfaf6">
-    <meta name="description" content="Content creation work by Reuben Lotsima — videos, reels, and brand storytelling.">
+    <meta name="description" content="Explore Reuben Lotsima's content creation, videography, events, fashion and commercial work.">
+
     <title>Content Creation — Reuben Lotsima</title>
+
     <link rel="icon" type="image/png" href="./assets/logo.png">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Global CSS -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Content page CSS -->
+    <link rel="stylesheet" href="css/content.css">
+
+    <!-- Content page JavaScript -->
+    <script src="js/content.js" defer></script>
+    <script src="js/nav.js" defer></script>
+    <script src="js/reveal.js" defer></script>
 </head>
+
 <body>
 
+    <!-- =========================
+         HEADER
+    ========================== -->
+
     <header class="site-header">
-        <a class="brand" href="index.html" aria-label="Reuben Lotsima home">
-            <span class="brand-logo-wrap" aria-hidden="true">
-                <img class="brand-logo" src="./assets/logo.png" alt="" width="72" height="72">
-            </span>
-            <span class="brand-name">REUBEN<br>LOTSIMA</span>
-        </a>
-        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
-            <span></span><span></span><span></span>
-        </button>
-        <nav class="main-nav" id="main-nav" aria-label="Main navigation">
-            <a href="index.html">Home</a>
-            <a href="about.html">About Me</a>
-            <a href="work.html">Explore My Work</a>
-            <a class="nav-contact" href="contact.html">Get In Touch <span aria-hidden="true">↗</span></a>
-        </nav>
+        <div class="container header-inner">
+
+            <a class="brand" href="index.html" aria-label="Reuben Lotsima home">
+                <img src="./assets/logo.png" alt="Reuben Lotsima logo">
+            </a>
+
+            <button
+                class="nav-toggle"
+                aria-label="Open navigation"
+                aria-expanded="false"
+                aria-controls="main-nav"
+            >
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="main-nav" id="main-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Me</a>
+                <a href="work.html">Explore My Work</a>
+                <a href="contact.html">Get In Touch</a>
+            </nav>
+
+        </div>
     </header>
 
-    <main>
 
-        <section class="section-wrap section-pad" style="text-align:center; padding-top: clamp(80px,12vw,140px);">
-            <p class="eyebrow" style="justify-content:center;">
-                <span class="eyebrow-dot"></span>
-                CONTENT CREATION
-            </p>
-            <h1 style="font-size: clamp(2.2rem,6vw,4.5rem); letter-spacing:-0.05em; margin-bottom:20px;">
-                Coming <span class="highlight">soon.</span>
-            </h1>
-            <p style="color:var(--color-text-muted); max-width:480px; margin:0 auto 36px; font-size:1.05rem; line-height:1.7;">
-                This page is being built. In the meantime, feel free to get in touch and ask about any content creation projects directly.
-            </p>
-            <a class="button button-teal" href="work.html">← Back to work</a>
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="content-page">
+
+        <!-- HERO SECTION -->
+
+        <section class="content-hero">
+            <div class="content-container">
+
+                <p class="content-eyebrow">
+                    CONTENT CREATION <span>—</span> VISUAL STORYTELLING
+                </p>
+
+                <h1>
+                    Moments captured.<br>
+                    <span>Stories brought to life.</span>
+                </h1>
+
+                <p class="content-intro">
+                    From events and fashion to commercial projects and
+                    behind-the-scenes moments, explore a collection of
+                    visuals created to tell stories and capture attention.
+                </p>
+
+                <a href="#video-gallery" class="content-scroll-link">
+                    Explore the collection
+                    <span aria-hidden="true">↓</span>
+                </a>
+
+            </div>
+        </section>
+
+
+        <!-- VIDEO GALLERY -->
+
+        <section class="content-gallery-section" id="video-gallery">
+
+            <div class="content-container">
+
+                <div class="gallery-heading">
+                    <div>
+                        <p class="content-eyebrow">SELECTED WORK</p>
+                        <h2>The visual archive<span>.</span></h2>
+                    </div>
+
+                    <p class="gallery-description">
+                        A collection of creative projects, experiences
+                        and stories told through video.
+                    </p>
+                </div>
+
+
+                <!-- JavaScript inserts the video cards here -->
+
+                <div
+                    class="video-gallery"
+                    id="video-gallery-grid"
+                    aria-label="Video portfolio gallery"
+                >
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CLOSING SECTION -->
+
+        <section class="content-closing">
+            <div class="content-container">
+
+                <p class="content-eyebrow">HAVE A PROJECT IN MIND?</p>
+
+                <h2>
+                    Let's create something<br>
+                    <span>worth watching.</span>
+                </h2>
+
+                <a href="contact.html" class="content-contact-link">
+                    Let's work together
+                    <span aria-hidden="true">↗</span>
+                </a>
+
+            </div>
         </section>
 
     </main>
+
+
+    <!-- =========================
+         VIDEO PLAYER MODAL
+    ========================== -->
+
+    <div
+        class="video-modal"
+        id="video-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Video player"
+        aria-hidden="true"
+        hidden
+    >
+
+        <div class="video-modal-backdrop" data-close-modal></div>
+
+        <div class="video-modal-content">
+
+            <div class="video-modal-header">
+                <div>
+                    <p class="video-modal-label">NOW PLAYING</p>
+                    <h2 id="modal-video-title">Video title</h2>
+                </div>
+
+                <button
+                    class="video-modal-close"
+                    type="button"
+                    aria-label="Close video"
+                    data-close-modal
+                >
+                    &times;
+                </button>
+            </div>
+
+            <video
+                id="modal-video"
+                controls
+                playsinline
+                preload="none"
+            >
+                Your browser does not support HTML video.
+            </video>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
 
     <footer class="site-footer">
         <a class="brand footer-brand" href="index.html" aria-label="Back to home">
@@ -61,7 +218,5 @@
         <a class="back-top" href="#top">Back to top ↑</a>
     </footer>
 
-        <script src="js/nav.js"></script>
-    <script src="js/reveal.js"></script>
 </body>
 </html>
