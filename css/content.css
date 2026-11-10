@@ -37,6 +37,7 @@
     font-weight: 700;
     letter-spacing: 0.18em;
     line-height: 1.5;
+    color: var(--color-teal);
 }
 
 .content-eyebrow span {
@@ -52,11 +53,13 @@
     font-weight: 600;
     letter-spacing: -0.075em;
     line-height: 0.99;
+    color: var(--color-yellow);
 }
 
 .content-hero h1 span,
 .content-closing h2 span {
-    opacity: 0.48;
+    color: var(--color-white);
+    opacity: 1;
 }
 
 .content-intro {
@@ -64,7 +67,8 @@
     margin: 30px 0 0;
     font-size: 16px;
     line-height: 1.8;
-    opacity: 0.72;
+    color: var(--color-black);
+    opacity: 0.85;
 }
 
 .content-scroll-link,
@@ -74,8 +78,8 @@
     gap: 16px;
     margin-top: 35px;
     padding-bottom: 8px;
-    border-bottom: 1px solid currentColor;
-    color: inherit;
+    border-bottom: 1px solid var(--color-yellow);
+    color: var(--color-yellow);
     font-size: 13px;
     font-weight: 600;
     text-decoration: none;
@@ -111,10 +115,12 @@
     font-weight: 600;
     letter-spacing: -0.065em;
     line-height: 1;
+    color: var(--color-yellow);
 }
 
 .gallery-heading h2 span {
-    opacity: 0.45;
+    color: var(--color-teal);
+    opacity: 1;
 }
 
 .gallery-description {
@@ -122,6 +128,7 @@
     margin: 0 0 4px;
     font-size: 13px;
     line-height: 1.8;
+    color: var(--color-black);
     opacity: 0.65;
 }
 
@@ -311,21 +318,7 @@
 
 
 /* =========================
-   7. CLOSING SECTION
-========================= */
-
-.content-closing {
-    padding: 110px 0 130px;
-    border-top: 1px solid rgba(128, 128, 128, 0.2);
-}
-
-.content-closing h2 {
-    font-size: clamp(42px, 7vw, 82px);
-}
-
-
-/* =========================
-   8. VIDEO MODAL
+   7. VIDEO MODAL
 ========================= */
 
 .video-modal[hidden] {
