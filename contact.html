@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contact.css">
     <link rel="stylesheet" href="css/mobile-fixes.css">
 </head>
 <body>
@@ -36,18 +37,78 @@
 
     <main>
 
-        <section class="contact section-wrap reveal reveal-scale" id="contact" style="margin-top: clamp(60px, 10vw, 120px);">
-            <span class="contact-spark" aria-hidden="true">✳</span>
-            <p class="eyebrow">YOUR NEXT BIG IDEA STARTS HERE</p>
-            <h1 style="font-size: clamp(2.2rem, 5vw, 4.2rem); color: var(--color-white); margin-bottom: 20px;">
-                Let's make<br><span style="color: var(--color-yellow);">something good.</span>
-            </h1>
-            <p>Got a project, a question, or just a good feeling? I'd love to hear from you.</p>
-            <a class="button button-yellow" href="mailto:hello@reubenlotsima.com">Let's talk <span aria-hidden="true">↗</span></a>
-            <span class="contact-note">GOOD THINGS START WITH A HELLO.</span>
-        </section>
+       <section class="cf-section section-wrap section-pad" id="contact-form">
+    <p class="eyebrow"><span class="eyebrow-dot"></span>GET IN TOUCH</p>
+    <h1 class="cf-title">Let's make <span class="highlight">something good.</span></h1>
+    <p class="section-intro">Got a project, a question, or just a good feeling? Fill this in and I'll get back to you.</p>
+
+    <form class="cf-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+
+        <!-- Name -->
+        <fieldset class="cf-field">
+            <legend>Name <span class="cf-req" aria-hidden="true">*</span></legend>
+            <div class="cf-row">
+                <div>
+                    <input class="cf-input" type="text" id="firstName" name="first_name" autocomplete="given-name" required>
+                    <label class="cf-hint" for="firstName">First Name</label>
+                    <span class="cf-error" aria-live="polite"></span>
+                </div>
+                <div>
+                    <input class="cf-input" type="text" id="lastName" name="last_name" autocomplete="family-name" required>
+                    <label class="cf-hint" for="lastName">Last Name</label>
+                    <span class="cf-error" aria-live="polite"></span>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- Email -->
+        <div class="cf-field">
+            <label class="cf-label" for="email">Email <span class="cf-req" aria-hidden="true">*</span></label>
+            <input class="cf-input" type="email" id="email" name="email" autocomplete="email" required>
+            <span class="cf-hint">example@example.com</span>
+            <span class="cf-error" aria-live="polite"></span>
+        </div>
+
+        <!-- Phone (optional) -->
+        <div class="cf-field">
+            <label class="cf-label" for="phone">Phone Number</label>
+            <input class="cf-input" type="tel" id="phone" name="phone" inputmode="tel" autocomplete="tel" placeholder="(000) 000-0000">
+            <span class="cf-error" aria-live="polite"></span>
+        </div>
+
+        <!-- Services -->
+        <fieldset class="cf-field">
+            <legend>What services are you interested in? (You can choose more than 1)</legend>
+            <div class="cf-checks">
+                <label class="cf-check"><input type="checkbox" name="services" value="Content Creation"> Content Creation</label>
+                <label class="cf-check"><input type="checkbox" name="services" value="Graphic Design"> Graphic Design</label>
+                <label class="cf-check"><input type="checkbox" name="services" value="Website Services"> Website Services</label>
+                <label class="cf-check"><input type="checkbox" name="services" value="Social Media Management"> Social Media Management</label>
+                <label class="cf-check"><input type="checkbox" name="services" value="Creative Consultation"> Creative Consultation</label>
+                <label class="cf-check"><input type="checkbox" name="services" value="Just wanna chat"> I think you're cool and I just wanna chat</label>
+            </div>
+        </fieldset>
+
+        <!-- Message -->
+        <div class="cf-field">
+            <label class="cf-label" for="message">Feel free to leave a custom message</label>
+            <textarea class="cf-input cf-textarea" id="message" name="message" rows="6"></textarea>
+        </div>
+
+        <!-- Spam trap: real people never see or fill this -->
+        <input class="cf-honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <button class="button button-yellow" type="submit" id="cfSubmit">
+            Send message <span aria-hidden="true">↗</span>
+        </button>
+
+        <p class="cf-status" id="cfStatus" role="status" aria-live="polite"></p>
+    </form>
+</section>
 
     </main>
+
+    
 
     <footer class="site-footer">
         <a class="brand footer-brand" href="index.html" aria-label="Back to home">
@@ -62,6 +123,7 @@
 
     <script src="js/nav.js"></script>
     <script src="js/reveal.js"></script>
+    <script src="js/contact.js"></script>
 
 </body>
 </html>

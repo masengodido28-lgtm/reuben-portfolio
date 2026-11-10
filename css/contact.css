@@ -1,0 +1,124 @@
+.cf-title {
+    font-size: clamp(2.2rem, 7vw, 4rem);
+    margin-bottom: 16px;
+}
+
+.cf-form {
+    display: grid;
+    gap: 28px;
+    max-width: 680px;
+    margin-top: 36px;
+}
+
+.cf-field {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+}
+
+.cf-field legend,
+.cf-label {
+    display: block;
+    margin-bottom: 10px;
+    padding: 0;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.cf-req { color: var(--color-yellow); }
+
+.cf-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+@media (min-width: 600px) {
+    .cf-row { grid-template-columns: 1fr 1fr; }
+}
+
+/* 16px font stops iPhones zooming in when a field is tapped */
+.cf-input {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 14px;
+    font: inherit;
+    font-size: 16px;
+    color: var(--color-black);
+    background: var(--color-white);
+    border: 2px solid rgba(240, 237, 230, 0.25);
+    border-radius: 10px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cf-input::placeholder { color: var(--color-text-muted); }
+
+.cf-input:focus {
+    outline: none;
+    border-color: var(--color-teal);
+    box-shadow: 0 0 0 3px rgba(0, 158, 174, 0.25);
+}
+
+.cf-input[aria-invalid="true"] { border-color: #ff6b6b; }
+
+.cf-textarea {
+    min-height: 160px;
+    resize: vertical;
+}
+
+.cf-hint {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+.cf-error {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.8rem;
+    color: #ff6b6b;
+}
+
+.cf-error:empty { display: none; }
+
+/* Checkboxes: 44px tap rows */
+.cf-checks { display: grid; gap: 4px; }
+
+.cf-check {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 44px;
+    cursor: pointer;
+}
+
+.cf-check input {
+    flex: 0 0 22px;
+    width: 22px;
+    height: 22px;
+    margin: 0;
+    accent-color: var(--color-teal);
+}
+
+.cf-honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+#cfSubmit {
+    justify-self: start;
+    color: #111111;
+    cursor: pointer;
+}
+
+#cfSubmit:disabled { opacity: 0.6; cursor: wait; }
+
+.cf-status { margin: 0; font-weight: 600; }
+.cf-status.is-success { color: var(--color-teal); }
+.cf-status.is-error   { color: #ff6b6b; }
