@@ -70,6 +70,12 @@
         `;
 
         grid.appendChild(card);
+
+        // Schedule thumbnail generation for this card
+        const coverEl = card.querySelector('.hv-cover');
+        if (coverEl && typeof thumbnailQueue !== 'undefined') {
+            thumbnailQueue.add(coverEl, `${R2}/${v.filename}`);
+        }
     });
 
     /* ── Modal ────────────────────────────────────────────── */

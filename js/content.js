@@ -206,6 +206,14 @@ function displayVideos() {
         // Add the cover to the button
         button.appendChild(cover);
 
+        // Schedule thumbnail generation for this card
+        const videoURL = video.filename.startsWith('http')
+            ? video.filename
+            : `${R2_BASE_URL}/${video.filename}`;
+        if (typeof thumbnailQueue !== 'undefined') {
+            thumbnailQueue.add(button, videoURL);
+        }
+
         // Create the information below the cover
         const information = document.createElement("div");
 
