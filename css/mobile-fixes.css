@@ -376,3 +376,64 @@ video {
     display: inline-block;
     padding-block: 10px;
 }
+
+/* ── Footer social icons ── */
+
+.footer-social {
+    display: flex;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer-social a {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 2px solid var(--color-border);
+    border-radius: 50%;
+    color: var(--color-black);
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s var(--transition-smooth);
+}
+
+.footer-social svg {
+    width: 20px;
+    height: 20px;
+}
+
+@media (hover: hover) {
+    .footer-social a:hover {
+        background: var(--color-teal);
+        border-color: var(--color-teal);
+        color: #ffffff;
+        transform: translateY(-3px);
+    }
+}
+
+.footer-social a:active {
+    background: var(--color-teal-dark);
+    border-color: var(--color-teal-dark);
+    color: #ffffff;
+}
+
+/* Footer order, so everything lines up on every screen size */
+.footer-brand  { order: 1; }
+.footer-social { order: 2; }
+.site-footer p { order: 3; }
+.back-top      { order: 4; }
+
+@media (min-width: 600px) {
+    .site-footer p {
+        order: 2;
+    }
+
+    .footer-social {
+        order: 3;
+    }
+}
