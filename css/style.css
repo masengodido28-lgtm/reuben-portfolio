@@ -10,20 +10,20 @@
    ========================= */
 
 :root {
-    --color-background: #FFFEFA;
-    --color-white: #FFFFFF;
-    --color-black: #111111;
+    --color-background: #0e0e0e;
+    --color-white:      #1a1a1a;
+    --color-black:      #f0ede6;
 
-    --color-teal: #009EAE;
-    --color-teal-dark: #007F8E;
+    --color-teal:       #009EAE;
+    --color-teal-dark:  #007F8E;
 
-    --color-yellow: #F3B82F;
-    --color-yellow-light: #FFCF4D;
+    --color-yellow:      #F3B82F;
+    --color-yellow-light:#FFCF4D;
 
-    --color-text-muted: #626262;
-    --color-border: rgba(17, 17, 17, 0.13);
+    --color-text-muted: #8a8a8a;
+    --color-border:     rgba(240, 237, 230, 0.12);
 
-    --shadow-card: 5px 6px 0 var(--color-black);
+    --shadow-card: 5px 6px 0 rgba(240, 237, 230, 0.2);
 
     --transition-smooth: cubic-bezier(0.2, 0.75, 0.25, 1);
 }
@@ -707,8 +707,9 @@ p {
     inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
+    padding: 28px;
     display: block;
 }
 
