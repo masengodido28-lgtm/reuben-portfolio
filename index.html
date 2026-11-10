@@ -222,11 +222,51 @@
             </div>
         </section>
 
-        <section class="work section-wrap section-pad" id="work">
-            <div class="section-heading work-heading reveal">
-                <p class="eyebrow">A LITTLE LOOK AT THE GOOD STUFF</p>
-               
-        <section class="contact section-wrap reveal reveal-scale" id="contact">
+                <!-- ============================================
+             WORK I'VE DONE — VIDEO PREVIEW
+        ============================================ -->
+        <section class="home-videos section-wrap" id="work">
+
+            <div class="section-heading reveal">
+                <div class="section-heading-copy">
+                    <p class="eyebrow">WORK I'VE DONE</p>
+                    <h2>Content that <span class="highlight">moves people.</span></h2>
+                    <p class="section-intro">A few pieces from behind the camera — events, fashion, podcasts and more.</p>
+                </div>
+            </div>
+
+            <!-- JS builds the 4 video cards here -->
+            <div class="hv-grid reveal-stagger" id="home-video-grid"></div>
+
+            <div class="hv-more">
+                <a class="button button-teal" href="content-creation.html">
+                    See all videos <span aria-hidden="true">↗</span>
+                </a>
+            </div>
+
+        </section>
+
+
+        <!-- Video modal -->
+        <div class="hv-modal" id="hv-modal" role="dialog" aria-modal="true"
+             aria-label="Video player" aria-hidden="true" hidden>
+            <div class="hv-modal-backdrop" id="hv-modal-backdrop"></div>
+            <div class="hv-modal-inner">
+                <div class="hv-modal-header">
+                    <div>
+                        <p class="hv-modal-label">NOW PLAYING</p>
+                        <h2 class="hv-modal-title" id="hv-modal-title"></h2>
+                    </div>
+                    <button class="hv-modal-close" id="hv-modal-close"
+                            aria-label="Close video">&times;</button>
+                </div>
+                <video id="hv-modal-video" controls playsinline preload="none">
+                    Your browser does not support HTML video.
+                </video>
+            </div>
+        </div>
+
+<section class="contact section-wrap reveal reveal-scale" id="contact">
             <span class="contact-spark" aria-hidden="true">✳</span>
             <p class="eyebrow">YOUR NEXT BIG IDEA STARTS HERE</p>
             <h2>Let’s make<br><span>something good.</span></h2>
@@ -249,5 +289,6 @@
     <script src="js/nav.js"></script>
     <script src="js/reveal.js"></script>
     <script src="js/index.js"></script>
+    <script src="js/home-videos.js"></script>
 </body>
 </html>
