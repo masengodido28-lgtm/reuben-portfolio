@@ -142,32 +142,32 @@
     aspect-ratio: auto;
 }
 
-/* ── Tablet+: text left, photo overlapping on the right ── */
+/* ── Tablet+: text left, photo right, vertically centred ── */
 @media (min-width: 600px) {
     .ap-section#story {
-        padding-bottom: 0;   /* let the image sit flush at the section bottom */
+        padding-bottom: 0;
     }
 
     .ap-story-grad {
         flex-direction: row;
-        align-items: flex-end;
-        gap: 0;
+        align-items: center;    /* both sides vertically centred */
+        gap: 32px;
         margin-bottom: 0;
     }
 
     .ap-story-grad-text {
-        flex: 1 1 55%;
-        align-self: flex-start;
+        flex: 1 1 0;
+        align-self: auto;
         position: relative;
         z-index: 2;
     }
 
     .ap-story-img-wrap {
-        flex: 0 0 auto;
-        width: clamp(240px, 45%, 400px);
+        flex: 0 0 clamp(260px, 50%, 440px); /* bigger image */
+        width: clamp(260px, 50%, 440px);
         max-width: none;
-        margin-left: -12%;
-        align-self: flex-end;
+        margin-left: 0;         /* no overlap — clean side-by-side */
+        align-self: auto;
     }
 }
 
