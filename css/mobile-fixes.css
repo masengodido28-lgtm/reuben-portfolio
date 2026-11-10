@@ -1,0 +1,378 @@
+/* =========================================================
+   MOBILE FIXES — css/mobile-fixes.css
+   Load this LAST on every page, after style.css and the
+   page's own CSS file, so these rules win.
+   Section 2 ([CONTRAST]) fixes colours that broke when the
+   theme switched to dark. Delete that block if you disagree.
+   ========================================================= */
+
+
+/* =========================
+   1. FOUNDATION
+   ========================= */
+
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/* Stops images with width/height attributes from stretching */
+img,
+video {
+    height: auto;
+}
+
+
+/* =========================
+   2. [CONTRAST] — DARK THEME FIXES
+   style.css swapped --color-black to cream and --color-white to
+   near-black, so anything using them as "black text" or "white
+   text" ended up unreadable.
+   ========================= */
+
+/* Cream text on yellow buttons / stickers / card backs */
+.button-yellow,
+.portrait-sticker,
+.service-yellow .flip-card-back {
+    color: #111111;
+}
+
+/* CTA cards: dark background so their white text is readable */
+.contact,
+.ap-cta,
+.gd-cta,
+.wp-cta {
+    background: #111111;
+    color: #ffffff;
+}
+
+.gd-cta h2,
+.contact h1 {
+    color: #ffffff !important;
+}
+
+.ap-cta-text {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* "Stories brought to life." was near-black on near-black */
+.content-hero h1 span {
+    color: var(--color-black);
+}
+
+
+/* =========================
+   3. HEADER & NAVIGATION
+   ========================= */
+
+.main-nav a {
+    white-space: nowrap;
+}
+
+/* The extra header button crowds the nav on tablets; the nav
+   already has a "Get In Touch" link */
+@media (max-width: 899px) {
+    .header-cta {
+        display: none;
+    }
+}
+
+/* Closed mobile menu: links must not be reachable by keyboard/screen reader */
+@media (max-width: 599px) {
+    .main-nav {
+        transition:
+            max-height 0.35s ease,
+            padding 0.35s ease,
+            visibility 0s linear 0.35s;
+    }
+
+    .main-nav:not(.is-open) {
+        visibility: hidden;
+    }
+
+    .main-nav.is-open {
+        visibility: visible;
+        transition-delay: 0s;
+    }
+}
+
+
+/* =========================
+   4. HERO
+   ========================= */
+
+/* "Scroll to explore" was stuck to the very edge of the screen */
+.scroll-cue {
+    left: 16px;
+}
+
+@media (min-width: 600px) {
+    .scroll-cue {
+        left: max(24px, calc((100% - 1160px) / 2));
+    }
+}
+
+
+/* =========================
+   5. BRAND LOGO CAROUSEL (home page)
+   ========================= */
+
+@media (max-width: 599px) {
+    .brands {
+        padding: 40px 0;
+    }
+
+    .brands h2 {
+        padding-inline: 16px;
+    }
+
+    .logo {
+        padding: 0 24px;
+    }
+
+    .logo img {
+        height: 40px;
+    }
+
+    .track {
+        animation-duration: 18s;
+    }
+}
+
+
+/* =========================
+   6. SERVICE FLIP CARDS
+   ========================= */
+
+@media (max-width: 599px) {
+    /* The longer descriptions were being clipped at 240px */
+    .service-card,
+    .service-card:nth-child(4),
+    .service-card:nth-child(5) {
+        min-height: 320px;
+    }
+
+    .flip-card-back {
+        padding: 22px 20px;
+        gap: 10px;
+    }
+
+    .flip-card-back p {
+        max-width: none;
+        font-size: 0.92rem;
+    }
+}
+
+/* Bigger tap area for the "Let's talk" link on the card back */
+.flip-card-link {
+    padding: 10px 0 4px;
+}
+
+
+/* =========================
+   7. ABOUT PAGE
+   ========================= */
+
+/* Side-by-side layout is too cramped between 600px and 760px,
+   so keep the graduation photo stacked until 760px */
+@media (min-width: 600px) and (max-width: 759px) {
+    .ap-story-grad {
+        flex-direction: column;
+    }
+
+    .ap-story-grad-text {
+        flex: none;
+    }
+
+    .ap-story-img-wrap {
+        flex: 0 0 auto;
+        width: 70%;
+        max-width: 340px;
+    }
+}
+
+
+/* =========================
+   8. GRAPHIC DESIGN PAGE
+   ========================= */
+
+/* Buttons come with browser padding and a grey background,
+   which left a gap around each image */
+.gd-card {
+    padding: 0;
+    background: var(--color-background);
+    font: inherit;
+    color: inherit;
+}
+
+/* Filter pills: one swipeable row on phones instead of 3 wrapped rows */
+.gd-filters.section-wrap {
+    width: 100%;
+    padding-inline: 16px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+}
+
+.gd-filters::-webkit-scrollbar {
+    display: none;
+}
+
+.gd-filter {
+    flex: 0 0 auto;
+    min-height: 44px;
+    white-space: nowrap;
+    scroll-snap-align: start;
+}
+
+@media (min-width: 600px) {
+    .gd-filters.section-wrap {
+        width: min(1160px, calc(100% - 48px));
+        padding-inline: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+        overflow: visible;
+    }
+}
+
+/* Lightbox: size against the visible screen, not the one behind the browser bars */
+.gd-lightbox-inner {
+    max-height: 90vh;
+    max-height: 90dvh;
+}
+
+.gd-lightbox-img {
+    max-height: 78vh;
+    max-height: 78dvh;
+}
+
+@media (max-width: 599px) {
+    .gd-lightbox {
+        padding: 12px;
+    }
+
+    .gd-lightbox-close {
+        top: 12px;
+        right: 12px;
+        background: rgba(0, 0, 0, 0.55);
+    }
+
+    .gd-lightbox-prev,
+    .gd-lightbox-next {
+        width: 44px;
+        height: 44px;
+        background: rgba(0, 0, 0, 0.55);
+    }
+
+    .gd-lightbox-prev { left: 8px; }
+    .gd-lightbox-next { right: 8px; }
+}
+
+
+/* =========================
+   9. CONTENT CREATION PAGE
+   ========================= */
+
+@media (max-width: 760px) {
+    .content-eyebrow {
+        font-size: 12px;
+    }
+
+    .content-intro {
+        font-size: 15px;
+    }
+
+    .gallery-description {
+        font-size: 14px;
+        opacity: 0.8;
+    }
+}
+
+
+/* =========================
+   10. VIDEO MODALS (home + content pages)
+   ========================= */
+
+.hv-modal video,
+.video-modal video {
+    max-height: 60vh;
+    max-height: 60dvh;
+}
+
+.hv-modal-inner {
+    max-height: calc(100vh - 40px);
+    max-height: calc(100dvh - 40px);
+    overflow-y: auto;
+}
+
+/* 44px is the minimum comfortable tap size */
+.hv-modal-close,
+.video-modal-close {
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+}
+
+
+/* =========================
+   11. TOUCH SCREENS: NO "STUCK" HOVER STATES
+   On phones, hover styles stay applied after a tap until you
+   tap somewhere else. Reset them for touch-only devices.
+   ========================= */
+
+@media (hover: none) {
+    /* Service cards: only the tap (.is-flipped) flips them */
+    .service-grid.is-dealt .service-card:hover:not(.is-flipped) .flip-card-inner {
+        transform: none;
+    }
+
+    .service-grid.is-dealt .service-card:hover {
+        transform: none;
+        box-shadow: var(--shadow-card);
+    }
+
+    /* Design gallery */
+    .gd-card.is-visible:hover {
+        transform: none;
+        box-shadow: var(--shadow-card);
+    }
+
+    .gd-card:hover img {
+        transform: none;
+    }
+
+    .gd-filter:not(.is-active):hover {
+        background: transparent;
+        color: var(--color-black);
+        transform: none;
+        box-shadow: none;
+    }
+
+    /* Work page + home video cards */
+    .wp-cat-card.is-visible:hover {
+        transform: none;
+        box-shadow: var(--shadow-card);
+    }
+
+    .wp-cat-card:hover .wp-cat-illus img {
+        transform: none;
+    }
+
+    .hv-btn:hover {
+        transform: none;
+        box-shadow: var(--shadow-card);
+    }
+}
+
+
+/* =========================
+   12. FOOTER
+   ========================= */
+
+.back-top {
+    display: inline-block;
+    padding-block: 10px;
+}
