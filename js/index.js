@@ -1,8 +1,8 @@
 /* =========================================================
    INDEX.JS — Home page specific interactions
    - Hero cursor parallax tilt
-   - Service / work card magnetic hover
    - Service card deck-of-cards tap to deal
+   - Flip-card tap-to-flip on mobile / touch devices
    ========================================================= */
 
 /* ── Hero cursor parallax tilt ──────────────────────────── */
@@ -17,7 +17,7 @@
     document.addEventListener('mousemove', e => {
         const cx = window.innerWidth  / 2;
         const cy = window.innerHeight / 2;
-        const dx = (e.clientX - cx) / cx; // -1 → 1
+        const dx = (e.clientX - cx) / cx;
         const dy = (e.clientY - cy) / cy;
 
         const tx = dx * 7;
@@ -40,45 +40,6 @@
                 raf = null;
             });
         }
-    });
-})();
-
-
-/* ── Magnetic card hover ─────────────────────────────────── */
-(function () {
-    'use strict';
-
-    const cards = document.querySelectorAll('.service-card, .work-card');
-
-    function inDeck(card) {
-        if (!card.classList.contains('service-card')) return false;
-        const g = card.closest('.service-grid');
-        return !!g && g.classList.contains('is-deck');
-    }
-
-    cards.forEach(card => {
-        card.addEventListener('mousemove', e => {
-            if (inDeck(card)) return;
-
-            const r  = card.getBoundingClientRect();
-            const cx = r.left + r.width  / 2;
-            const cy = r.top  + r.height / 2;
-            const dx = (e.clientX - cx) / (r.width  / 2);
-            const dy = (e.clientY - cy) / (r.height / 2);
-
-            card.style.setProperty('--mx', `${dx * 4}deg`);
-            card.style.setProperty('--my', `${dy * -3}deg`);
-            card.style.transform =
-                `translateY(-7px) scale(1.012)
-                 perspective(600px)
-                 rotateY(${dx * 4}deg)
-                 rotateX(${dy * -3}deg)`;
-        });
-
-        card.addEventListener('mouseleave', () => {
-            if (inDeck(card)) return;
-            card.style.transform = '';
-        });
     });
 })();
 
@@ -144,7 +105,11 @@
 
         window.clearTimeout(tidyTimer);
         tidyTimer = window.setTimeout(() => {
-            cards.forEach(c => { c.style.transition = ''; });
+            cards.forEach(c => {
+                c.style.transition = '';
+                // Wire up tap-to-flip now that the deck is dealt
+                initFlipTap(c);
+            });
         }, dur * 1000 + 80);
     }
 
@@ -172,3 +137,34 @@
         document.fonts.ready.then(() => { if (!dealt) stackDeck(); });
     }
 })();
+
+
+/* ── Flip-card tap-to-flip (touch / keyboard) ────────────── */
+/*
+   On desktop hover is handled by CSS (.service-grid.is-dealt .service-card:hover).
+   On touch devices there's no hover, so we toggle .is-flipped on tap.
+   Clicking a .flip-card-link navigates normally and doesn't re-flip.
+*/
+function initFlipTap(card) {
+    'use strict';
+
+    // Keyboard: Enter/Space toggles the flip
+    card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            card.classList.toggle('is-flipped');
+        }
+    });
+
+    // Touch: tap anywhere on the card flips it;
+    // tapping the link inside lets it navigate normally.
+    card.addEventListener('click', e => {
+        // Let link clicks pass through
+        if (e.target.closest('.flip-card-link')) return;
+
+        // Only flip on touch / pointer:coarse devices
+        if (window.matchMedia('(hover: none), (pointer: coarse)').matches) {
+            card.classList.toggle('is-flipped');
+        }
+    });
+}
