@@ -186,14 +186,14 @@
     overflow: hidden;
 
     text-align: center;
-    padding: clamp(52px, 8vw, 96px) clamp(24px, 5vw, 60px);
-    margin-bottom: clamp(52px, 8vw, 96px);
+    padding: clamp(36px, 5vw, 60px) clamp(24px, 4vw, 52px);
+    margin-bottom: clamp(36px, 5vw, 60px);
 
     border: 2px solid var(--color-black);
-    border-radius: 28px;
+    border-radius: 20px;
     background: var(--color-black);
-    color: var(--color-white);
-    box-shadow: 8px 8px var(--color-yellow);
+    color: #ffffff;
+    box-shadow: 6px 6px var(--color-yellow);
 }
 
 .wp-cta::before {
@@ -229,9 +229,9 @@
 }
 
 .wp-cta h2 {
-    color: var(--color-white);
-    font-size: clamp(2rem, 4.5vw, 3.8rem);
-    margin-bottom: 16px;
+    color: #ffffff;
+    font-size: clamp(1.6rem, 3vw, 2.6rem);
+    margin-bottom: 12px;
 }
 
 .wp-cta h2 span {
@@ -239,8 +239,8 @@
 }
 
 .wp-cta p {
-    color: rgba(255,255,255,0.72);
-    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+    color: rgba(255,255,255,0.9);
+    font-size: clamp(0.88rem, 1.3vw, 0.95rem);
     max-width: 480px;
     margin: 0 auto 32px;
     line-height: 1.65;

@@ -456,14 +456,14 @@
     overflow: hidden;
 
     text-align: center;
-    padding: clamp(52px, 8vw, 96px) clamp(24px, 5vw, 60px);
-    margin-bottom: clamp(52px, 8vw, 96px);
+    padding: clamp(36px, 5vw, 60px) clamp(24px, 4vw, 52px);
+    margin-bottom: clamp(36px, 5vw, 60px);
 
     border: 2px solid var(--color-black);
-    border-radius: 28px;
+    border-radius: 20px;
     background: var(--color-black);
-    color: var(--color-white);
-    box-shadow: 8px 8px var(--color-yellow);
+    color: #ffffff;
+    box-shadow: 6px 6px var(--color-yellow);
 }
 
 .ap-cta::before {
@@ -488,8 +488,8 @@
 }
 
 .ap-cta-text {
-    font-size: clamp(1rem, 3vw, 1.25rem);
-    color: rgba(255, 255, 255, 0.8);
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    color: rgba(255, 255, 255, 0.9);
     line-height: 1.65;
     margin-bottom: 28px;
 }

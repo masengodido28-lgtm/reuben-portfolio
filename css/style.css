@@ -160,16 +160,16 @@ p {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
 
-    padding: 16px 28px;
+    padding: 11px 22px;
 
     border: 2px solid var(--color-black);
     border-radius: 999px;
 
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     font-weight: 700;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.03em;
 
     position: relative;
     overflow: hidden;
@@ -1171,17 +1171,17 @@ p {
     overflow: hidden;
 
     margin-bottom: 90px;
-    padding: clamp(56px, 9vw, 110px) clamp(28px, 6vw, 80px);
+    padding: clamp(40px, 6vw, 72px) clamp(24px, 5vw, 60px);
 
     border: 2px solid var(--color-black);
-    border-radius: 32px;
+    border-radius: 24px;
 
     background: var(--color-black);
-    color: var(--color-white);
+    color: #ffffff;
 
     text-align: center;
 
-    box-shadow: 8px 8px var(--color-yellow);
+    box-shadow: 6px 6px var(--color-yellow);
 }
 
 /* Animated gradient orb in the background */
@@ -1205,21 +1205,21 @@ p {
 }
 
 .contact h2 {
-    margin-bottom: 20px;
-    color: var(--color-white);
-    font-size: clamp(2.4rem, 5vw, 4.8rem);
+    margin-bottom: 16px;
+    color: #ffffff;
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
 }
 
 .contact h2 span {
     color: var(--color-yellow);
-    text-shadow: 3px 3px var(--color-teal-dark);
+    text-shadow: none;
 }
 
 .contact > p:not(.eyebrow) {
-    max-width: 520px;
-    margin: 0 auto 36px;
-    color: rgba(255, 255, 255, 0.75);
-    font-size: clamp(1rem, 1.6vw, 1.15rem);
+    max-width: 480px;
+    margin: 0 auto 28px;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: clamp(0.9rem, 1.4vw, 1rem);
     line-height: 1.65;
 }
 
@@ -1232,11 +1232,11 @@ p {
 
 .contact-spark {
     position: absolute;
-    top: 28px;
-    right: 7%;
+    top: 20px;
+    right: 5%;
 
     color: var(--color-yellow);
-    font-size: 4rem;
+    font-size: 2.4rem;
     line-height: 1;
 
     animation: spark-spin 12s linear infinite;
@@ -1250,18 +1250,18 @@ p {
 
 .contact-note {
     display: inline-block;
-    margin-top: 32px;
-    padding: 8px 18px;
+    margin-top: 20px;
+    padding: 6px 14px;
 
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.35);
     border-radius: 999px;
 
     font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 0.16em;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.82);
 
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.07);
 }
 
 
@@ -1475,6 +1475,43 @@ p {
 .header-cta {
     order: 3;
     display: none; /* hidden on mobile, shown at tablet+ */
+
+    padding: 9px 18px;
+    border: 2px solid var(--color-black);
+    border-radius: 999px;
+    background: var(--color-yellow);
+    color: #111111;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    box-shadow: 3px 3px var(--color-black);
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    transition:
+        transform 0.25s var(--transition-smooth),
+        box-shadow 0.25s var(--transition-smooth),
+        color 0.25s ease;
+}
+
+.header-cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--color-teal-dark);
+    border-radius: inherit;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.35s var(--transition-smooth);
+}
+
+.header-cta:hover::before { transform: scaleX(1); }
+
+.header-cta:hover {
+    color: #f0ede6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.35);
 }
 
 /* ── Mobile nav: collapsed drawer ── */
