@@ -467,7 +467,7 @@
 }
 
 .ap-cta::before {
-    content: "";
+   
     position: absolute;
     inset: -40px;
     z-index: -1;
@@ -489,7 +489,7 @@
 
 .ap-cta-text {
     font-size: clamp(0.9rem, 2vw, 1rem);
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(9, 9, 9, 0.9);
     line-height: 1.65;
     margin-bottom: 28px;
 }
