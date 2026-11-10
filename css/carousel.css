@@ -1,0 +1,59 @@
+.brands {
+  padding: 64px 0;
+  text-align: center;
+}
+
+.brands h2 {
+  margin: 0 0 32px;
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* Hides overflow and fades the left/right edges */
+.carousel {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+          mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: scroll 25s linear infinite; /* bigger number = slower */
+}
+
+.carousel:hover .track {
+  animation-play-state: paused;
+}
+
+.group {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  flex: 0 0 auto;
+  padding: 0 48px; /* spacing between logos */
+}
+
+.logo img {
+  display: block;
+  height: 56px; /* logo size */
+  width: auto;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.logo img:hover {
+  opacity: 1;
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track { animation: none; }
+}
