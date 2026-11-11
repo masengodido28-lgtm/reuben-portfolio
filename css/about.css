@@ -40,7 +40,7 @@
 }
 
 .ap-prose p {
-    font-size: 1rem;
+    font-size: 1.15rem;
     line-height: 1.75;
     color: var(--color-black);
     margin-bottom: 1.1em;
@@ -516,4 +516,63 @@
         -webkit-mask-image: none;
         overflow: visible;
     }
+}
+
+/* About Me photo: cut-out on a yellow brush stroke */
+.ap-about-photo {
+    width: 90%;
+    max-width: 420px;
+    justify-self: center;
+    align-self: center;
+
+    background-image: url("../assets/yellow-background.png");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 135% auto;
+}
+
+@media (min-width: 600px) {
+    .ap-about-grid {
+        grid-template-columns: 1fr 1fr;   /* gives the photo half the row */
+        align-items: center;
+    }
+
+    .ap-about-photo {
+        width: 100%;
+        max-width: 480px;
+    }
+}
+
+@media (min-width: 900px) {
+    .ap-about-photo {
+        max-width: 560px;
+    }
+}
+
+/* Fade the bottom of the photo into the black background */
+.ap-about-photo {
+    position: relative;
+    isolation: isolate;
+}
+
+/* Layer 1: the yellow brush, with its own fade */
+.ap-about-photo::before {
+    content: "";
+    position: absolute;
+    inset: -4% -14% -14% -14%;      /* sticks out past the photo, extra at the bottom */
+    z-index: -1;
+    background: url("../assets/yellow-background.png") center bottom / contain no-repeat;
+
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 60%, transparent 100%);
+            mask-image: linear-gradient(to bottom, #000 0%, #000 60%, transparent 100%);
+}
+
+/* Layer 2: you, fading to nothing exactly at the bottom edge of the photo */
+.ap-about-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 55%, transparent 97%);
+            mask-image: linear-gradient(to bottom, #000 0%, #000 55%, transparent 97%);
 }

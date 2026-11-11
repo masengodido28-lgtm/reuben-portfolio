@@ -126,17 +126,6 @@ video {
         padding-inline: 16px;
     }
 
-    .logo {
-        padding: 0 24px;
-    }
-
-    .logo img {
-        height: 40px;
-    }
-
-    .track {
-        animation-duration: 18s;
-    }
 }
 
 
