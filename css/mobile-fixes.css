@@ -426,3 +426,30 @@ video {
         order: 3;
     }
 }
+
+/* ── Service deck: remove the empty space around the stacked cards (phones) ── */
+@media (max-width: 599px) {
+    .services { --card-h: 320px; --card-gap: 20px; }
+
+    .service-card,
+    .service-card:nth-child(4),
+    .service-card:nth-child(5) {
+        min-height: var(--card-h);
+    }
+
+    .service-grid {
+        gap: var(--card-gap);
+        transition: opacity 0.6s ease, margin 0.7s var(--transition-smooth);
+    }
+
+    /* While the deck is stacked, cut out the empty space above and below it */
+    .service-grid.is-deck:not(.is-dealt) {
+        margin-block: calc((var(--card-h) + var(--card-gap)) * -2);
+        pointer-events: none;
+    }
+
+    /* Only the cards themselves respond to a tap, not the empty area */
+    .service-grid.is-deck:not(.is-dealt) .service-card {
+        pointer-events: auto;
+    }
+}
