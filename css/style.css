@@ -107,7 +107,7 @@ p {
 }
 
 .section-pad {
-    padding-block: clamp(76px, 10vw, 140px);
+    padding-block: clamp(48px, 6vw, 88px);
 }
 
 .highlight {
@@ -294,22 +294,20 @@ p {
 }
 
 .brand-logo-wrap {
-    width: 6px;
-    height: 56px;
+    width: 52px;
+    height: 52px;
     flex-shrink: 0;
     overflow: hidden;
-    border-radius: 14px;
+    border-radius: 13px;
     background: transparent;
-    
 }
 
 .brand-logo {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center 46%;
+    object-fit: contain;
+    object-position: center;
     display: block;
-    transform: scale(1.42);
 }
 
 .brand-name {
@@ -360,7 +358,7 @@ p {
     display: flex;
     align-items: center;
 
-    padding: 100px 0 110px;
+    padding: 80px 0 90px;
 
     background:black;
     color: #FFFFFF;
@@ -1170,8 +1168,8 @@ p {
     isolation: isolate;
     overflow: hidden;
 
-    margin-bottom: 90px;
-    padding: clamp(40px, 6vw, 72px) clamp(24px, 5vw, 60px);
+    margin-bottom: 52px;
+    padding: clamp(32px, 4vw, 56px) clamp(24px, 5vw, 60px);
 
     border: 2px solid var(--color-black);
     border-radius: 24px;
@@ -1294,8 +1292,8 @@ p {
 }
 
 .footer-brand .brand-logo-wrap {
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
     border-radius: 12px;
 }
 
@@ -1466,12 +1464,6 @@ p {
     flex: 1;
 }
 
-.brand-logo-wrap {
-    width: 52px;
-    height: 52px;
-    border-radius: 13px;
-}
-
 .header-cta {
     order: 3;
     display: none; /* hidden on mobile, shown at tablet+ */
@@ -1556,7 +1548,7 @@ p {
 /* ── Mobile: section padding ── */
 
 .section-pad {
-    padding-block: 64px;
+    padding-block: 44px;
 }
 
 .section-heading {
@@ -1627,7 +1619,7 @@ p {
 
 .contact {
     width: calc(100% - 32px);
-    margin-bottom: 56px;
+    margin-bottom: 36px;
 }
 
 .site-footer {
@@ -1688,12 +1680,6 @@ p {
         padding: 20px 0;
     }
 
-    .brand-logo-wrap {
-        width: 56px;
-        height: 56px;
-        border-radius: 14px;
-    }
-
     .section-wrap,
     .site-footer {
         width: min(1160px, calc(100% - 48px));
@@ -1701,7 +1687,7 @@ p {
 
     /* Sections */
     .section-pad {
-        padding-block: 88px;
+        padding-block: 64px;
     }
 
     .section-heading {
@@ -1788,7 +1774,7 @@ p {
 @media (min-width: 900px) {
 
     .section-pad {
-        padding-block: clamp(100px, 10vw, 140px);
+        padding-block: clamp(64px, 8vw, 100px);
     }
 
     /* Service grid: back to 6-col with offset last two */
@@ -1846,7 +1832,7 @@ p {
 
 /* ── Section shell ── */
 .home-videos {
-    padding-block: clamp(72px, 10vw, 120px);
+    padding-block: clamp(44px, 6vw, 80px);
 }
 
 .home-videos .section-heading {
