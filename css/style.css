@@ -1986,6 +1986,13 @@ p {
     color: var(--color-teal);
 }
 
+/* ── Back to My Work strip ── */
+.back-to-work-wrap {
+    display: flex;
+    justify-content: center;
+    padding-block: 40px 0;
+}
+
 /* ── "See all videos" link ── */
 .hv-more {
     display: flex;
