@@ -121,6 +121,17 @@ const videos = [
     filename: "https://pub-7340b1ba7eea4d748d0197271a70e003.r2.dev/Why%20choose%20the%20Transformer%204000%20%20For%20Victory%20www.fortfitness.co.za%23gym.mp4"
 },
 
+ {
+        title: "Download — Video 1",
+        category: "Video & Content",
+        filename: "download (1).mp4"
+    },
+    
+    {
+        title: "IMG_0929",
+        category: "Video & Content",
+        filename: "IMG_0929.mp4"
+    }
 ];
 
 
