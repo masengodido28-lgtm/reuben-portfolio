@@ -834,19 +834,14 @@ p {
 
 .about-visual {
     position: relative;
-    min-height: 460px;
+    min-height: 540px;
 }
 
 .portrait {
     position: absolute;
     inset: 0 8% 0 0;
 
-    overflow: hidden;
-
-    border: 3px solid var(--color-black);
-    border-radius: 24px;
-
-    box-shadow: 8px 8px var(--color-yellow);
+    overflow: visible;
 }
 
 .portrait-img {
@@ -855,7 +850,7 @@ p {
 
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center top;
 
     transition: opacity 0.4s ease;
@@ -1592,7 +1587,7 @@ p {
 }
 
 .about-visual {
-    min-height: 340px;
+    min-height: 420px;
 }
 
 /* ── Mobile: work grid ── */
@@ -1722,7 +1717,7 @@ p {
     }
 
     .about-visual {
-        min-height: 400px;
+        min-height: 480px;
     }
 
     /* Approach */
@@ -1801,7 +1796,7 @@ p {
     }
 
     .about-visual {
-        min-height: 460px;
+        min-height: 540px;
     }
 
     /* Approach */
