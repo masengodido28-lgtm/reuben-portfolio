@@ -856,6 +856,7 @@ p {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center top;
 
     transition: opacity 0.4s ease;
 }
@@ -1989,8 +1990,8 @@ p {
 /* ── Back to My Work strip ── */
 .back-to-work-wrap {
     display: flex;
-    justify-content: center;
-    padding-block: 40px 0;
+    justify-content: flex-start;
+    padding-block: 28px 0;
 }
 
 /* ── "See all videos" link ── */
